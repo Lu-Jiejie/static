@@ -37,6 +37,13 @@ jobs:
           NETEASE_ID: ${{ secrets.NETEASE_ID }}
           NETEASE_FAVORITE_ID: ${{ secrets.NETEASE_FAVORITE_ID }}
 
+      - name: Generate steam data
+        if: ${{ github.event.inputs.platform == 'steam' || github.event.inputs.platform == 'all' || github.event_name != 'workflow_dispatch' }}
+        run: npm run generate:steam
+        env:
+          STEAM_ID: ${{ secrets.STEAM_ID }}
+          STEAM_KEY: ${{ secrets.STEAM_KEY }}
+
       - name: Commit
         uses: EndBug/add-and-commit@v9
         with:
