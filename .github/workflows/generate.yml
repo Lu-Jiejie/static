@@ -40,9 +40,6 @@ jobs:
       - name: Commit
         uses: EndBug/add-and-commit@v9
         with:
-          add: |
-            ${{ github.event.inputs.platform == 'netease' && 'data/netease.json' ||
-                github.event.inputs.platform == 'steam' && 'data/steam.json' ||
-                'data/netease.json data/steam.json' }}
+          add: data/*
           message: "chore: update ${{ github.event.inputs.platform == 'all' && 'all' || github.event.inputs.platform }} data"
           default_author: github_actions
