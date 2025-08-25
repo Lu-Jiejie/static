@@ -1,7 +1,7 @@
 import crypto from 'node:crypto'
-import fs from 'node:fs/promises'
 import process from 'node:process'
 import axios from 'axios'
+import { writeJsonFile } from '../utils'
 import 'dotenv/config'
 
 interface SongInfoItem {
@@ -101,11 +101,7 @@ async function main() {
 
   const result = { recentListen, favorite }
 
-  await fs.writeFile(
-    'data/netease.json',
-    JSON.stringify(result, null, 2),
-    'utf-8',
-  )
+  await writeJsonFile('data/netease.json', result)
   console.log('Saved to data/netease.json')
 }
 
