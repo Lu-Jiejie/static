@@ -1,0 +1,47 @@
+name: Generate Platform Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: Which platform to generate
+        required: true
+        default: all
+        options:
+          - all
+          - netease
+          - steam
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - name: Set node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - run: pnpm i
+
+      - name: Generate netease data
+        if: ${{ github.event.inputs.platform == 'netease' || github.event.inputs.platform == 'all' || github.event_name != 'workflow_dispatch' }}
+        run: npm run generate:netease
+        env:
+          NETEASE_ID: ${{ secrets.NETEASE_ID }}
+          NETEASE_FAVORITE_ID: ${{ secrets.NETEASE_FAVORITE_ID }}
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: |
+            ${{ github.event.inputs.platform == 'netease' && 'data/netease.json' ||
+                github.event.inputs.platform == 'steam' && 'data/steam.json' ||
+                'data/netease.json data/steam.json' }}
+          message: "chore: update ${{ github.event.inputs.platform == 'all' && 'all' || github.event.inputs.platform }} data"
+          default_author: github_actions
