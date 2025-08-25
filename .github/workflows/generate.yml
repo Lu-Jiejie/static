@@ -42,4 +42,7 @@ jobs:
         with:
           add: data/*
           message: "chore: update ${{ github.event.inputs.platform == 'all' && 'all' || github.event.inputs.platform }} data"
-          default_author: github_actions
+          author_name: GitHub Actions
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
