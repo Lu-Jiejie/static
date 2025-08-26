@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "generate:netease": "esno ./scripts/netease.ts",
-    "generate:steam": "esno ./scripts/steam.ts"
+    "generate:steam": "esno ./scripts/steam.ts",
+    "generate:github": "esno ./scripts/github.ts",
+    "generate:bangumi": "esno ./scripts/bangumi.ts"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.2.1",

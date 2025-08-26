@@ -8,5 +8,8 @@ declare namespace NodeJS {
 
     GITHUB_TOKEN: string
     GITHUB_USERNAME: string
+
+    BANGUMI_ID: string
+    BANGUMI_USER_AGENT: string
   }
 }
