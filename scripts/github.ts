@@ -52,10 +52,10 @@ async function fetchLanguageStatus(repos: Repo[], token: string): Promise<GitHub
 
 async function main() {
   const githubToken = process.env.GITHUB_TOKEN
-  const username = 'lu-jiejie'
+  const username = process.env.GITHUB_USERNAME
 
-  if (!githubToken) {
-    throw new Error('GITHUB_TOKEN must be set')
+  if (!githubToken || !username) {
+    throw new Error('GITHUB_TOKEN and GITHUB_USERNAME must be set')
   }
 
   const repos = await fetchAllRepos(username, githubToken)
