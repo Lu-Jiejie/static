@@ -12,6 +12,7 @@ on:
           - all
           - netease
           - steam
+          - github
   schedule:
     - cron: '0 0 * * *'
 
@@ -43,6 +44,12 @@ jobs:
         env:
           STEAM_ID: ${{ secrets.STEAM_ID }}
           STEAM_KEY: ${{ secrets.STEAM_KEY }}
+
+      - name: Generate github data
+        if: ${{ github.event.inputs.source == 'github' || github.event.inputs.source == 'all' || github.event_name != 'workflow_dispatch' }}
+        run: npm run generate:github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit
         uses: EndBug/add-and-commit@v9

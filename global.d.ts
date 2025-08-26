@@ -5,5 +5,7 @@ declare namespace NodeJS {
 
     STEAM_ID: string
     STEAM_KEY: string
+
+    GITHUB_TOKEN: string
   }
 }
