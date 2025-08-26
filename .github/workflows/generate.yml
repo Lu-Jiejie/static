@@ -1,10 +1,10 @@
-name: Generate Platform Data
+name: Generate Data
 
 on:
   workflow_dispatch:
     inputs:
-      platform:
-        description: Which platform to generate
+      source:
+        description: Which source to generate
         required: true
         default: all
         type: choice
@@ -31,14 +31,14 @@ jobs:
       - run: pnpm i
 
       - name: Generate netease data
-        if: ${{ github.event.inputs.platform == 'netease' || github.event.inputs.platform == 'all' || github.event_name != 'workflow_dispatch' }}
+        if: ${{ github.event.inputs.source == 'netease' || github.event.inputs.source == 'all' || github.event_name != 'workflow_dispatch' }}
         run: npm run generate:netease
         env:
           NETEASE_ID: ${{ secrets.NETEASE_ID }}
           NETEASE_FAVORITE_ID: ${{ secrets.NETEASE_FAVORITE_ID }}
 
       - name: Generate steam data
-        if: ${{ github.event.inputs.platform == 'steam' || github.event.inputs.platform == 'all' || github.event_name != 'workflow_dispatch' }}
+        if: ${{ github.event.inputs.source == 'steam' || github.event.inputs.source == 'all' || github.event_name != 'workflow_dispatch' }}
         run: npm run generate:steam
         env:
           STEAM_ID: ${{ secrets.STEAM_ID }}
@@ -48,7 +48,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: data/*
-          message: "chore: update ${{ github.event.inputs.platform == 'all' && 'all' || github.event.inputs.platform }} data"
+          message: "chore: update ${{ github.event.inputs.source == 'all' && 'all' || github.event.inputs.source }} data"
           author_name: GitHub Actions
           author_email: 41898282+github-actions[bot]@users.noreply.github.com
         env:

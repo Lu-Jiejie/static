@@ -1,6 +1,6 @@
 import process from 'node:process'
 import axios from 'axios'
-import { downloadImage, writeJsonFile } from '../utils'
+import { writeJsonFile } from '../utils'
 import 'dotenv/config'
 
 interface SteamInfo {
