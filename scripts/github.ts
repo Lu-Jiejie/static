@@ -3,6 +3,93 @@ import axios from 'axios'
 import { writeJsonFile } from '../utils'
 import 'dotenv/config'
 
+interface ContributionDay {
+  date: string
+  count: number
+  level: number
+}
+
+interface LastYearContributions {
+  total: number
+  weeks: ContributionDay[][]
+}
+function filterContributionsForLastYear(contributions: ContributionDay[]) {
+  const sortedContributions = [...contributions].sort((a, b) => {
+    return new Date(a.date).getTime() - new Date(b.date).getTime()
+  })
+
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  const startDay = new Date()
+  startDay.setDate(today.getDate() - 370)
+  startDay.setHours(0, 0, 0, 0)
+
+  const filteredDays = sortedContributions.filter((day) => {
+    const date = new Date(day.date)
+    date.setHours(0, 0, 0, 0)
+    return date >= startDay && date <= today
+  })
+
+  if (filteredDays.length > 0) {
+    const lastDate = new Date(filteredDays[filteredDays.length - 1].date)
+    lastDate.setHours(0, 0, 0, 0)
+
+    if (lastDate.getTime() !== today.getTime()) {
+      const todayFormatted = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
+      filteredDays.push({
+        date: todayFormatted,
+        count: 0,
+        level: 0,
+      })
+    }
+  }
+
+  const sortedDays = [...filteredDays].sort((a, b) => {
+    return new Date(a.date).getTime() - new Date(b.date).getTime()
+  })
+  return {
+    filteredDays: sortedDays,
+    today,
+    startDay,
+  }
+}
+
+function calculateWeeks(filteredDays: ContributionDay[]) {
+  const weeksArray: ContributionDay[][] = []
+  let week: ContributionDay[] = []
+
+  filteredDays.forEach((day) => {
+    week.push(day)
+    if (week.length === 7) {
+      weeksArray.push([...week])
+      week = []
+    }
+  })
+  if (week.length > 0) {
+    weeksArray.push([...week])
+  }
+  return weeksArray
+}
+
+async function fetchLastYearContributions(username: string): Promise<LastYearContributions | null> {
+  try {
+    const response = await axios.get(`https://github-contributions-api.jogruber.de/v4/${username}`)
+    const res = response.data.contributions as ContributionDay[]
+    const { filteredDays } = filterContributionsForLastYear(res)
+    const total = filteredDays.reduce((sum, day) => sum + day.count, 0)
+    const weeksData = calculateWeeks(filteredDays)
+    return {
+      total,
+      weeks: weeksData,
+    }
+  }
+  catch (error) {
+    console.error('Failed to fetch contributions:', error)
+    return null
+  }
+}
+
 const EXCLUDE_REPOS: string[] = []
 
 interface Repo {
@@ -16,7 +103,7 @@ interface LanguageInfo {
 }
 
 interface GitHubInfo {
-  languageStatus: Record<string, LanguageInfo>
+  languageDistribution: Record<string, LanguageInfo>
 }
 
 async function fetchAllRepos(username: string, token: string) {
@@ -43,8 +130,8 @@ async function fetchLanguageColors(): Promise<Record<string, string>> {
   return colorMap
 }
 
-async function fetchLanguageStatus(repos: Repo[], token: string): Promise<GitHubInfo['languageStatus']> {
-  const languageStatus: Record<string, LanguageInfo> = {}
+async function fetchLanguageDistribution(repos: Repo[], token: string): Promise<GitHubInfo['languageDistribution']> {
+  const languageDistribution: Record<string, LanguageInfo> = {}
   const colorMap = await fetchLanguageColors()
 
   await Promise.all(
@@ -59,17 +146,17 @@ async function fetchLanguageStatus(repos: Repo[], token: string): Promise<GitHub
         },
       )
       Object.entries(data).forEach(([language, bytes]) => {
-        if (!languageStatus[language]) {
-          languageStatus[language] = {
+        if (!languageDistribution[language]) {
+          languageDistribution[language] = {
             bytes: 0,
             color: colorMap[language] || '#000000',
           }
         }
-        languageStatus[language].bytes += Number(bytes)
+        languageDistribution[language].bytes += Number(bytes)
       })
     }),
   )
-  return languageStatus
+  return languageDistribution
 }
 
 async function main() {
@@ -81,8 +168,15 @@ async function main() {
   }
 
   const repos = await fetchAllRepos(username, githubToken)
-  const languageStatus = await fetchLanguageStatus(repos, githubToken)
-  await writeJsonFile('data/github.json', { languageStatus })
+  const languageDistribution = await fetchLanguageDistribution(repos, githubToken)
+
+  // 获取最近一年的贡献数据
+  const lastYearContributions = await fetchLastYearContributions(username)
+
+  await writeJsonFile('data/github.json', {
+    languageDistribution,
+    lastYearContributions,
+  })
 }
 
 main().catch((err) => {
