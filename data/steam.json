@@ -4,12 +4,13 @@
     "name": "到底是啥",
     "avatar": "https://avatars.steamstatic.com/b2732234f3fbed341c241f58e1848418941f7d92_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1756153403
+    "lastLogOffTime": 1756576965
   },
   "games": [
     {
       "id": 105600,
       "name": "Terraria",
+      "nameCN": "Terraria",
       "playtimeForever": 5951,
       "timeLastPlayed": 1748184007,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/105600/858961e95fbf869f136e1770d586e0caefd4cfac.jpg"
@@ -17,6 +18,7 @@
     {
       "id": 282070,
       "name": "This War of Mine",
+      "nameCN": "This War of Mine",
       "playtimeForever": 0,
       "timeLastPlayed": 0,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/282070/38ad6fd10e2b89ab24e8013584ece7961bebe086.jpg"
@@ -24,6 +26,7 @@
     {
       "id": 250900,
       "name": "The Binding of Isaac: Rebirth",
+      "nameCN": "The Binding of Isaac: Rebirth",
       "playtimeForever": 89,
       "timeLastPlayed": 1748315703,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/250900/16d46c8630499bfc54d20745ac90786a302cd643.jpg"
@@ -31,6 +34,7 @@
     {
       "id": 367520,
       "name": "Hollow Knight",
+      "nameCN": "Hollow Knight",
       "playtimeForever": 149,
       "timeLastPlayed": 1685354849,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/367520/f6ab055c2366237200b1a31cccbd6cf81e436d72.jpg"
@@ -38,6 +42,7 @@
     {
       "id": 413150,
       "name": "Stardew Valley",
+      "nameCN": "Stardew Valley",
       "playtimeForever": 105,
       "timeLastPlayed": 1748315700,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/413150/35d1377200084a4034238c05b0c8930451e2fb40.jpg"
@@ -45,6 +50,7 @@
     {
       "id": 413420,
       "name": "Danganronpa 2: Goodbye Despair",
+      "nameCN": "Danganronpa 2: Goodbye Despair",
       "playtimeForever": 24,
       "timeLastPlayed": 1748315705,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/413420/912bb82c4ee0f7734ed28c97fde01a1371978896.jpg"
@@ -52,6 +58,7 @@
     {
       "id": 322330,
       "name": "Don't Starve Together",
+      "nameCN": "饥荒联机版",
       "playtimeForever": 5513,
       "timeLastPlayed": 1747330504,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/322330/a80aa6cff8eebc1cbc18c367d9ab063e1553b0ee.jpg"
@@ -59,6 +66,7 @@
     {
       "id": 578080,
       "name": "PUBG: BATTLEGROUNDS",
+      "nameCN": "PUBG: BATTLEGROUNDS",
       "playtimeForever": 109,
       "timeLastPlayed": 1565340926,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/578080/609f27278aa70697c13bf99f32c5a0248c381f9d.jpg"
@@ -66,6 +74,7 @@
     {
       "id": 621000,
       "name": "异常 | Exception",
+      "nameCN": "异常 | Exception",
       "playtimeForever": 166,
       "timeLastPlayed": 1748314992,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/621000/1fcce492b2a02dee2427e572adf8e7e7a1425c10.jpg"
@@ -73,6 +82,7 @@
     {
       "id": 668630,
       "name": "Tricolour Lovestory",
+      "nameCN": "Tricolour Lovestory",
       "playtimeForever": 11,
       "timeLastPlayed": 1748315704,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/668630/4821569fdcde5100761669d70050480d1509db48.jpg"
@@ -80,6 +90,7 @@
     {
       "id": 769560,
       "name": "Night of the Full Moon",
+      "nameCN": "月圆之夜",
       "playtimeForever": 0,
       "timeLastPlayed": 0,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/769560/8ccc812dd5e5c58cf9c1009c2a3eefe12820bea5.jpg"
@@ -87,6 +98,7 @@
     {
       "id": 774171,
       "name": "Muse Dash",
+      "nameCN": "Muse Dash",
       "playtimeForever": 26,
       "timeLastPlayed": 1748315702,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/774171/116c4098769bb51aed2d654f2943771b68c29afa.jpg"
@@ -94,6 +106,7 @@
     {
       "id": 837470,
       "name": "Untitled Goose Game",
+      "nameCN": "Untitled Goose Game",
       "playtimeForever": 137,
       "timeLastPlayed": 1643556636,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/837470/6e2e1a85218053fbb1bca010bf28d73f1bec1965.jpg"
@@ -101,6 +114,7 @@
     {
       "id": 582010,
       "name": "Monster Hunter: World",
+      "nameCN": "Monster Hunter: World",
       "playtimeForever": 341,
       "timeLastPlayed": 1748314998,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/582010/6ec147f2d423f435e15eb79b3d82f771913de634.jpg"
@@ -108,6 +122,7 @@
     {
       "id": 914710,
       "name": "Cat Quest II",
+      "nameCN": "Cat Quest II",
       "playtimeForever": 0,
       "timeLastPlayed": 0,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/914710/832e55b54768c03e0b50f34d294e85af07efab66.jpg"
@@ -115,6 +130,7 @@
     {
       "id": 942970,
       "name": "Unheard - Voices of Crime",
+      "nameCN": "疑案追声",
       "playtimeForever": 579,
       "timeLastPlayed": 1598179754,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/942970/2db120c5515a9dc668fee02bc192fc6dd062b933.jpg"
@@ -122,6 +138,7 @@
     {
       "id": 977950,
       "name": "A Dance of Fire and Ice",
+      "nameCN": "冰与火之舞 A Dance of Fire and Ice",
       "playtimeForever": 24,
       "timeLastPlayed": 1626801100,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/977950/8951234b5979fde3030acbf53b32fc04dfc706b3.jpg"
@@ -129,6 +146,7 @@
     {
       "id": 1049410,
       "name": "Superliminal",
+      "nameCN": "超阈限空间 Superliminal",
       "playtimeForever": 203,
       "timeLastPlayed": 1674750864,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1049410/94dafc4a3469aff1c47c5f03f0114e2db2e99e9a.jpg"
@@ -136,6 +154,7 @@
     {
       "id": 1091500,
       "name": "Cyberpunk 2077",
+      "nameCN": "赛博朋克 2077",
       "playtimeForever": 3091,
       "timeLastPlayed": 1749363673,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1091500/42b9b33fa0f0d997beb299c6157592a8fe7d8f68.jpg"
@@ -143,6 +162,7 @@
     {
       "id": 1097150,
       "name": "Fall Guys",
+      "nameCN": "糖豆人",
       "playtimeForever": 90,
       "timeLastPlayed": 1604402326,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1097150/6c027709b9eb1417c993bc7d513b97b232002368.jpg"
@@ -150,6 +170,7 @@
     {
       "id": 1109570,
       "name": "Word Game",
+      "nameCN": "《文字游戏》",
       "playtimeForever": 410,
       "timeLastPlayed": 1643123744,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1109570/7bfedca184bbb426cab086194c89eeb699e1c75e.jpg"
@@ -157,6 +178,7 @@
     {
       "id": 1172470,
       "name": "Apex Legends",
+      "nameCN": "Apex Legends™",
       "playtimeForever": 80,
       "timeLastPlayed": 1620990352,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1172470/6cc35932af780289ae3d8d5cdbfe9cd545decad2.jpg"
@@ -164,6 +186,7 @@
     {
       "id": 1174180,
       "name": "Red Dead Redemption 2",
+      "nameCN": "Red Dead Redemption 2",
       "playtimeForever": 0,
       "timeLastPlayed": 0,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1174180/5106abd9c1187a97f23295a0ba9470c94804ec6c.jpg"
@@ -171,6 +194,7 @@
     {
       "id": 1145360,
       "name": "Hades",
+      "nameCN": "Hades",
       "playtimeForever": 1144,
       "timeLastPlayed": 1625467936,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1145360/8a3fca36a00883e8066263ad35dd15d77a1f9abc.jpg"
@@ -178,6 +202,7 @@
     {
       "id": 1222140,
       "name": "Detroit: Become Human",
+      "nameCN": "底特律：化身为人",
       "playtimeForever": 797,
       "timeLastPlayed": 1675025119,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1222140/3d9f5bc971d44398aef740c0d8e79a358be2e800.jpg"
@@ -185,6 +210,7 @@
     {
       "id": 1241700,
       "name": "There is no game: Jam Edition 2015",
+      "nameCN": "There Is No Game: Jam Edition 2015",
       "playtimeForever": 13,
       "timeLastPlayed": 1598187445,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1241700/05bd3ff3a36a05b099cca926b421e9905e475f04.jpg"
@@ -192,6 +218,7 @@
     {
       "id": 1281930,
       "name": "tModLoader",
+      "nameCN": "tModLoader",
       "playtimeForever": 3424,
       "timeLastPlayed": 1748184008,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1281930/e8a125078a31b8475994e8ce4d8d6fdd6becc131.jpg"
@@ -199,6 +226,7 @@
     {
       "id": 1329410,
       "name": "雀魂麻将(MahjongSoul)",
+      "nameCN": "雀魂麻將(MahjongSoul)",
       "playtimeForever": 6245,
       "timeLastPlayed": 1748876867,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1329410/262db8949a5c064435dcb3aec4182c919dfd1976.jpg"
@@ -206,6 +234,7 @@
     {
       "id": 1568590,
       "name": "Goose Goose Duck",
+      "nameCN": "Goose Goose Duck",
       "playtimeForever": 3623,
       "timeLastPlayed": 1674830920,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1568590/3b802d5010d6d5d72c93a8565b260c6042cc9390.jpg"
@@ -213,6 +242,7 @@
     {
       "id": 424840,
       "name": "Little Nightmares",
+      "nameCN": "Little Nightmares",
       "playtimeForever": 370,
       "timeLastPlayed": 1724747766,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/424840/1904c041f963b5e2cb22b56c370444517cc4e288.jpg"
@@ -220,6 +250,7 @@
     {
       "id": 289070,
       "name": "Sid Meier's Civilization VI",
+      "nameCN": "Sid Meier’s Civilization® VI",
       "playtimeForever": 68,
       "timeLastPlayed": 1748315701,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/289070/9dc914132fec244adcede62fb8e7524a72a7398c.jpg"
@@ -227,6 +258,7 @@
     {
       "id": 1245620,
       "name": "ELDEN RING",
+      "nameCN": "艾尔登法环",
       "playtimeForever": 75,
       "timeLastPlayed": 1748315700,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1245620/b6e290dd5a92ce98f89089a207733c70c41a1871.jpg"
@@ -234,6 +266,7 @@
     {
       "id": 1746030,
       "name": "Murders on the Yangtze River",
+      "nameCN": "山河旅探 - Murders on the Yangtze River",
       "playtimeForever": 707,
       "timeLastPlayed": 1739459906,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1746030/8cc7a3d8ddfbe56e9ecb769c506a652edf4b2b24.jpg"
@@ -241,6 +274,7 @@
     {
       "id": 1659040,
       "name": "HITMAN World of Assassination",
+      "nameCN": "HITMAN World of Assassination",
       "playtimeForever": 281,
       "timeLastPlayed": 1675346382,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1659040/552be1d38866afd1c33f682323d325130e7d0ce6.jpg"
@@ -248,6 +282,7 @@
     {
       "id": 1971650,
       "name": "OCTOPATH TRAVELER II",
+      "nameCN": "歧路旅人 II",
       "playtimeForever": 4516,
       "timeLastPlayed": 1747886961,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1971650/7a90088ff3b521a0edcbd414fcd88361dd3d8b45.jpg"
@@ -255,6 +290,7 @@
     {
       "id": 2358720,
       "name": "Black Myth: Wukong",
+      "nameCN": "黑神话：悟空",
       "playtimeForever": 3304,
       "timeLastPlayed": 1724747712,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/2358720/764ad8ff458f7020d63a3f7f0abf6ad8882c05df.jpg"
@@ -262,6 +298,7 @@
     {
       "id": 1260320,
       "name": "Party Animals",
+      "nameCN": "猛兽派对",
       "playtimeForever": 812,
       "timeLastPlayed": 1751014140,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/1260320/868cd2d22c96076658ff5b572c4dc790c200de7e.jpg"
@@ -269,6 +306,7 @@
     {
       "id": 2622000,
       "name": "Astral Party ",
+      "nameCN": "星引擎 Party",
       "playtimeForever": 504,
       "timeLastPlayed": 1751562965,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/2622000/28b423d243946c22f001974d22fc4c61b1da7da2.jpg"
@@ -276,6 +314,7 @@
     {
       "id": 2001120,
       "name": "Split Fiction",
+      "nameCN": "双影奇境",
       "playtimeForever": 852,
       "timeLastPlayed": 1741422815,
       "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/2001120/a01dc6ea47db8c74964d581fe9f1f8039e0e4f33.jpg"
