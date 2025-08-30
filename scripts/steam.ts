@@ -85,10 +85,7 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
   const results: SteamInfo['games'] = await Promise.all(
     games.map(async (game: any) => {
       const id = game.appid
-      const iconHash = game.img_icon_url || game.img_logo_url
-      const icon = iconHash
-        ? `http://media.steampowered.com/steamcommunity/public/images/apps/${id}/${iconHash}.jpg`
-        : undefined
+      const icon = `https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`
       let nameCN = nameCNMap[id]
       if (!nameCN) {
         nameCN = (await fetchSteamTitle(id)) || game.name
