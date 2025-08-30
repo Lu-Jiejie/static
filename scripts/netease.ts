@@ -27,7 +27,7 @@ function aesRsaEncrypt(text: string) {
   }
 }
 
-async function fetchrecentListen(id: string): Promise<SongInfoItem[]> {
+async function fetchRecentPlayed(id: string): Promise<SongInfoItem[]> {
   const { data } = await axios.post(
     'https://music.163.com/weapi/v1/play/record?csrf_token=',
     aesRsaEncrypt(JSON.stringify({ uid: id, type: '1' })),
@@ -94,12 +94,12 @@ async function main() {
     throw new Error('NETEASE_ID or NETEASE_FAVORITE_ID must be set')
   }
 
-  const [recentListen, favorite] = await Promise.all([
-    id ? fetchrecentListen(id) : Promise.resolve([]),
+  const [recentPlayed, favorite] = await Promise.all([
+    id ? fetchRecentPlayed(id) : Promise.resolve([]),
     favoriteId ? fetchFavorite(favoriteId) : Promise.resolve([]),
   ])
 
-  const result = { recentListen, favorite }
+  const result = { recentPlayed, favorite }
 
   await writeJsonFile('data/netease.json', result)
   console.log('Saved to data/netease.json')
