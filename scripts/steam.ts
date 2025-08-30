@@ -38,31 +38,34 @@ async function fetchUserInfo(id: string, key: string): Promise<SteamInfo['user']
   }
 }
 
-async function fetchOwnedGames(id: string, key: string): Promise<SteamInfo['games']> {
+async function fetchOwnedGames(id: string, key: string, exclude: number[]): Promise<SteamInfo['games']> {
   const { data } = await axios.get(
     `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${key}&steamid=${id}&format=json&include_appinfo=true&include_played_free_games=true`,
   )
 
-  return data.response.games.map((game: any) => {
-    const id = game.appid
-    const iconHash = game.img_icon_url || game.img_logo_url
-    const icon = iconHash
-      ? `http://media.steampowered.com/steamcommunity/public/images/apps/${id}/${iconHash}.jpg`
-      : undefined
-    return {
-      id,
-      name: game.name,
-      playtimeForever: game.playtime_forever,
-      playtime2Weeks: game.playtime_2weeks,
-      timeLastPlayed: game.rtime_last_played,
-      icon,
-    }
-  })
+  return data.response.games
+    .filter((game: any) => !exclude.includes(game.appid))
+    .map((game: any) => {
+      const id = game.appid
+      const iconHash = game.img_icon_url || game.img_logo_url
+      const icon = iconHash
+        ? `http://media.steampowered.com/steamcommunity/public/images/apps/${id}/${iconHash}.jpg`
+        : undefined
+      return {
+        id,
+        name: game.name,
+        playtimeForever: game.playtime_forever,
+        playtime2Weeks: game.playtime_2weeks,
+        timeLastPlayed: game.rtime_last_played,
+        icon,
+      }
+    })
 }
 
 async function main() {
   const steamId = process.env.STEAM_ID
   const steamKey = process.env.STEAM_KEY
+  const steamGamesExclude = process.env.STEAM_GAMES_EXCLUDE.split(',').map(i => +i)
 
   if (!steamId || !steamKey) {
     throw new Error('STEAM_ID and STEAM_KEY must be set')
@@ -70,7 +73,7 @@ async function main() {
 
   const [user, games] = await Promise.all([
     fetchUserInfo(steamId, steamKey),
-    fetchOwnedGames(steamId, steamKey),
+    fetchOwnedGames(steamId, steamKey, steamGamesExclude),
   ])
 
   const steamInfo: SteamInfo = {

@@ -45,6 +45,7 @@ jobs:
         env:
           STEAM_ID: ${{ secrets.STEAM_ID }}
           STEAM_KEY: ${{ secrets.STEAM_KEY }}
+          STEAM_GAMES_EXCLUDE: ${{ secrets.STEAM_GAMES_EXCLUDE }}
 
       - name: Generate github data
         if: ${{ github.event.inputs.source == 'github' || github.event.inputs.source == 'all' || github.event_name != 'workflow_dispatch' }}
