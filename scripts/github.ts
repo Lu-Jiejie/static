@@ -13,6 +13,25 @@ interface LastYearContributions {
   total: number
   weeks: ContributionDay[][]
 }
+
+interface Repo {
+  name: string
+  full_name: string
+}
+
+interface LanguageInfo {
+  bytes: number
+  color: string
+  percentage: number
+}
+
+interface GitHubInfo {
+  languageDistribution: Record<string, LanguageInfo>
+  lastYearContributions: LastYearContributions
+}
+
+const EXCLUDE_REPOS: string[] = []
+
 function filterContributionsForLastYear(contributions: ContributionDay[]) {
   const sortedContributions = [...contributions].sort((a, b) => {
     return new Date(a.date).getTime() - new Date(b.date).getTime()
@@ -90,22 +109,6 @@ async function fetchLastYearContributions(username: string): Promise<LastYearCon
   }
 }
 
-const EXCLUDE_REPOS: string[] = []
-
-interface Repo {
-  name: string
-  full_name: string
-}
-
-interface LanguageInfo {
-  bytes: number
-  color: string
-}
-
-interface GitHubInfo {
-  languageDistribution: Record<string, LanguageInfo>
-}
-
 async function fetchAllRepos(username: string, token: string) {
   const { data } = await axios.get<Repo[]>(
     `https://api.github.com/users/${username}/repos?type=owner&per_page=100&sort=updated&direction=desc`,
@@ -150,12 +153,18 @@ async function fetchLanguageDistribution(repos: Repo[], token: string): Promise<
           languageDistribution[language] = {
             bytes: 0,
             color: colorMap[language] || '#000000',
+            percentage: 0,
           }
         }
         languageDistribution[language].bytes += Number(bytes)
       })
     }),
   )
+  // percentage
+  const totalBytes = Object.values(languageDistribution).reduce((sum, info) => sum + info.bytes, 0)
+  Object.values(languageDistribution).forEach((info) => {
+    info.percentage = totalBytes > 0 ? (info.bytes / totalBytes) * 100 : 0
+  })
   return languageDistribution
 }
 
