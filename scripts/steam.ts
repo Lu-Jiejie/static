@@ -16,6 +16,7 @@ interface SteamInfo {
     name: string
     playtimeForever: number
     playtime2Weeks: number
+    timeLastPlayed: number
     icon: string
   }[]
 }
@@ -53,6 +54,7 @@ async function fetchOwnedGames(id: string, key: string): Promise<SteamInfo['game
       name: game.name,
       playtimeForever: game.playtime_forever,
       playtime2Weeks: game.playtime_2weeks,
+      timeLastPlayed: game.rtime_last_played,
       icon,
     }
   })
