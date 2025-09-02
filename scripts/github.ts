@@ -1,7 +1,11 @@
+import fs from 'node:fs'
 import process from 'node:process'
 import axios from 'axios'
+import axiosRetry from 'axios-retry'
 import { writeJsonFile } from '../utils'
 import 'dotenv/config'
+
+axiosRetry(axios, { retries: 3, retryDelay: axiosRetry.exponentialDelay })
 
 interface ContributionDay {
   date: string
@@ -179,8 +183,19 @@ async function main() {
   const repos = await fetchAllRepos(username, githubToken)
   const languageDistribution = await fetchLanguageDistribution(repos, githubToken)
 
-  // 获取最近一年的贡献数据
-  const lastYearContributions = await fetchLastYearContributions(username)
+  let lastYearContributions = await fetchLastYearContributions(username)
+
+  if (!lastYearContributions) {
+    try {
+      const raw = fs.readFileSync('data/github.json', 'utf-8')
+      const preJson = JSON.parse(raw)
+      lastYearContributions = preJson.lastYearContributions
+      console.warn('Using cached lastYearContributions from previous github.json')
+    }
+    catch {
+      lastYearContributions = null
+    }
+  }
 
   await writeJsonFile('data/github.json', {
     languageDistribution,
