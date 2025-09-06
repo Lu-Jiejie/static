@@ -4,7 +4,7 @@
     "name": "到底是啥",
     "avatar": "https://avatars.steamstatic.com/b2732234f3fbed341c241f58e1848418941f7d92_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1757029968
+    "lastLogOffTime": 1757089546
   },
   "games": [
     {
@@ -147,9 +147,9 @@
       "id": 1030300,
       "name": "Hollow Knight: Silksong",
       "nameCN": "Hollow Knight: Silksong",
-      "playtimeForever": 318,
-      "playtime2Weeks": 318,
-      "timeLastPlayed": 1757024768,
+      "playtimeForever": 838,
+      "playtime2Weeks": 838,
+      "timeLastPlayed": 1757096658,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1030300/header.jpg"
     },
     {
