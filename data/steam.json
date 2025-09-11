@@ -4,7 +4,7 @@
     "name": "到底是啥",
     "avatar": "https://avatars.steamstatic.com/b2732234f3fbed341c241f58e1848418941f7d92_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1757449940
+    "lastLogOffTime": 1757548494
   },
   "games": [
     {
@@ -35,9 +35,9 @@
       "id": 367520,
       "name": "Hollow Knight",
       "nameCN": "Hollow Knight",
-      "playtimeForever": 403,
-      "playtime2Weeks": 253,
-      "timeLastPlayed": 1757449556,
+      "playtimeForever": 463,
+      "playtime2Weeks": 313,
+      "timeLastPlayed": 1757552155,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg"
     },
     {
