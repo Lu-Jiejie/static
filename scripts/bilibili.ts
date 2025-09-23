@@ -79,10 +79,6 @@ async function fetchBilibiliMusicLiked() {
       stats: item.cnt_info,
     }))
 
-    // Save the medias array to a JSON file
-    await writeJsonFile('data/bilibili.json', formattedMedias)
-    console.log('Bilibili music data saved successfully to data/bilibili.json')
-
     return formattedMedias
   }
   catch (error) {
@@ -93,8 +89,8 @@ async function fetchBilibiliMusicLiked() {
 
 async function main() {
   console.log('Fetching Bilibili favorite music...')
-  await fetchBilibiliMusicLiked()
-  console.log('Done!')
+  const musicLiked = await fetchBilibiliMusicLiked()
+  await writeJsonFile('./data/bilibili.json', { musicLiked })
 }
 
 main().catch((err) => {
