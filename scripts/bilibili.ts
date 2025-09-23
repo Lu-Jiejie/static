@@ -74,7 +74,7 @@ async function fetchBilibiliMusicLiked() {
       intro: item.intro,
       id: item.id,
       bvid: item.bvid,
-      link: item.link.replace('bilibili://', 'https://www.bilibili.com/'),
+      link: `https://www.bilibili.com/video/${item.bvid}`,
       duration: item.duration,
       stats: item.cnt_info,
     }))
