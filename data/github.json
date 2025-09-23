@@ -1,43 +1,43 @@
 {
   "languageDistribution": {
-    "PowerShell": {
-      "bytes": 5844,
-      "color": "#012456",
-      "percentage": 0.7794608595676686
-    },
     "TypeScript": {
-      "bytes": 611582,
+      "bytes": 620845,
       "color": "#3178c6",
-      "percentage": 81.57156595073818
+      "percentage": 81.7964669860292
     },
     "JavaScript": {
       "bytes": 6860,
       "color": "#f1e05a",
-      "percentage": 0.9149728775897
-    },
-    "CSS": {
-      "bytes": 26205,
-      "color": "#663399",
-      "percentage": 3.4951697167985554
+      "percentage": 0.9038065274330314
     },
     "Vue": {
       "bytes": 82743,
       "color": "#41b883",
-      "percentage": 11.036093412595417
+      "percentage": 10.901408673380658
     },
     "HTML": {
       "bytes": 3938,
       "color": "#e34c26",
-      "percentage": 0.5252424478058657
+      "percentage": 0.5188323768267169
+    },
+    "CSS": {
+      "bytes": 26205,
+      "color": "#663399",
+      "percentage": 3.452514584749648
+    },
+    "PowerShell": {
+      "bytes": 5844,
+      "color": "#012456",
+      "percentage": 0.769948301212629
     },
     "Lua": {
       "bytes": 12577,
       "color": "#000080",
-      "percentage": 1.6774947349046148
+      "percentage": 1.6570225503681102
     }
   },
   "lastYearContributions": {
-    "total": 282,
+    "total": 289,
     "weeks": [
       [
         {
@@ -1996,8 +1996,8 @@
         },
         {
           "date": "2025-09-23",
-          "count": 0,
-          "level": 0
+          "count": 7,
+          "level": 2
         }
       ]
     ]
