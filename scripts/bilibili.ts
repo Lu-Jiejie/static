@@ -1,6 +1,8 @@
+import fs from 'node:fs/promises'
+import path from 'node:path'
 import process from 'node:process'
 import axios from 'axios'
-import { writeJsonFile } from '../utils'
+import { downloadImage, writeJsonFile } from '../utils'
 
 interface BilibiliResponse {
   code: number
@@ -90,7 +92,28 @@ async function fetchBilibiliMusicLiked() {
 async function main() {
   console.log('Fetching Bilibili favorite music...')
   const musicLiked = await fetchBilibiliMusicLiked()
+
+  // Clear and recreate the images directory
+  const imagesDir = './data/bilibili'
+  try {
+    await fs.rm(imagesDir, { recursive: true, force: true })
+  }
+  catch {
+    // Directory might not exist, which is fine
+  }
+  await fs.mkdir(imagesDir, { recursive: true })
+
+  // Download cover images
+  console.log('Downloading cover images...')
+  const downloadPromises = musicLiked.map(async (item) => {
+    const imagePath = path.join(imagesDir, `${item.bvid}.jpg`)
+    await downloadImage(item.cover, imagePath)
+    console.log(`Downloaded cover for ${item.bvid}`)
+  })
+
+  await Promise.all(downloadPromises)
   await writeJsonFile('./data/bilibili.json', { musicLiked })
+  console.log('Bilibili data and images updated successfully')
 }
 
 main().catch((err) => {
