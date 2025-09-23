@@ -6,7 +6,8 @@
     "generate:netease": "tsx ./scripts/netease.ts",
     "generate:steam": "tsx ./scripts/steam.ts",
     "generate:github": "tsx ./scripts/github.ts",
-    "generate:bangumi": "tsx ./scripts/bangumi.ts"
+    "generate:bangumi": "tsx ./scripts/bangumi.ts",
+    "generate:bilibili": "tsx ./scripts/bilibili.ts"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.2.1",
