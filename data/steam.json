@@ -4,7 +4,7 @@
     "name": "到底是啥",
     "avatar": "https://avatars.steamstatic.com/b2732234f3fbed341c241f58e1848418941f7d92_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1758377648
+    "lastLogOffTime": 1758758403
   },
   "games": [
     {
@@ -52,7 +52,7 @@
       "name": "Hollow Knight",
       "nameCN": "Hollow Knight",
       "playtimeForever": 565,
-      "playtime2Weeks": 162,
+      "playtime2Weeks": 101,
       "timeLastPlayed": 1758376664,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg"
     },
