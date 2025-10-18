@@ -4,7 +4,7 @@
     "name": "到底是啥",
     "avatar": "https://avatars.steamstatic.com/b2732234f3fbed341c241f58e1848418941f7d92_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1760652559
+    "lastLogOffTime": 1760676272
   },
   "games": [
     {
@@ -155,9 +155,9 @@
       "id": 1030300,
       "name": "Hollow Knight: Silksong",
       "nameCN": "Hollow Knight: Silksong",
-      "playtimeForever": 2518,
-      "playtime2Weeks": 74,
-      "timeLastPlayed": 1760648709,
+      "playtimeForever": 2578,
+      "playtime2Weeks": 135,
+      "timeLastPlayed": 1760679893,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1030300/header.jpg"
     },
     {
@@ -295,6 +295,22 @@
       "playtimeForever": 4516,
       "timeLastPlayed": 1747886961,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1971650/header.jpg"
+    },
+    {
+      "id": 2084000,
+      "name": "Shogun Showdown",
+      "nameCN": "将军 对决",
+      "playtimeForever": 0,
+      "timeLastPlayed": 0,
+      "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg"
+    },
+    {
+      "id": 2149010,
+      "name": "Little Nightmares Enhanced Edition",
+      "nameCN": "小小梦魇 强化版",
+      "playtimeForever": 0,
+      "timeLastPlayed": 0,
+      "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2149010/header.jpg"
     },
     {
       "id": 2358720,
