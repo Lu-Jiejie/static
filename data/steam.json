@@ -4,7 +4,7 @@
     "name": "到底是啥",
     "avatar": "https://avatars.steamstatic.com/b2732234f3fbed341c241f58e1848418941f7d92_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1760676272
+    "lastLogOffTime": 1761178465
   },
   "games": [
     {
@@ -118,6 +118,15 @@
       "playtimeForever": 26,
       "timeLastPlayed": 1748315702,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/774171/header.jpg"
+    },
+    {
+      "id": 787480,
+      "name": "Phoenix Wright: Ace Attorney Trilogy",
+      "nameCN": "Phoenix Wright: Ace Attorney Trilogy",
+      "playtimeForever": 87,
+      "playtime2Weeks": 87,
+      "timeLastPlayed": 1761180279,
+      "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/787480/header.jpg"
     },
     {
       "id": 837470,
@@ -327,6 +336,15 @@
       "playtimeForever": 504,
       "timeLastPlayed": 1751562965,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622000/header.jpg"
+    },
+    {
+      "id": 3167020,
+      "name": "Escape From Duckov",
+      "nameCN": "逃离鸭科夫",
+      "playtimeForever": 69,
+      "playtime2Weeks": 69,
+      "timeLastPlayed": 1761131912,
+      "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/3167020/header.jpg"
     }
   ]
 }
