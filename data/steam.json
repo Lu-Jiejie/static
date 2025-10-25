@@ -4,7 +4,7 @@
     "name": "到底是啥",
     "avatar": "https://avatars.steamstatic.com/b2732234f3fbed341c241f58e1848418941f7d92_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1761267259
+    "lastLogOffTime": 1761329713
   },
   "games": [
     {
@@ -123,9 +123,9 @@
       "id": 787480,
       "name": "Phoenix Wright: Ace Attorney Trilogy",
       "nameCN": "Phoenix Wright: Ace Attorney Trilogy",
-      "playtimeForever": 1037,
-      "playtime2Weeks": 1037,
-      "timeLastPlayed": 1761267253,
+      "playtimeForever": 1527,
+      "playtime2Weeks": 1527,
+      "timeLastPlayed": 1761348890,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/787480/header.jpg"
     },
     {
