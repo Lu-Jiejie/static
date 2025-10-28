@@ -4,7 +4,7 @@
     "name": "到底是啥",
     "avatar": "https://avatars.steamstatic.com/b2732234f3fbed341c241f58e1848418941f7d92_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1761506691
+    "lastLogOffTime": 1761591605
   },
   "games": [
     {
@@ -213,9 +213,9 @@
       "id": 1158850,
       "name": "The Great Ace Attorney Chronicles",
       "nameCN": "The Great Ace Attorney Chronicles",
-      "playtimeForever": 33,
-      "playtime2Weeks": 33,
-      "timeLastPlayed": 1761517053,
+      "playtimeForever": 500,
+      "playtime2Weeks": 500,
+      "timeLastPlayed": 1761611890,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1158850/header.jpg"
     },
     {
