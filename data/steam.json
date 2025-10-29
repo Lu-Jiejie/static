@@ -4,7 +4,7 @@
     "name": "到底是啥",
     "avatar": "https://avatars.steamstatic.com/b2732234f3fbed341c241f58e1848418941f7d92_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1761591605
+    "lastLogOffTime": 1761684012
   },
   "games": [
     {
@@ -165,7 +165,7 @@
       "name": "Hollow Knight: Silksong",
       "nameCN": "Hollow Knight: Silksong",
       "playtimeForever": 2578,
-      "playtime2Weeks": 135,
+      "playtime2Weeks": 67,
       "timeLastPlayed": 1760679893,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1030300/header.jpg"
     },
@@ -213,9 +213,9 @@
       "id": 1158850,
       "name": "The Great Ace Attorney Chronicles",
       "nameCN": "The Great Ace Attorney Chronicles",
-      "playtimeForever": 500,
-      "playtime2Weeks": 500,
-      "timeLastPlayed": 1761611890,
+      "playtimeForever": 1080,
+      "playtime2Weeks": 1080,
+      "timeLastPlayed": 1761699303,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1158850/header.jpg"
     },
     {
