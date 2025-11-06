@@ -67,8 +67,9 @@
       "id": 413420,
       "name": "Danganronpa 2: Goodbye Despair",
       "nameCN": "Danganronpa 2: Goodbye Despair",
-      "playtimeForever": 24,
-      "timeLastPlayed": 1748315705,
+      "playtimeForever": 28,
+      "playtime2Weeks": 3,
+      "timeLastPlayed": 1762319215,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/413420/header.jpg"
     },
     {
@@ -124,7 +125,7 @@
       "name": "Phoenix Wright: Ace Attorney Trilogy",
       "nameCN": "Phoenix Wright: Ace Attorney Trilogy",
       "playtimeForever": 1958,
-      "playtime2Weeks": 1958,
+      "playtime2Weeks": 1856,
       "timeLastPlayed": 1761433689,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/787480/header.jpg"
     },
@@ -350,7 +351,6 @@
       "name": "Escape From Duckov",
       "nameCN": "逃离鸭科夫",
       "playtimeForever": 69,
-      "playtime2Weeks": 69,
       "timeLastPlayed": 1761131912,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/3167020/header.jpg"
     }
