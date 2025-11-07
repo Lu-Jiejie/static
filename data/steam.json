@@ -1,10 +1,10 @@
 {
   "user": {
     "id": "76561198971025112",
-    "name": "到底是啥",
-    "avatar": "https://avatars.steamstatic.com/b2732234f3fbed341c241f58e1848418941f7d92_full.jpg",
+    "name": "Susato",
+    "avatar": "https://avatars.steamstatic.com/b2428cfba9cfe13b79ca5795a62eb49dc2d6d91c_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1761684012
+    "lastLogOffTime": 1762450491
   },
   "games": [
     {
@@ -67,9 +67,9 @@
       "id": 413420,
       "name": "Danganronpa 2: Goodbye Despair",
       "nameCN": "Danganronpa 2: Goodbye Despair",
-      "playtimeForever": 28,
-      "playtime2Weeks": 3,
-      "timeLastPlayed": 1762319215,
+      "playtimeForever": 110,
+      "playtime2Weeks": 85,
+      "timeLastPlayed": 1762444079,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/413420/header.jpg"
     },
     {
@@ -125,7 +125,7 @@
       "name": "Phoenix Wright: Ace Attorney Trilogy",
       "nameCN": "Phoenix Wright: Ace Attorney Trilogy",
       "playtimeForever": 1958,
-      "playtime2Weeks": 1856,
+      "playtime2Weeks": 920,
       "timeLastPlayed": 1761433689,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/787480/header.jpg"
     },
@@ -213,9 +213,9 @@
       "id": 1158850,
       "name": "The Great Ace Attorney Chronicles",
       "nameCN": "The Great Ace Attorney Chronicles",
-      "playtimeForever": 3061,
-      "playtime2Weeks": 3061,
-      "timeLastPlayed": 1762154873,
+      "playtimeForever": 3067,
+      "playtime2Weeks": 3067,
+      "timeLastPlayed": 1762397207,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1158850/header.jpg"
     },
     {
