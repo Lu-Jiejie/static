@@ -4,7 +4,7 @@
     "name": "Susato",
     "avatar": "https://avatars.steamstatic.com/b2428cfba9cfe13b79ca5795a62eb49dc2d6d91c_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1762579185
+    "lastLogOffTime": 1762654813
   },
   "games": [
     {
@@ -67,9 +67,9 @@
       "id": 413420,
       "name": "Danganronpa 2: Goodbye Despair",
       "nameCN": "Danganronpa 2: Goodbye Despair",
-      "playtimeForever": 1372,
-      "playtime2Weeks": 1347,
-      "timeLastPlayed": 1762649191,
+      "playtimeForever": 1423,
+      "playtime2Weeks": 1398,
+      "timeLastPlayed": 1762652240,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/413420/header.jpg"
     },
     {
@@ -214,7 +214,7 @@
       "name": "The Great Ace Attorney Chronicles",
       "nameCN": "The Great Ace Attorney Chronicles",
       "playtimeForever": 3067,
-      "playtime2Weeks": 3060,
+      "playtime2Weeks": 3034,
       "timeLastPlayed": 1762397207,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1158850/header.jpg"
     },
