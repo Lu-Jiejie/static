@@ -2,9 +2,9 @@
   "user": {
     "id": "76561198971025112",
     "name": "Susato",
-    "avatar": "https://avatars.steamstatic.com/b2428cfba9cfe13b79ca5795a62eb49dc2d6d91c_full.jpg",
+    "avatar": "https://avatars.steamstatic.com/37678a8a635006dba3e8395455cbc07ea9d4717d_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1763148079
+    "lastLogOffTime": 1764441964
   },
   "games": [
     {
@@ -64,6 +64,14 @@
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/413150/header.jpg"
     },
     {
+      "id": 413410,
+      "name": "Danganronpa: Trigger Happy Havoc",
+      "nameCN": "Danganronpa: Trigger Happy Havoc",
+      "playtimeForever": 0,
+      "timeLastPlayed": 0,
+      "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/413410/header.jpg"
+    },
+    {
       "id": 413420,
       "name": "Danganronpa 2: Goodbye Despair",
       "nameCN": "Danganronpa 2: Goodbye Despair",
@@ -78,6 +86,23 @@
       "playtimeForever": 370,
       "timeLastPlayed": 1724747766,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/424840/header.jpg"
+    },
+    {
+      "id": 555950,
+      "name": "Danganronpa Another Episode: Ultra Despair Girls",
+      "nameCN": "Danganronpa Another Episode: Ultra Despair Girls",
+      "playtimeForever": 0,
+      "timeLastPlayed": 0,
+      "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/555950/header.jpg"
+    },
+    {
+      "id": 567640,
+      "name": "Danganronpa V3: Killing Harmony",
+      "nameCN": "新枪弹辩驳V3 大家自相残杀的新学期",
+      "playtimeForever": 22,
+      "playtime2Weeks": 22,
+      "timeLastPlayed": 1764382832,
+      "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/567640/header.jpg"
     },
     {
       "id": 578080,
