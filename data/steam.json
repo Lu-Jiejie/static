@@ -4,7 +4,7 @@
     "name": "Susato",
     "avatar": "https://avatars.steamstatic.com/37678a8a635006dba3e8395455cbc07ea9d4717d_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1764526085
+    "lastLogOffTime": 1764888979
   },
   "games": [
     {
@@ -99,9 +99,9 @@
       "id": 567640,
       "name": "Danganronpa V3: Killing Harmony",
       "nameCN": "新枪弹辩驳V3 大家自相残杀的新学期",
-      "playtimeForever": 22,
-      "playtime2Weeks": 22,
-      "timeLastPlayed": 1764382832,
+      "playtimeForever": 41,
+      "playtime2Weeks": 41,
+      "timeLastPlayed": 1764853044,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/567640/header.jpg"
     },
     {
