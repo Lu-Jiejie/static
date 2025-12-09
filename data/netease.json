@@ -2,52 +2,52 @@
   "recentPlayed": [],
   "favorite": [
     {
+      "name": "Call of Silence",
+      "artist": "澤野弘之/R!N/Gemie",
+      "album": "TVアニメ「進撃の巨人」Season 2 オリジナルサウンドトラック",
+      "pic": "http://p1.music.126.net/nRuQt_bbbiQ70CxwXUHXOQ==/109951163597044887.jpg",
+      "id": 482636090,
+      "url": "https://music.163.com/#/song?id=482636090"
+    },
+    {
+      "name": "悪魔の子",
+      "artist": "ヒグチアイ",
+      "album": "悪魔の子",
+      "pic": "http://p1.music.126.net/y5FVh-73DNy5O2x6-IfNdQ==/109951167763143089.jpg",
+      "id": 1910623420,
+      "url": "https://music.163.com/#/song?id=1910623420"
+    },
+    {
+      "name": "衝撃",
+      "artist": "安藤裕子",
+      "album": "衝撃",
+      "pic": "http://p1.music.126.net/QUk0uk8_ZaL9RzAQhNgGbA==/109951169458516992.jpg",
+      "id": 1501529238,
+      "url": "https://music.163.com/#/song?id=1501529238"
+    },
+    {
       "name": "恋人",
       "artist": "李荣浩",
       "album": "黑马",
-      "pic": "http://p2.music.126.net/0bk3Iqe2OZGBH2Iuyx7RzA==/109951170045577565.jpg",
+      "pic": "http://p1.music.126.net/0bk3Iqe2OZGBH2Iuyx7RzA==/109951170045577565.jpg",
       "id": 2600493765,
       "url": "https://music.163.com/#/song?id=2600493765"
+    },
+    {
+      "name": "讨厌红楼梦",
+      "artist": "陶喆",
+      "album": "黑色柳丁",
+      "pic": "http://p1.music.126.net/FLIHPqpkfUBimQZB370agQ==/109951169237251638.jpg",
+      "id": 150560,
+      "url": "https://music.163.com/#/song?id=150560"
     },
     {
       "name": "御琴羽寿沙都～新世界に咲く花",
       "artist": "前馬宏充",
       "album": "大逆転裁判 ﹣成歩堂龍ノ介の冒險﹣ 劇伴音楽大全集",
-      "pic": "http://p2.music.126.net/Vh0MByV6ac4eGV4LGklbIA==/109951169414466670.jpg",
+      "pic": "http://p1.music.126.net/Vh0MByV6ac4eGV4LGklbIA==/109951169414466670.jpg",
       "id": 33316447,
       "url": "https://music.163.com/#/song?id=33316447"
-    },
-    {
-      "name": "Ryutaro Naruhodo - Objection!",
-      "artist": "北川保昌",
-      "album": "「大逆転裁判2-成歩堂龍ノ介の覺悟-」劇伴音樂大全集",
-      "pic": "http://p2.music.126.net/bw6A8L9o8Uea8MpoRRSN8g==/109951169414335666.jpg",
-      "id": 518088172,
-      "url": "https://music.163.com/#/song?id=518088172"
-    },
-    {
-      "name": "染缸",
-      "artist": "杨和苏KeyNG/JinJiBeWater_隼",
-      "album": "旷野",
-      "pic": "http://p2.music.126.net/VHBtksGThfdIUwRhuLv4Ow==/109951170522384543.jpg",
-      "id": 2676001035,
-      "url": "https://music.163.com/#/song?id=2676001035"
-    },
-    {
-      "name": "如果呢",
-      "artist": "郑润泽",
-      "album": "如果呢",
-      "pic": "http://p2.music.126.net/-xMsNLpquZTmMZlIztTgHg==/109951165953469081.jpg",
-      "id": 1842728629,
-      "url": "https://music.163.com/#/song?id=1842728629"
-    },
-    {
-      "name": "寂寞寂寞不好",
-      "artist": "曹格",
-      "album": "寂寞寂寞不好",
-      "pic": "http://p2.music.126.net/kHq7K_Nv0-GkaW4ITg0gMA==/109951163967345354.jpg",
-      "id": 1355860112,
-      "url": "https://music.163.com/#/song?id=1355860112"
     }
   ]
 }
