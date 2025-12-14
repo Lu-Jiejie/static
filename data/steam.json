@@ -4,7 +4,7 @@
     "name": "Roxy",
     "avatar": "https://avatars.steamstatic.com/e9af177f2877c8408f1268c96a4a971851158785_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1765404691
+    "lastLogOffTime": 1765628728
   },
   "games": [
     {
@@ -100,7 +100,7 @@
       "name": "Danganronpa V3: Killing Harmony",
       "nameCN": "新枪弹辩驳V3 大家自相残杀的新学期",
       "playtimeForever": 41,
-      "playtime2Weeks": 41,
+      "playtime2Weeks": 18,
       "timeLastPlayed": 1764853044,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/567640/header.jpg"
     },
