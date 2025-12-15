@@ -9,8 +9,8 @@
       "link": "https://www.bilibili.com/video/BV1RH4y1D7Ap",
       "duration": 266,
       "stats": {
-        "collect": 1503,
-        "play": 57892,
+        "collect": 1504,
+        "play": 57980,
         "danmaku": 13,
         "vt": 0,
         "play_switch": 0,
@@ -27,13 +27,13 @@
       "link": "https://www.bilibili.com/video/BV1GYh1zjERW",
       "duration": 11382,
       "stats": {
-        "collect": 1237,
-        "play": 152351,
+        "collect": 1240,
+        "play": 153409,
         "danmaku": 16,
         "vt": 0,
         "play_switch": 0,
         "reply": 0,
-        "view_text_1": "15.2万"
+        "view_text_1": "15.3万"
       }
     },
     {
@@ -45,13 +45,13 @@
       "link": "https://www.bilibili.com/video/BV1pxKbzSE6b",
       "duration": 279,
       "stats": {
-        "collect": 41315,
-        "play": 1704698,
-        "danmaku": 561,
+        "collect": 41350,
+        "play": 1707374,
+        "danmaku": 563,
         "vt": 0,
         "play_switch": 0,
         "reply": 0,
-        "view_text_1": "170.4万"
+        "view_text_1": "170.7万"
       }
     }
   ]
