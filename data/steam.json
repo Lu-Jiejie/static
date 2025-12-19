@@ -4,7 +4,7 @@
     "name": "Roxy",
     "avatar": "https://avatars.steamstatic.com/e9af177f2877c8408f1268c96a4a971851158785_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1765985865
+    "lastLogOffTime": 1766079849
   },
   "games": [
     {
@@ -100,7 +100,6 @@
       "name": "Danganronpa V3: Killing Harmony",
       "nameCN": "新枪弹辩驳V3 大家自相残杀的新学期",
       "playtimeForever": 41,
-      "playtime2Weeks": 18,
       "timeLastPlayed": 1764853044,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/567640/header.jpg"
     },
@@ -172,8 +171,9 @@
       "id": 942970,
       "name": "Unheard - Voices of Crime",
       "nameCN": "疑案追声",
-      "playtimeForever": 579,
-      "timeLastPlayed": 1598179754,
+      "playtimeForever": 590,
+      "playtime2Weeks": 11,
+      "timeLastPlayed": 1766026061,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/942970/header.jpg"
     },
     {

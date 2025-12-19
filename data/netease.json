@@ -21,6 +21,14 @@
   ],
   "favorite": [
     {
+      "name": "Prayer X",
+      "artist": "King Gnu",
+      "album": "Prayer X",
+      "pic": "http://p1.music.126.net/enntHrRt2GJA0cFnTY9Nxg==/109951169476356567.jpg",
+      "id": 1299557936,
+      "url": "https://music.163.com/#/song?id=1299557936"
+    },
+    {
       "name": "Call of Silence",
       "artist": "澤野弘之/R!N/Gemie",
       "album": "TVアニメ「進撃の巨人」Season 2 オリジナルサウンドトラック",
@@ -59,14 +67,6 @@
       "pic": "http://p1.music.126.net/FLIHPqpkfUBimQZB370agQ==/109951169237251638.jpg",
       "id": 150560,
       "url": "https://music.163.com/#/song?id=150560"
-    },
-    {
-      "name": "御琴羽寿沙都～新世界に咲く花",
-      "artist": "前馬宏充",
-      "album": "大逆転裁判 ﹣成歩堂龍ノ介の冒險﹣ 劇伴音楽大全集",
-      "pic": "http://p1.music.126.net/Vh0MByV6ac4eGV4LGklbIA==/109951169414466670.jpg",
-      "id": 33316447,
-      "url": "https://music.163.com/#/song?id=33316447"
     }
   ]
 }
