@@ -4,7 +4,7 @@
     "name": "Roxy",
     "avatar": "https://avatars.steamstatic.com/e9af177f2877c8408f1268c96a4a971851158785_full.jpg",
     "createdTime": 1560771793,
-    "lastLogOffTime": 1766079849
+    "lastLogOffTime": 1766257050
   },
   "games": [
     {
@@ -126,6 +126,14 @@
       "playtimeForever": 166,
       "timeLastPlayed": 1748314992,
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/621000/header.jpg"
+    },
+    {
+      "id": 646570,
+      "name": "Slay the Spire",
+      "nameCN": "Slay the Spire",
+      "playtimeForever": 0,
+      "timeLastPlayed": 0,
+      "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/646570/header.jpg"
     },
     {
       "id": 668630,
