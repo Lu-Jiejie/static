@@ -345,6 +345,15 @@
       "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1971650/header.jpg"
     },
     {
+      "id": 2060160,
+      "name": "The Farmer Was Replaced",
+      "nameCN": "编程农场",
+      "playtimeForever": 36,
+      "playtime2Weeks": 36,
+      "timeLastPlayed": 1767638793,
+      "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2060160/header.jpg"
+    },
+    {
       "id": 2084000,
       "name": "Shogun Showdown",
       "nameCN": "将军 对决",
