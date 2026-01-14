@@ -7,7 +7,15 @@ import 'dotenv/config'
 
 function readNameCNMap(): Record<string, string> {
   try {
-    const raw = fs.readFileSync('./data/steam_namecn_map.json', 'utf-8')
+    // Try new structure first, fallback to old structure
+    let raw: string
+    try {
+      raw = fs.readFileSync('./data/steam/namecn_map.json', 'utf-8')
+    }
+    catch {
+      // Fallback to old structure
+      raw = fs.readFileSync('./data/steam_namecn_map.json', 'utf-8')
+    }
     return JSON.parse(raw)
   }
   catch {
@@ -104,7 +112,7 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
     }),
   )
   if (updated) {
-    fs.writeFileSync('./data/steam_namecn_map.json', JSON.stringify(nameCNMap, null, 2), 'utf-8')
+    fs.writeFileSync('./data/steam/namecn_map.json', JSON.stringify(nameCNMap, null, 2), 'utf-8')
   }
   return results
 }
@@ -123,13 +131,10 @@ async function main() {
     fetchOwnedGames(steamId, steamKey, steamGamesExclude),
   ])
 
-  const steamInfo: SteamInfo = {
-    user,
-    games,
-  }
-
-  await writeJsonFile(`./data/steam.json`, steamInfo)
-  console.log('Saved to data/steam.json')
+  // Write data to separate files in the new structure
+  await writeJsonFile(`./data/steam/user.json`, user)
+  await writeJsonFile(`./data/steam/games.json`, games)
+  console.log('Saved to data/steam/ directory')
 }
 
 main().catch((err) => {

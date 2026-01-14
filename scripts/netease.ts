@@ -99,10 +99,10 @@ async function main() {
     favoriteId ? fetchFavorite(favoriteId) : Promise.resolve([]),
   ])
 
-  const result = { recentPlayed, favorite }
-
-  await writeJsonFile('data/netease.json', result)
-  console.log('Saved to data/netease.json')
+  // Write data to separate files in the new structure
+  await writeJsonFile('data/netease/recentPlayed.json', recentPlayed)
+  await writeJsonFile('data/netease/favorite.json', favorite)
+  console.log('Saved to data/netease/ directory')
 }
 
 main().catch((err) => {

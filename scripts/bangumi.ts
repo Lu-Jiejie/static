@@ -71,8 +71,10 @@ async function main() {
 
   const { watching, toWatch, watched } = await fetchBangumiCollections(bangumiId, bangumiUserAgent)
 
-  const bangumiInfo: BangumiInfo = { watching, toWatch, watched }
-  await writeJsonFile(`./data/bangumi.json`, bangumiInfo)
+  // Write data to separate files in the new structure
+  await writeJsonFile(`./data/bangumi/watching.json`, watching)
+  await writeJsonFile(`./data/bangumi/toWatch.json`, toWatch)
+  await writeJsonFile(`./data/bangumi/watched.json`, watched)
 }
 
 main().catch((err) => {

@@ -187,20 +187,30 @@ async function main() {
 
   if (!lastYearContributions) {
     try {
-      const raw = fs.readFileSync('data/github.json', 'utf-8')
-      const preJson = JSON.parse(raw)
-      lastYearContributions = preJson.lastYearContributions
-      console.warn('Using cached lastYearContributions from previous github.json')
+      // Try to read from new structure first, fallback to old structure
+      let raw: string
+      try {
+        raw = fs.readFileSync('data/github/lastYearContributions.json', 'utf-8')
+        lastYearContributions = JSON.parse(raw)
+      }
+      catch {
+        // Fallback to old structure
+        raw = fs.readFileSync('data/github.json', 'utf-8')
+        const preJson = JSON.parse(raw)
+        lastYearContributions = preJson.lastYearContributions
+      }
+      console.warn('Using cached lastYearContributions from previous data')
     }
     catch {
       lastYearContributions = null
     }
   }
 
-  await writeJsonFile('data/github.json', {
-    languageDistribution,
-    lastYearContributions,
-  })
+  // Write data to separate files in the new structure
+  await writeJsonFile('data/github/languageDistribution.json', languageDistribution)
+  if (lastYearContributions) {
+    await writeJsonFile('data/github/lastYearContributions.json', lastYearContributions)
+  }
 }
 
 main().catch((err) => {

@@ -1,0 +1,387 @@
+[
+  {
+    "id": 105600,
+    "name": "Terraria",
+    "nameCN": "Terraria",
+    "playtimeForever": 5951,
+    "timeLastPlayed": 1748184007,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg"
+  },
+  {
+    "id": 250900,
+    "name": "The Binding of Isaac: Rebirth",
+    "nameCN": "The Binding of Isaac: Rebirth",
+    "playtimeForever": 89,
+    "timeLastPlayed": 1748315703,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/250900/header.jpg"
+  },
+  {
+    "id": 282070,
+    "name": "This War of Mine",
+    "nameCN": "This War of Mine",
+    "playtimeForever": 0,
+    "timeLastPlayed": 0,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/282070/header.jpg"
+  },
+  {
+    "id": 289070,
+    "name": "Sid Meier's Civilization VI",
+    "nameCN": "Sid Meier’s Civilization® VI",
+    "playtimeForever": 68,
+    "timeLastPlayed": 1748315701,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/289070/header.jpg"
+  },
+  {
+    "id": 322330,
+    "name": "Don't Starve Together",
+    "nameCN": "饥荒联机版",
+    "playtimeForever": 5513,
+    "timeLastPlayed": 1747330504,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/322330/header.jpg"
+  },
+  {
+    "id": 367520,
+    "name": "Hollow Knight",
+    "nameCN": "Hollow Knight",
+    "playtimeForever": 565,
+    "timeLastPlayed": 1758376664,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg"
+  },
+  {
+    "id": 413150,
+    "name": "Stardew Valley",
+    "nameCN": "Stardew Valley",
+    "playtimeForever": 105,
+    "timeLastPlayed": 1748315700,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/413150/header.jpg"
+  },
+  {
+    "id": 413410,
+    "name": "Danganronpa: Trigger Happy Havoc",
+    "nameCN": "Danganronpa: Trigger Happy Havoc",
+    "playtimeForever": 0,
+    "timeLastPlayed": 0,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/413410/header.jpg"
+  },
+  {
+    "id": 413420,
+    "name": "Danganronpa 2: Goodbye Despair",
+    "nameCN": "Danganronpa 2: Goodbye Despair",
+    "playtimeForever": 1423,
+    "timeLastPlayed": 1762652240,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/413420/header.jpg"
+  },
+  {
+    "id": 424840,
+    "name": "Little Nightmares",
+    "nameCN": "Little Nightmares",
+    "playtimeForever": 370,
+    "timeLastPlayed": 1724747766,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/424840/header.jpg"
+  },
+  {
+    "id": 555950,
+    "name": "Danganronpa Another Episode: Ultra Despair Girls",
+    "nameCN": "Danganronpa Another Episode: Ultra Despair Girls",
+    "playtimeForever": 0,
+    "timeLastPlayed": 0,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/555950/header.jpg"
+  },
+  {
+    "id": 567640,
+    "name": "Danganronpa V3: Killing Harmony",
+    "nameCN": "新枪弹辩驳V3 大家自相残杀的新学期",
+    "playtimeForever": 59,
+    "timeLastPlayed": 1766587818,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/567640/header.jpg"
+  },
+  {
+    "id": 578080,
+    "name": "PUBG: BATTLEGROUNDS",
+    "nameCN": "PUBG: BATTLEGROUNDS",
+    "playtimeForever": 109,
+    "timeLastPlayed": 1565340926,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg"
+  },
+  {
+    "id": 582010,
+    "name": "Monster Hunter: World",
+    "nameCN": "Monster Hunter: World",
+    "playtimeForever": 341,
+    "timeLastPlayed": 1748314998,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/582010/header.jpg"
+  },
+  {
+    "id": 621000,
+    "name": "异常 | Exception",
+    "nameCN": "异常 | Exception",
+    "playtimeForever": 166,
+    "timeLastPlayed": 1748314992,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/621000/header.jpg"
+  },
+  {
+    "id": 646570,
+    "name": "Slay the Spire",
+    "nameCN": "Slay the Spire",
+    "playtimeForever": 0,
+    "timeLastPlayed": 0,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/646570/header.jpg"
+  },
+  {
+    "id": 668630,
+    "name": "Tricolour Lovestory",
+    "nameCN": "Tricolour Lovestory",
+    "playtimeForever": 11,
+    "timeLastPlayed": 1748315704,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/668630/header.jpg"
+  },
+  {
+    "id": 774171,
+    "name": "Muse Dash",
+    "nameCN": "Muse Dash",
+    "playtimeForever": 26,
+    "timeLastPlayed": 1748315702,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/774171/header.jpg"
+  },
+  {
+    "id": 787480,
+    "name": "Phoenix Wright: Ace Attorney Trilogy",
+    "nameCN": "Phoenix Wright: Ace Attorney Trilogy",
+    "playtimeForever": 1958,
+    "timeLastPlayed": 1761433689,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/787480/header.jpg"
+  },
+  {
+    "id": 837470,
+    "name": "Untitled Goose Game",
+    "nameCN": "Untitled Goose Game",
+    "playtimeForever": 137,
+    "timeLastPlayed": 1643556636,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/837470/header.jpg"
+  },
+  {
+    "id": 914710,
+    "name": "Cat Quest II",
+    "nameCN": "Cat Quest II",
+    "playtimeForever": 0,
+    "timeLastPlayed": 0,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/914710/header.jpg"
+  },
+  {
+    "id": 942970,
+    "name": "Unheard - Voices of Crime",
+    "nameCN": "疑案追声",
+    "playtimeForever": 590,
+    "timeLastPlayed": 1766026061,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/942970/header.jpg"
+  },
+  {
+    "id": 977950,
+    "name": "A Dance of Fire and Ice",
+    "nameCN": "冰与火之舞 A Dance of Fire and Ice",
+    "playtimeForever": 24,
+    "timeLastPlayed": 1626801100,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/977950/header.jpg"
+  },
+  {
+    "id": 1030300,
+    "name": "Hollow Knight: Silksong",
+    "nameCN": "Hollow Knight: Silksong",
+    "playtimeForever": 2581,
+    "timeLastPlayed": 1762604723,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1030300/header.jpg"
+  },
+  {
+    "id": 1049410,
+    "name": "Superliminal",
+    "nameCN": "超阈限空间 Superliminal",
+    "playtimeForever": 203,
+    "timeLastPlayed": 1674750864,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1049410/header.jpg"
+  },
+  {
+    "id": 1091500,
+    "name": "Cyberpunk 2077",
+    "nameCN": "赛博朋克 2077",
+    "playtimeForever": 3091,
+    "timeLastPlayed": 1749363673,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg"
+  },
+  {
+    "id": 1097150,
+    "name": "Fall Guys",
+    "nameCN": "糖豆人",
+    "playtimeForever": 90,
+    "timeLastPlayed": 1604402326,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/header.jpg"
+  },
+  {
+    "id": 1109570,
+    "name": "Word Game",
+    "nameCN": "《文字游戏》",
+    "playtimeForever": 410,
+    "timeLastPlayed": 1643123744,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1109570/header.jpg"
+  },
+  {
+    "id": 1145360,
+    "name": "Hades",
+    "nameCN": "Hades",
+    "playtimeForever": 1144,
+    "timeLastPlayed": 1625467936,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg"
+  },
+  {
+    "id": 1158850,
+    "name": "The Great Ace Attorney Chronicles",
+    "nameCN": "The Great Ace Attorney Chronicles",
+    "playtimeForever": 3067,
+    "timeLastPlayed": 1762397207,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1158850/header.jpg"
+  },
+  {
+    "id": 1172470,
+    "name": "Apex Legends",
+    "nameCN": "Apex Legends™",
+    "playtimeForever": 80,
+    "timeLastPlayed": 1620990352,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg"
+  },
+  {
+    "id": 1174180,
+    "name": "Red Dead Redemption 2",
+    "nameCN": "Red Dead Redemption 2",
+    "playtimeForever": 0,
+    "timeLastPlayed": 0,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg"
+  },
+  {
+    "id": 1222140,
+    "name": "Detroit: Become Human",
+    "nameCN": "底特律：化身为人",
+    "playtimeForever": 797,
+    "timeLastPlayed": 1675025119,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1222140/header.jpg"
+  },
+  {
+    "id": 1241700,
+    "name": "There is no game: Jam Edition 2015",
+    "nameCN": "There Is No Game: Jam Edition 2015",
+    "playtimeForever": 13,
+    "timeLastPlayed": 1598187445,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1241700/header.jpg"
+  },
+  {
+    "id": 1245620,
+    "name": "ELDEN RING",
+    "nameCN": "艾尔登法环",
+    "playtimeForever": 75,
+    "timeLastPlayed": 1748315700,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg"
+  },
+  {
+    "id": 1260320,
+    "name": "Party Animals",
+    "nameCN": "猛兽派对",
+    "playtimeForever": 812,
+    "timeLastPlayed": 1751014140,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1260320/header.jpg"
+  },
+  {
+    "id": 1281930,
+    "name": "tModLoader",
+    "nameCN": "tModLoader",
+    "playtimeForever": 3424,
+    "timeLastPlayed": 1748184008,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1281930/header.jpg"
+  },
+  {
+    "id": 1329410,
+    "name": "雀魂麻将(MahjongSoul)",
+    "nameCN": "雀魂麻將(MahjongSoul)",
+    "playtimeForever": 6245,
+    "timeLastPlayed": 1748876867,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1329410/header.jpg"
+  },
+  {
+    "id": 1568590,
+    "name": "Goose Goose Duck",
+    "nameCN": "Goose Goose Duck",
+    "playtimeForever": 3623,
+    "timeLastPlayed": 1674830920,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1568590/header.jpg"
+  },
+  {
+    "id": 1659040,
+    "name": "HITMAN World of Assassination",
+    "nameCN": "HITMAN World of Assassination",
+    "playtimeForever": 281,
+    "timeLastPlayed": 1675346382,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1659040/header.jpg"
+  },
+  {
+    "id": 1746030,
+    "name": "Murders on the Yangtze River",
+    "nameCN": "山河旅探 - Murders on the Yangtze River",
+    "playtimeForever": 707,
+    "timeLastPlayed": 1739459906,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1746030/header.jpg"
+  },
+  {
+    "id": 1971650,
+    "name": "OCTOPATH TRAVELER II",
+    "nameCN": "歧路旅人 II",
+    "playtimeForever": 4516,
+    "timeLastPlayed": 1747886961,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1971650/header.jpg"
+  },
+  {
+    "id": 2060160,
+    "name": "The Farmer Was Replaced",
+    "nameCN": "编程农场",
+    "playtimeForever": 36,
+    "playtime2Weeks": 36,
+    "timeLastPlayed": 1767638793,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2060160/header.jpg"
+  },
+  {
+    "id": 2084000,
+    "name": "Shogun Showdown",
+    "nameCN": "将军 对决",
+    "playtimeForever": 0,
+    "timeLastPlayed": 0,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg"
+  },
+  {
+    "id": 2149010,
+    "name": "Little Nightmares Enhanced Edition",
+    "nameCN": "小小梦魇 强化版",
+    "playtimeForever": 0,
+    "timeLastPlayed": 0,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2149010/header.jpg"
+  },
+  {
+    "id": 2358720,
+    "name": "Black Myth: Wukong",
+    "nameCN": "黑神话：悟空",
+    "playtimeForever": 3304,
+    "timeLastPlayed": 1724747712,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/header.jpg"
+  },
+  {
+    "id": 2622000,
+    "name": "Astral Party ",
+    "nameCN": "星引擎 Party",
+    "playtimeForever": 504,
+    "timeLastPlayed": 1751562965,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622000/header.jpg"
+  },
+  {
+    "id": 3167020,
+    "name": "Escape From Duckov",
+    "nameCN": "逃离鸭科夫",
+    "playtimeForever": 69,
+    "timeLastPlayed": 1761131912,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/3167020/header.jpg"
+  }
+]

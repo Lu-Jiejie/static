@@ -112,7 +112,8 @@ async function main() {
   // })
 
   // await Promise.all(downloadPromises)
-  await writeJsonFile('./data/bilibili.json', { musicLiked })
+  // Write data to separate file in the new structure
+  await writeJsonFile('./data/bilibili/musicLiked.json', musicLiked)
   console.log('Bilibili data and images updated successfully')
 }
 
