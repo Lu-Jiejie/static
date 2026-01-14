@@ -14,7 +14,7 @@ on:
           - steam
           - github
           - bangumi
-          - bilibili
+          # - bilibili
   schedule:
     - cron: '0 0 * * *'
 
@@ -62,9 +62,9 @@ jobs:
           BANGUMI_ID: ${{ secrets.BANGUMI_ID }}
           BANGUMI_USER_AGENT: ${{ secrets.BANGUMI_USER_AGENT }}
 
-      - name: Generate bilibili data
-        if: ${{ github.event.inputs.source == 'bilibili' || github.event.inputs.source == 'all' || github.event_name != 'workflow_dispatch' }}
-        run: npm run generate:bilibili
+      # - name: Generate bilibili data
+      #   if: ${{ github.event.inputs.source == 'bilibili' || github.event.inputs.source == 'all' || github.event_name != 'workflow_dispatch' }}
+      #   run: npm run generate:bilibili
 
       - name: Commit
         uses: EndBug/add-and-commit@v9
