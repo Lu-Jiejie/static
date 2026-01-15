@@ -187,25 +187,9 @@ async function fetchLanguageDistribution(repos: Repo[], token: string): Promise<
 
 // Inspired by: https://github.com/antfu/releases.antfu.me
 async function fetchReleases(username: string, token: string): Promise<ReleaseInfo[]> {
-  let infos: ReleaseInfo[] = []
+  const infos: ReleaseInfo[] = []
 
   try {
-    // Load existing data first
-    try {
-      const raw = fs.readFileSync('data/github/releases.json', 'utf-8')
-      infos = JSON.parse(raw)
-      console.log(`Loaded ${infos.length} existing releases`)
-
-      infos.forEach((item) => {
-        if (typeof item.created_at === 'string') {
-          item.created_at = +new Date(item.created_at)
-        }
-      })
-    }
-    catch {
-      console.log('Starting with empty release history')
-    }
-
     console.log('Fetching releases from GitHub Releases API...')
 
     const reposResponse = await axios.get(
@@ -251,16 +235,7 @@ async function fetchReleases(username: string, token: string): Promise<ReleaseIn
               version,
             }
 
-            // Only add if we don't already have this release
-            const exists = infos.some(r =>
-              r.repo === releaseInfo.repo
-              && r.version === releaseInfo.version,
-            )
-
-            if (!exists) {
-              infos.push(releaseInfo)
-              console.log(`    Added: ${releaseInfo.version}`)
-            }
+            infos.push(releaseInfo)
           }
         }
       }
@@ -269,7 +244,7 @@ async function fetchReleases(username: string, token: string): Promise<ReleaseIn
       }
     }
 
-    // Remove duplicates first
+    // Remove duplicates and sort completely by date (newest to oldest)
     const uniqueReleases = infos.filter((release, index) => {
       const first = infos.findIndex(r =>
         r.repo === release.repo
@@ -279,7 +254,6 @@ async function fetchReleases(username: string, token: string): Promise<ReleaseIn
       return first === index
     })
 
-    // Sort completely by date (newest to oldest), not grouped by repo
     const finalReleases = uniqueReleases
       .sort((a, b) => b.created_at - a.created_at)
       .slice(0, 500) // Limit to latest 500 releases
