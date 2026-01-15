@@ -32,6 +32,19 @@ interface LanguageInfo {
 interface GitHubInfo {
   languageDistribution: Record<string, LanguageInfo>
   lastYearContributions: LastYearContributions
+  releases: ReleaseInfo[]
+}
+
+interface ReleaseInfo {
+  id: string
+  type: string
+  repo: string
+  isOrg: boolean
+  title: string
+  sha: string
+  commit: string
+  created_at: number
+  version: string
 }
 
 const EXCLUDE_REPOS: string[] = []
@@ -172,6 +185,127 @@ async function fetchLanguageDistribution(repos: Repo[], token: string): Promise<
   return languageDistribution
 }
 
+// Inspired by: https://github.com/antfu/releases.antfu.me
+async function fetchReleases(username: string, token: string): Promise<ReleaseInfo[]> {
+  let infos: ReleaseInfo[] = []
+
+  try {
+    // Load existing data first
+    try {
+      const raw = fs.readFileSync('data/github/releases.json', 'utf-8')
+      infos = JSON.parse(raw)
+      console.log(`Loaded ${infos.length} existing releases`)
+
+      infos.forEach((item) => {
+        if (typeof item.created_at === 'string') {
+          item.created_at = +new Date(item.created_at)
+        }
+      })
+    }
+    catch {
+      console.log('Starting with empty release history')
+    }
+
+    console.log('Fetching releases from GitHub Releases API...')
+
+    const reposResponse = await axios.get(
+      `https://api.github.com/users/${username}/repos?type=owner&per_page=100`,
+      {
+        headers: {
+          Authorization: `token ${token}`,
+          Accept: 'application/vnd.github.v3+json',
+        },
+      },
+    )
+
+    const repos = reposResponse.data.filter((repo: any) => !repo.fork)
+    console.log(`Checking ${repos.length} repositories for releases...`)
+
+    for (const repo of repos) {
+      try {
+        const releasesResponse = await axios.get(
+          `https://api.github.com/repos/${repo.full_name}/releases`,
+          {
+            headers: {
+              Authorization: `token ${token}`,
+              Accept: 'application/vnd.github.v3+json',
+            },
+          },
+        )
+
+        console.log(`  ${repo.name}: found ${releasesResponse.data.length} releases`)
+
+        for (const release of releasesResponse.data) {
+          const versionMatch = release.tag_name.match(/v?(\d+\.\d+\.\d+(?:-[\w.]+)?)/)
+          if (versionMatch) {
+            const version = versionMatch[1]
+            const releaseInfo: ReleaseInfo = {
+              id: release.id.toString(),
+              type: 'ReleaseEvent',
+              repo: repo.name,
+              isOrg: repo.organization !== null,
+              title: release.name || release.tag_name,
+              sha: release.target_commitish || '',
+              commit: `https://github.com/${repo.full_name}/releases/tag/${release.tag_name}`,
+              created_at: +new Date(release.published_at || release.created_at),
+              version,
+            }
+
+            // Only add if we don't already have this release
+            const exists = infos.some(r =>
+              r.repo === releaseInfo.repo
+              && r.version === releaseInfo.version,
+            )
+
+            if (!exists) {
+              infos.push(releaseInfo)
+              console.log(`    Added: ${releaseInfo.version}`)
+            }
+          }
+        }
+      }
+      catch {
+        console.log(`  ${repo.name}: no releases or access error`)
+      }
+    }
+
+    // Remove duplicates first
+    const uniqueReleases = infos.filter((release, index) => {
+      const first = infos.findIndex(r =>
+        r.repo === release.repo
+        && r.version === release.version
+        && r.sha === release.sha,
+      )
+      return first === index
+    })
+
+    // Sort completely by date (newest to oldest), not grouped by repo
+    const finalReleases = uniqueReleases
+      .sort((a, b) => b.created_at - a.created_at)
+      .slice(0, 500) // Limit to latest 500 releases
+
+    console.log(`Final releases count: ${finalReleases.length}`)
+
+    const repoCount = finalReleases.reduce((acc, release) => {
+      acc[release.repo] = (acc[release.repo] || 0) + 1
+      return acc
+    }, {} as Record<string, number>)
+
+    console.log('Release summary:')
+    Object.entries(repoCount)
+      .sort(([,a], [,b]) => b - a)
+      .forEach(([repo, count]) => {
+        console.log(`  ${repo}: ${count} releases`)
+      })
+
+    return finalReleases
+  }
+  catch (error) {
+    console.error('Failed to fetch releases:', error)
+    return []
+  }
+}
+
 async function main() {
   const githubToken = process.env.GITHUB_TOKEN
   const username = process.env.GITHUB_USERNAME
@@ -182,6 +316,7 @@ async function main() {
 
   const repos = await fetchAllRepos(username, githubToken)
   const languageDistribution = await fetchLanguageDistribution(repos, githubToken)
+  const releases = await fetchReleases(username, githubToken)
 
   let lastYearContributions = await fetchLastYearContributions(username)
 
@@ -208,6 +343,7 @@ async function main() {
 
   // Write data to separate files in the new structure
   await writeJsonFile('data/github/languageDistribution.json', languageDistribution)
+  await writeJsonFile('data/github/releases.json', releases)
   if (lastYearContributions) {
     await writeJsonFile('data/github/lastYearContributions.json', lastYearContributions)
   }
