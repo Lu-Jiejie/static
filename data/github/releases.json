@@ -1,5 +1,49 @@
 [
   {
+    "id": "276940636",
+    "type": "ReleaseEvent",
+    "repo": "cli-stepper",
+    "isOrg": true,
+    "title": "v0.0.3",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/cli-stepper/releases/tag/v0.0.3",
+    "created_at": 1768453053000,
+    "version": "0.0.3"
+  },
+  {
+    "id": "276939825",
+    "type": "ReleaseEvent",
+    "repo": "flowmit",
+    "isOrg": true,
+    "title": "v1.0.9",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/flowmit/releases/tag/v1.0.9",
+    "created_at": 1768452570000,
+    "version": "1.0.9"
+  },
+  {
+    "id": "276938797",
+    "type": "ReleaseEvent",
+    "repo": "bili-live-listener",
+    "isOrg": true,
+    "title": "v1.0.6",
+    "sha": "master",
+    "commit": "https://github.com/Lu-Jiejie/bili-live-listener/releases/tag/v1.0.6",
+    "created_at": 1768452007000,
+    "version": "1.0.6"
+  },
+  {
+    "id": "276937489",
+    "type": "ReleaseEvent",
+    "repo": "ncreate",
+    "isOrg": true,
+    "title": "v0.0.9",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/ncreate/releases/tag/v0.0.9",
+    "created_at": 1768451242000,
+    "version": "0.0.9"
+  },
+  {
     "id": "270623398",
     "type": "ReleaseEvent",
     "repo": "flow-launcher-multi-translate",
