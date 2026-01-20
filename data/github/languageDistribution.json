@@ -9,6 +9,11 @@
     "color": "#f1e05a",
     "percentage": 0.7733189506312329
   },
+  "PowerShell": {
+    "bytes": 5844,
+    "color": "#012456",
+    "percentage": 0.6229188073726981
+  },
   "Vue": {
     "bytes": 154031,
     "color": "#41b883",
@@ -28,10 +33,5 @@
     "bytes": 12577,
     "color": "#000080",
     "percentage": 1.3405971663802918
-  },
-  "PowerShell": {
-    "bytes": 5844,
-    "color": "#012456",
-    "percentage": 0.6229188073726981
   }
 }
