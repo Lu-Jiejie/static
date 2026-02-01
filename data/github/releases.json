@@ -1,5 +1,16 @@
 [
   {
+    "id": "281780390",
+    "type": "ReleaseEvent",
+    "repo": "fuck-or-not",
+    "isOrg": true,
+    "title": "v0.0.1",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/fuck-or-not/releases/tag/v0.0.1",
+    "created_at": 1769860949000,
+    "version": "0.0.1"
+  },
+  {
     "id": "276940636",
     "type": "ReleaseEvent",
     "repo": "cli-stepper",
