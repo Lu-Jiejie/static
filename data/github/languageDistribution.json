@@ -1,18 +1,13 @@
 {
-  "TypeScript": {
-    "bytes": 733989,
-    "color": "#3178c6",
-    "percentage": 77.08761968977544
-  },
-  "JavaScript": {
-    "bytes": 7255,
-    "color": "#f1e05a",
-    "percentage": 0.7619605754981625
-  },
   "Vue": {
     "bytes": 159252,
     "color": "#41b883",
     "percentage": 16.725533503684822
+  },
+  "TypeScript": {
+    "bytes": 733989,
+    "color": "#3178c6",
+    "percentage": 77.08761968977544
   },
   "CSS": {
     "bytes": 27424,
@@ -23,6 +18,11 @@
     "bytes": 5808,
     "color": "#e34c26",
     "percentage": 0.6099885627144491
+  },
+  "JavaScript": {
+    "bytes": 7255,
+    "color": "#f1e05a",
+    "percentage": 0.7619605754981625
   },
   "Lua": {
     "bytes": 12577,
