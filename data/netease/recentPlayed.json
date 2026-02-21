@@ -1,12 +1,84 @@
 [
   {
+    "name": "鸳鸯戏",
+    "artist": "DJ小小智",
+    "album": "鸳鸯戏",
+    "pic": "http://p2.music.126.net/qB5bq8U6fQPWfMP7NCmvmA==/109951172682031247.jpg",
+    "id": 3345682556,
+    "url": "https://music.163.com/#/song?id=3345682556",
+    "score": 100
+  },
+  {
+    "name": "小鹿乱撞",
+    "artist": "永彬Ryan.B/狄迪（D-DAY）",
+    "album": "小鹿乱撞",
+    "pic": "http://p2.music.126.net/1qTRyoArCagVmxVkoXIkzg==/109951163398558468.jpg",
+    "id": 864100958,
+    "url": "https://music.163.com/#/song?id=864100958",
+    "score": 50
+  },
+  {
     "name": "日が落ちるまで",
     "artist": "ハンバート ハンバート",
     "album": "道はつづく",
     "pic": "http://p2.music.126.net/RqP5ECFl5Qy-x-obsuudKQ==/938982930120740.jpg",
     "id": 740530,
     "url": "https://music.163.com/#/song?id=740530",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "最佳损友",
+    "artist": "陈奕迅",
+    "album": "Life Continues…",
+    "pic": "http://p2.music.126.net/3mi073axgjg-g-79ObwwEQ==/109951171836582062.jpg",
+    "id": 65800,
+    "url": "https://music.163.com/#/song?id=65800",
+    "score": 50
+  },
+  {
+    "name": "富士山下",
+    "artist": "陈奕迅",
+    "album": "What's Going On…?",
+    "pic": "http://p2.music.126.net/oSMs7RzJFx0TgWCqRC8XjA==/109951171844247587.jpg",
+    "id": 65766,
+    "url": "https://music.163.com/#/song?id=65766",
+    "score": 50
+  },
+  {
+    "name": "絆",
+    "artist": "miu-clips",
+    "album": "Rhythm of My Heart",
+    "pic": "http://p2.music.126.net/qXN-ehvhohaHMMutBQUMpA==/109951169237165975.jpg",
+    "id": 618325,
+    "url": "https://music.163.com/#/song?id=618325",
+    "score": 50
+  },
+  {
+    "name": "悲しみはオーロラに",
+    "artist": "Aimer",
+    "album": "六等星の夜 / 悲しみはオーロラに / TWINKLE TWINKLE LITTLE STAR",
+    "pic": "http://p2.music.126.net/4ybgbPUCUcKnbjQZNpWf0w==/109951166918288985.jpg",
+    "id": 560144,
+    "url": "https://music.163.com/#/song?id=560144",
+    "score": 50
+  },
+  {
+    "name": "More One Night",
+    "artist": "久保ユリカ/水瀬いのり",
+    "album": "TVアニメ「少女終末旅行」エンディングテーマ「More One Night」 歌：チト（CV：水瀬いのり）、ユーリ（CV：久保ユリカ）",
+    "pic": "http://p2.music.126.net/XfPpi7zbeEjvaicvbVpnOg==/109951171350916378.jpg",
+    "id": 520461955,
+    "url": "https://music.163.com/#/song?id=520461955",
+    "score": 50
+  },
+  {
+    "name": "彼女は旅に出る",
+    "artist": "鎖那",
+    "album": "Hush a by little girl",
+    "pic": "http://p2.music.126.net/McwYbq8c2e9uugG51Rm-Jg==/109951166222733663.jpg",
+    "id": 509106775,
+    "url": "https://music.163.com/#/song?id=509106775",
+    "score": 50
   },
   {
     "name": "到時說愛我",
@@ -15,7 +87,25 @@
     "pic": "http://p2.music.126.net/sGMqLdcRENo4Qyf5R7iOrw==/109951172233402898.jpg",
     "id": 488483381,
     "url": "https://music.163.com/#/song?id=488483381",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "Call of Silence",
+    "artist": "澤野弘之/R!N/Gemie",
+    "album": "TVアニメ「進撃の巨人」Season 2 オリジナルサウンドトラック",
+    "pic": "http://p2.music.126.net/nRuQt_bbbiQ70CxwXUHXOQ==/109951163597044887.jpg",
+    "id": 482636090,
+    "url": "https://music.163.com/#/song?id=482636090",
+    "score": 50
+  },
+  {
+    "name": "月がきれい",
+    "artist": "東山奈央",
+    "album": "イマココ / 月がきれい (アニメ盤)",
+    "pic": "http://p2.music.126.net/3Cpj_jrscHguYjjFeO1yHg==/19242552997853427.jpg",
+    "id": 480097178,
+    "url": "https://music.163.com/#/song?id=480097178",
+    "score": 50
   },
   {
     "name": "March of Time",
@@ -24,7 +114,43 @@
     "pic": "http://p2.music.126.net/Gj4i7j4l36nRc0tVKfI8EQ==/109951167953850444.jpg",
     "id": 476081906,
     "url": "https://music.163.com/#/song?id=476081906",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "星屑ビーナス",
+    "artist": "Aimer",
+    "album": "BEST SELECTION \"blanc\"",
+    "pic": "http://p2.music.126.net/Gj4i7j4l36nRc0tVKfI8EQ==/109951167953850444.jpg",
+    "id": 476081899,
+    "url": "https://music.163.com/#/song?id=476081899",
+    "score": 50
+  },
+  {
+    "name": "フラレガイガール",
+    "artist": "さユり",
+    "album": "フラレガイガール-special edition",
+    "pic": "http://p2.music.126.net/J1zTNieVH0x6jQ_1tYUd2A==/109951167070895855.jpg",
+    "id": 445450723,
+    "url": "https://music.163.com/#/song?id=445450723",
+    "score": 50
+  },
+  {
+    "name": "なんでもないや (movie ver.)",
+    "artist": "RADWIMPS",
+    "album": "君の名は。",
+    "pic": "http://p2.music.126.net/UoHin_i29CVJr4gKPEY1kQ==/109951171836647530.jpg",
+    "id": 426881506,
+    "url": "https://music.163.com/#/song?id=426881506",
+    "score": 50
+  },
+  {
+    "name": "ぼうやの夢よ",
+    "artist": "高橋李依",
+    "album": "TVアニメ「Re：ゼロから始める異世界生活」後期エンディングテーマ「Stay Alive」 歌：エミリア（CV：高橋李依）",
+    "pic": "http://p2.music.126.net/XPok0yqNZ314SgTI0tViyA==/109951171350922045.jpg",
+    "id": 426501184,
+    "url": "https://music.163.com/#/song?id=426501184",
+    "score": 50
   },
   {
     "name": "Wishing",
@@ -33,7 +159,16 @@
     "pic": "http://p2.music.126.net/XPok0yqNZ314SgTI0tViyA==/109951171350922045.jpg",
     "id": 426501183,
     "url": "https://music.163.com/#/song?id=426501183",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "十面埋伏",
+    "artist": "陈奕迅",
+    "album": "The Best Moment",
+    "pic": "http://p2.music.126.net/kAKoBg1AOVrgvO4WEOywoA==/109951169594708968.jpg",
+    "id": 409931770,
+    "url": "https://music.163.com/#/song?id=409931770",
+    "score": 50
   },
   {
     "name": "怎么办",
@@ -42,7 +177,7 @@
     "pic": "http://p2.music.126.net/gBRRisVCuSQ9zjysM_W1YQ==/109951172743031021.jpg",
     "id": 3349697038,
     "url": "https://music.163.com/#/song?id=3349697038",
-    "score": 100
+    "score": 50
   },
   {
     "name": "星降る海",
@@ -51,7 +186,7 @@
     "pic": "http://p2.music.126.net/rwWOrSz65eAdnQsHy9Vghw==/109951172602675059.jpg",
     "id": 3340112782,
     "url": "https://music.163.com/#/song?id=3340112782",
-    "score": 100
+    "score": 50
   },
   {
     "name": "ワールドイズマイン (かぐや&月見ヤチヨ ver.) [CPK! Remix]",
@@ -60,7 +195,7 @@
     "pic": "http://p2.music.126.net/otpQWO3_SYzNe7F7wLwbdA==/109951172602512218.jpg",
     "id": 3340105621,
     "url": "https://music.163.com/#/song?id=3340105621",
-    "score": 100
+    "score": 50
   },
   {
     "name": "僕らの手には何もないけど、",
@@ -69,7 +204,25 @@
     "pic": "http://p2.music.126.net/V54SwL143YQcTsV3isnk3g==/109951166202884757.jpg",
     "id": 32317208,
     "url": "https://music.163.com/#/song?id=32317208",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "小城大事",
+    "artist": "杨千嬅",
+    "album": "电光幻影",
+    "pic": "http://p2.music.126.net/O-4LQ8-dYz0oHRIenG1KoQ==/109951164016432343.jpg",
+    "id": 316756,
+    "url": "https://music.163.com/#/song?id=316756",
+    "score": 50
+  },
+  {
+    "name": "野孩子",
+    "artist": "杨千嬅",
+    "album": "千嬅盛放",
+    "pic": "http://p2.music.126.net/rfiJDjEnYuZmDuAxIniQPA==/109951170379800610.jpg",
+    "id": 316486,
+    "url": "https://music.163.com/#/song?id=316486",
+    "score": 50
   },
   {
     "name": "My Truth～ロンド・カプリチオーソ",
@@ -78,7 +231,7 @@
     "pic": "http://p2.music.126.net/R3ndkz84v-nDZKVCBjXArw==/7834020348181215.jpg",
     "id": 30798036,
     "url": "https://music.163.com/#/song?id=30798036",
-    "score": 100
+    "score": 50
   },
   {
     "name": "鳥の詩",
@@ -87,7 +240,16 @@
     "pic": "http://p2.music.126.net/xzm2HOT5DpobOk73OhE9QQ==/109951170627348480.jpg",
     "id": 28151022,
     "url": "https://music.163.com/#/song?id=28151022",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "Daisy",
+    "artist": "R・O・N",
+    "album": "Daisy",
+    "pic": "http://p2.music.126.net/GNu91r14aoxkP8fJXWVvDw==/109951171587025803.jpg",
+    "id": 28018269,
+    "url": "https://music.163.com/#/song?id=28018269",
+    "score": 50
   },
   {
     "name": "銀色飛行船",
@@ -96,7 +258,7 @@
     "pic": "http://p2.music.126.net/s-1VRCfwEumn81eXmsdD-w==/109951166201440358.jpg",
     "id": 28018264,
     "url": "https://music.163.com/#/song?id=28018264",
-    "score": 100
+    "score": 50
   },
   {
     "name": "失眠",
@@ -105,7 +267,16 @@
     "pic": "http://p2.music.126.net/pUPZfJ7aN-9_tBvzUUnAFQ==/94558000004350.jpg",
     "id": 273114,
     "url": "https://music.163.com/#/song?id=273114",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "用背脊唱情歌",
+    "artist": "Gareth.T",
+    "album": "用背脊唱情歌",
+    "pic": "http://p2.music.126.net/LT8Gg3QQVPfjuD7tr7BUAQ==/109951171268775376.jpg",
+    "id": 2712620397,
+    "url": "https://music.163.com/#/song?id=2712620397",
+    "score": 50
   },
   {
     "name": "プロポーズ",
@@ -114,7 +285,52 @@
     "pic": "http://p2.music.126.net/IdIsdtELPKlPhD04UJtwFw==/109951171010336069.jpg",
     "id": 2707202386,
     "url": "https://music.163.com/#/song?id=2707202386",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "火星人",
+    "artist": "ヨルシカ",
+    "album": "火星人",
+    "pic": "http://p2.music.126.net/W-Ce1zXSPBAGM79fTEITCg==/109951170962087424.jpg",
+    "id": 2702969612,
+    "url": "https://music.163.com/#/song?id=2702969612",
+    "score": 50
+  },
+  {
+    "name": "颜色",
+    "artist": "Gareth.T",
+    "album": "颜色",
+    "pic": "http://p2.music.126.net/NBYS2W-x3p2IVNvHMcylMg==/109951170940524301.jpg",
+    "id": 2701139855,
+    "url": "https://music.163.com/#/song?id=2701139855",
+    "score": 50
+  },
+  {
+    "name": "染缸",
+    "artist": "杨和苏KeyNG/JinJiBeWater_隼",
+    "album": "旷野",
+    "pic": "http://p2.music.126.net/VHBtksGThfdIUwRhuLv4Ow==/109951170522384543.jpg",
+    "id": 2676001035,
+    "url": "https://music.163.com/#/song?id=2676001035",
+    "score": 50
+  },
+  {
+    "name": "原色",
+    "artist": "三Z-STUDIO/HOYO-MiX/于梓贝",
+    "album": "绝区零-天琴座+",
+    "pic": "http://p2.music.126.net/5cqBvZaAFyb7lLWbicmyWA==/109951170383379551.jpg",
+    "id": 2666660479,
+    "url": "https://music.163.com/#/song?id=2666660479",
+    "score": 50
+  },
+  {
+    "name": "爱是一道无解的命题",
+    "artist": "张小葵",
+    "album": "爱是一道无解的命题",
+    "pic": "http://p2.music.126.net/ESeg9bnfTji0pIxbAsbtaA==/109951170271201345.jpg",
+    "id": 2657416954,
+    "url": "https://music.163.com/#/song?id=2657416954",
+    "score": 50
   },
   {
     "name": "夏実",
@@ -123,7 +339,25 @@
     "pic": "http://p2.music.126.net/NhQi0MUDQZ-NjZSaMo5w0w==/109951169970716883.jpg",
     "id": 2628232563,
     "url": "https://music.163.com/#/song?id=2628232563",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "恋人",
+    "artist": "李荣浩",
+    "album": "黑马",
+    "pic": "http://p2.music.126.net/0bk3Iqe2OZGBH2Iuyx7RzA==/109951170045577565.jpg",
+    "id": 2600493765,
+    "url": "https://music.163.com/#/song?id=2600493765",
+    "score": 50
+  },
+  {
+    "name": "天使にふれたよ!",
+    "artist": "放課後ティータイム",
+    "album": "放課後ティータイム II",
+    "pic": "http://p2.music.126.net/iHQqvYx7hRnkGbr4alnM_w==/109951163597130578.jpg",
+    "id": 22803908,
+    "url": "https://music.163.com/#/song?id=22803908",
+    "score": 50
   },
   {
     "name": "ハミング",
@@ -132,7 +366,16 @@
     "pic": "http://p2.music.126.net/QrVItGL-qchnyonA8eBDQg==/109951169617519518.jpg",
     "id": 2158979382,
     "url": "https://music.163.com/#/song?id=2158979382",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "漫长的季节",
+    "artist": "连麻Swimming/RICHNOMADIC",
+    "album": "邻家小丈夫",
+    "pic": "http://p2.music.126.net/Dg4tY7L441GZfYqqvWvPUw==/109951169590445432.jpg",
+    "id": 2155975891,
+    "url": "https://music.163.com/#/song?id=2155975891",
+    "score": 50
   },
   {
     "name": "雨过后的风景",
@@ -141,7 +384,7 @@
     "pic": "http://p2.music.126.net/f5GfN6iwFpm-W4aS51xI4Q==/109951172654470520.jpg",
     "id": 215382,
     "url": "https://music.163.com/#/song?id=215382",
-    "score": 100
+    "score": 50
   },
   {
     "name": "遇上你之前的我",
@@ -150,7 +393,7 @@
     "pic": "http://p2.music.126.net/nmObDg4QpFxM_U8Fqap-Wg==/109951169481923010.jpg",
     "id": 2143932459,
     "url": "https://music.163.com/#/song?id=2143932459",
-    "score": 100
+    "score": 50
   },
   {
     "name": "唯一",
@@ -159,7 +402,16 @@
     "pic": "http://p2.music.126.net/aJWtwvdYRXvKUpAE2C6NoA==/109951168919708423.jpg",
     "id": 2083785152,
     "url": "https://music.163.com/#/song?id=2083785152",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "在加纳共和国离婚 (你还爱我吗)",
+    "artist": "菲道尔/DIOR大颖",
+    "album": "在加纳共和国离婚",
+    "pic": "http://p2.music.126.net/WuRlLMuXJO9rsT_nx4lLgA==/109951169509984289.jpg",
+    "id": 2072639869,
+    "url": "https://music.163.com/#/song?id=2072639869",
+    "score": 50
   },
   {
     "name": "TOMATO",
@@ -168,7 +420,7 @@
     "pic": "http://p2.music.126.net/hNCfYxmXnMRkuOh2yR5TMw==/109951170165177009.jpg",
     "id": 2057223791,
     "url": "https://music.163.com/#/song?id=2057223791",
-    "score": 100
+    "score": 50
   },
   {
     "name": "17さいのうた。",
@@ -177,7 +429,16 @@
     "pic": "http://p2.music.126.net/1bcwLzrrKPWcs137biKbpw==/109951167488734005.jpg",
     "id": 1951665069,
     "url": "https://music.163.com/#/song?id=1951665069",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "红",
+    "artist": "罗言",
+    "album": "When the world is came，take it！",
+    "pic": "http://p2.music.126.net/G-inyKjA-jO5MuOuV3g7Pg==/109951167027986653.jpg",
+    "id": 1918576268,
+    "url": "https://music.163.com/#/song?id=1918576268",
+    "score": 50
   },
   {
     "name": "どうして",
@@ -186,7 +447,16 @@
     "pic": "http://p2.music.126.net/Z9nAiJ_7Cyefrh0Fl_JmBw==/109951166929773363.jpg",
     "id": 1911281594,
     "url": "https://music.163.com/#/song?id=1911281594",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "ベイビーヘイロー",
+    "artist": "鎖那",
+    "album": "ベイビーヘイロー",
+    "pic": "http://p2.music.126.net/iYA8E-3l_GImmDGfl6QnPw==/109951166585959619.jpg",
+    "id": 1892257906,
+    "url": "https://music.163.com/#/song?id=1892257906",
+    "score": 50
   },
   {
     "name": "老人と海",
@@ -195,7 +465,16 @@
     "pic": "http://p2.music.126.net/5aHcGADR5i6biE5TSqf_aQ==/109951166295171725.jpg",
     "id": 1870469768,
     "url": "https://music.163.com/#/song?id=1870469768",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "如果呢",
+    "artist": "郑润泽",
+    "album": "如果呢",
+    "pic": "http://p2.music.126.net/-xMsNLpquZTmMZlIztTgHg==/109951165953469081.jpg",
+    "id": 1842728629,
+    "url": "https://music.163.com/#/song?id=1842728629",
+    "score": 50
   },
   {
     "name": "Avid",
@@ -204,7 +483,7 @@
     "pic": "http://p2.music.126.net/Pdul4HmgspmsiPUq9oKkfQ==/109951166004106688.jpg",
     "id": 1835951859,
     "url": "https://music.163.com/#/song?id=1835951859",
-    "score": 100
+    "score": 50
   },
   {
     "name": "風を食む",
@@ -213,7 +492,25 @@
     "pic": "http://p2.music.126.net/Jh-7TNNm9BhJZejuRx6_EQ==/109951165373693055.jpg",
     "id": 1485319473,
     "url": "https://music.163.com/#/song?id=1485319473",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "唉",
+    "artist": "张方钊",
+    "album": "唉",
+    "pic": "http://p2.music.126.net/6qcRPKbDOGxhB4U_3bgDVw==/109951165137671122.jpg",
+    "id": 1462707541,
+    "url": "https://music.163.com/#/song?id=1462707541",
+    "score": 50
+  },
+  {
+    "name": "怪獣の花唄",
+    "artist": "Vaundy",
+    "album": "strobo",
+    "pic": "http://p2.music.126.net/6vt_lU8yaGAaQTnq1XKQPw==/109951168916979233.jpg",
+    "id": 1447572611,
+    "url": "https://music.163.com/#/song?id=1447572611",
+    "score": 50
   },
   {
     "name": "有我呢",
@@ -222,6 +519,24 @@
     "pic": "http://p2.music.126.net/zNdiECjTFkKoZIObqDqzWQ==/109951168870199828.jpg",
     "id": 1400259397,
     "url": "https://music.163.com/#/song?id=1400259397",
-    "score": 100
+    "score": 50
+  },
+  {
+    "name": "寂寞寂寞不好",
+    "artist": "曹格",
+    "album": "寂寞寂寞不好",
+    "pic": "http://p2.music.126.net/kHq7K_Nv0-GkaW4ITg0gMA==/109951163967345354.jpg",
+    "id": 1355860112,
+    "url": "https://music.163.com/#/song?id=1355860112",
+    "score": 50
+  },
+  {
+    "name": "瞬き（无对白）",
+    "artist": "缺氧烧酒",
+    "album": "春茶&オサム（COD歌姬与歌基相遇）",
+    "pic": "http://p2.music.126.net/O_FQeMbLFE39rsW4glCr7Q==/109951164061739945.jpg",
+    "id": 1295782825,
+    "url": "https://music.163.com/#/song?id=1295782825",
+    "score": 50
   }
 ]
