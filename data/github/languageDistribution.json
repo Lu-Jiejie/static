@@ -9,11 +9,6 @@
     "color": "#f1e05a",
     "percentage": 0.80036822052318
   },
-  "CSS": {
-    "bytes": 24972,
-    "color": "#663399",
-    "percentage": 2.7763293794839354
-  },
   "Vue": {
     "bytes": 159252,
     "color": "#41b883",
@@ -23,6 +18,11 @@
     "bytes": 5808,
     "color": "#e34c26",
     "percentage": 0.6457200478953506
+  },
+  "CSS": {
+    "bytes": 24972,
+    "color": "#663399",
+    "percentage": 2.7763293794839354
   },
   "Lua": {
     "bytes": 12577,
