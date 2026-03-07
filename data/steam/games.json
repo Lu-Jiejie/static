@@ -332,8 +332,9 @@
     "id": 1771300,
     "name": "Kingdom Come: Deliverance II",
     "nameCN": "在 Steam 上购买 天国：拯救2 立省 50%",
-    "playtimeForever": 0,
-    "timeLastPlayed": 0,
+    "playtimeForever": 15,
+    "playtime2Weeks": 15,
+    "timeLastPlayed": 1772807392,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1771300/header.jpg"
   },
   {
@@ -383,6 +384,15 @@
     "playtimeForever": 504,
     "timeLastPlayed": 1751562965,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622000/header.jpg"
+  },
+  {
+    "id": 2868840,
+    "name": "Slay the Spire 2",
+    "nameCN": "Slay the Spire 2",
+    "playtimeForever": 155,
+    "playtime2Weeks": 155,
+    "timeLastPlayed": 1772826997,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2868840/header.jpg"
   },
   {
     "id": 3167020,
