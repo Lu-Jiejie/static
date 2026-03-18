@@ -1,5 +1,27 @@
 [
   {
+    "id": "298139980",
+    "type": "ReleaseEvent",
+    "repo": "fuck-or-not",
+    "isOrg": true,
+    "title": "v0.0.3",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/fuck-or-not/releases/tag/v0.0.3",
+    "created_at": 1773778179000,
+    "version": "0.0.3"
+  },
+  {
+    "id": "298135853",
+    "type": "ReleaseEvent",
+    "repo": "fuck-or-not",
+    "isOrg": true,
+    "title": "v0.0.2",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/fuck-or-not/releases/tag/v0.0.2",
+    "created_at": 1773777439000,
+    "version": "0.0.2"
+  },
+  {
     "id": "283536923",
     "type": "ReleaseEvent",
     "repo": "flowmit",
