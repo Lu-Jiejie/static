@@ -5,6 +5,16 @@ import { load } from 'cheerio'
 import { writeJsonFile } from '../utils'
 import 'dotenv/config'
 
+function readNameCNMapCustom(): Record<string, string> {
+  try {
+    const raw = fs.readFileSync('./data/steam/namecn_map_custom.json', 'utf-8')
+    return JSON.parse(raw)
+  }
+  catch {
+    return {}
+  }
+}
+
 function readNameCNMap(): Record<string, string> {
   try {
     // Try new structure first, fallback to old structure
@@ -58,7 +68,7 @@ async function fetchUserInfo(id: string, key: string): Promise<SteamInfo['user']
   }
 }
 
-async function fetchSteamTitle(appid: number): Promise<string | null> {
+async function fetchSteamTitleCN(appid: number): Promise<string | null> {
   try {
     const url = `https://store.steampowered.com/app/${appid}`
     const { data: html } = await axios.get(url, {
@@ -74,6 +84,10 @@ async function fetchSteamTitle(appid: number): Promise<string | null> {
     }
 
     const title = $('title').text().trim()
+    // exclude 在 Steam 上购买
+    if (/在 Steam 上购买/.test(title)) {
+      return null
+    }
     return title.replace(/^Steam 上的 /, '')
   }
   catch {
@@ -87,6 +101,7 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
   )
 
   const games = data.response.games.filter((game: any) => !exclude.includes(game.appid))
+  const nameCNMapCustom = readNameCNMapCustom()
   const nameCNMap = readNameCNMap()
   let updated = false
 
@@ -94,9 +109,12 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
     games.map(async (game: any) => {
       const id = game.appid
       const icon = `https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`
-      let nameCN = nameCNMap[id]
+      let nameCN = nameCNMapCustom[id]
       if (!nameCN) {
-        nameCN = (await fetchSteamTitle(id)) || game.name
+        nameCN = nameCNMap[id]
+      }
+      if (!nameCN) {
+        nameCN = (await fetchSteamTitleCN(id)) || game.name
         nameCNMap[id] = nameCN
         updated = true
       }
@@ -134,7 +152,7 @@ async function main() {
   // Write data to separate files in the new structure
   await writeJsonFile(`./data/steam/user.json`, user)
   await writeJsonFile(`./data/steam/games.json`, games)
-  console.log('Saved to data/steam/ directory')
+  console.log('Saved to data/steam/directory')
 }
 
 main().catch((err) => {

@@ -2,7 +2,7 @@
   {
     "id": 105600,
     "name": "Terraria",
-    "nameCN": "Terraria",
+    "nameCN": "泰拉瑞亚",
     "playtimeForever": 5951,
     "timeLastPlayed": 1748184007,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg"
@@ -42,7 +42,7 @@
   {
     "id": 367520,
     "name": "Hollow Knight",
-    "nameCN": "Hollow Knight",
+    "nameCN": "空洞骑士",
     "playtimeForever": 565,
     "timeLastPlayed": 1758376664,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg"
@@ -106,7 +106,7 @@
   {
     "id": 582010,
     "name": "Monster Hunter: World",
-    "nameCN": "Monster Hunter: World",
+    "nameCN": "怪物猎人：世界",
     "playtimeForever": 341,
     "timeLastPlayed": 1748314998,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/582010/header.jpg"
@@ -122,7 +122,7 @@
   {
     "id": 646570,
     "name": "Slay the Spire",
-    "nameCN": "Slay the Spire",
+    "nameCN": "杀戮尖塔",
     "playtimeForever": 0,
     "timeLastPlayed": 0,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/646570/header.jpg"
@@ -186,7 +186,7 @@
   {
     "id": 1030300,
     "name": "Hollow Knight: Silksong",
-    "nameCN": "Hollow Knight: Silksong",
+    "nameCN": "空洞骑士：丝之歌",
     "playtimeForever": 2581,
     "timeLastPlayed": 1762604723,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1030300/header.jpg"
@@ -298,7 +298,7 @@
   {
     "id": 1329410,
     "name": "雀魂麻将(MahjongSoul)",
-    "nameCN": "雀魂麻將(MahjongSoul)",
+    "nameCN": "雀魂麻将",
     "playtimeForever": 6245,
     "timeLastPlayed": 1748876867,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1329410/header.jpg"
@@ -330,7 +330,7 @@
   {
     "id": 1771300,
     "name": "Kingdom Come: Deliverance II",
-    "nameCN": "在 Steam 上购买 天国：拯救2 立省 50%",
+    "nameCN": "天国：拯救2",
     "playtimeForever": 15,
     "playtime2Weeks": 15,
     "timeLastPlayed": 1772807392,
@@ -379,7 +379,7 @@
   {
     "id": 2622000,
     "name": "Astral Party ",
-    "nameCN": "星引擎 Party",
+    "nameCN": "吉星派对",
     "playtimeForever": 504,
     "timeLastPlayed": 1751562965,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622000/header.jpg"
@@ -387,10 +387,10 @@
   {
     "id": 2868840,
     "name": "Slay the Spire 2",
-    "nameCN": "Slay the Spire 2",
-    "playtimeForever": 3121,
-    "playtime2Weeks": 3121,
-    "timeLastPlayed": 1773751049,
+    "nameCN": "杀戮尖塔2",
+    "playtimeForever": 3133,
+    "playtime2Weeks": 3133,
+    "timeLastPlayed": 1773834778,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2868840/header.jpg"
   },
   {
