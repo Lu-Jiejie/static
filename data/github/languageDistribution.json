@@ -14,15 +14,15 @@
     "color": "#41b883",
     "percentage": 17.707659726712933
   },
-  "CSS": {
-    "bytes": 24972,
-    "color": "#663399",
-    "percentage": 2.774648169012207
-  },
   "HTML": {
     "bytes": 5808,
     "color": "#e34c26",
     "percentage": 0.6453290311397925
+  },
+  "CSS": {
+    "bytes": 24972,
+    "color": "#663399",
+    "percentage": 2.774648169012207
   },
   "PowerShell": {
     "bytes": 5844,
