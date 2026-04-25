@@ -9,11 +9,6 @@
     "color": "#f1e05a",
     "percentage": 0.7793605324637927
   },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 1.3615804162796388
-  },
   "Vue": {
     "bytes": 163267,
     "color": "#41b883",
@@ -28,6 +23,11 @@
     "bytes": 24972,
     "color": "#663399",
     "percentage": 2.7034575936499277
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 1.3615804162796388
   },
   "PowerShell": {
     "bytes": 5844,
