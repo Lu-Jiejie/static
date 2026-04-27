@@ -1,9 +1,4 @@
 {
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 1.3615804162796388
-  },
   "TypeScript": {
     "bytes": 704039,
     "color": "#3178c6",
@@ -13,6 +8,11 @@
     "bytes": 7199,
     "color": "#f1e05a",
     "percentage": 0.7793605324637927
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 1.3615804162796388
   },
   "Vue": {
     "bytes": 163267,
