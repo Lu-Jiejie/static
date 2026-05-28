@@ -1,28 +1,28 @@
 {
+  "Vue": {
+    "bytes": 500874,
+    "color": "#41b883",
+    "percentage": 39.018238019711895
+  },
   "TypeScript": {
     "bytes": 723000,
     "color": "#3178c6",
     "percentage": 56.32192145779518
   },
-  "JavaScript": {
-    "bytes": 7361,
-    "color": "#f1e05a",
-    "percentage": 0.5734241547037764
-  },
-  "Vue": {
-    "bytes": 500874,
-    "color": "#41b883",
-    "percentage": 39.018238019711895
+  "HTML": {
+    "bytes": 6730,
+    "color": "#e34c26",
+    "percentage": 0.5242690614259495
   },
   "CSS": {
     "bytes": 27306,
     "color": "#663399",
     "percentage": 2.127145763937144
   },
-  "HTML": {
-    "bytes": 6730,
-    "color": "#e34c26",
-    "percentage": 0.5242690614259495
+  "JavaScript": {
+    "bytes": 7361,
+    "color": "#f1e05a",
+    "percentage": 0.5734241547037764
   },
   "Lua": {
     "bytes": 12577,
