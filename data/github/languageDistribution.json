@@ -9,25 +9,25 @@
     "color": "#f1e05a",
     "percentage": 0.5472683421508887
   },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.9350623474027615
+  },
   "Vue": {
     "bytes": 559601,
     "color": "#41b883",
     "percentage": 41.604661260152085
-  },
-  "HTML": {
-    "bytes": 6730,
-    "color": "#e34c26",
-    "percentage": 0.5003553787088005
   },
   "CSS": {
     "bytes": 27306,
     "color": "#663399",
     "percentage": 2.0301194607760045
   },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.9350623474027615
+  "HTML": {
+    "bytes": 6730,
+    "color": "#e34c26",
+    "percentage": 0.5003553787088005
   },
   "PowerShell": {
     "bytes": 5844,
