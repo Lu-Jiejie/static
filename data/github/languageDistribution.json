@@ -1,37 +1,37 @@
 {
-  "TypeScript": {
-    "bytes": 725625,
-    "color": "#3178c6",
-    "percentage": 53.948049283146126
-  },
-  "JavaScript": {
-    "bytes": 7361,
-    "color": "#f1e05a",
-    "percentage": 0.5472683421508887
-  },
   "Vue": {
-    "bytes": 559601,
+    "bytes": 614029,
     "color": "#41b883",
-    "percentage": 41.604661260152085
+    "percentage": 43.61760391545404
+  },
+  "TypeScript": {
+    "bytes": 729015,
+    "color": "#3178c6",
+    "percentage": 51.78564451911022
   },
   "CSS": {
-    "bytes": 27306,
+    "bytes": 32199,
     "color": "#663399",
-    "percentage": 2.0301194607760045
+    "percentage": 2.2872587914800517
   },
   "HTML": {
     "bytes": 6730,
     "color": "#e34c26",
-    "percentage": 0.5003553787088005
+    "percentage": 0.47806614077023346
+  },
+  "JavaScript": {
+    "bytes": 7361,
+    "color": "#f1e05a",
+    "percentage": 0.5228892811604292
   },
   "Lua": {
     "bytes": 12577,
     "color": "#000080",
-    "percentage": 0.9350623474027615
+    "percentage": 0.8934082990293055
   },
   "PowerShell": {
     "bytes": 5844,
     "color": "#012456",
-    "percentage": 0.43448392766333294
+    "percentage": 0.4151290529957273
   }
 }
