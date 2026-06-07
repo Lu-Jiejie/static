@@ -24,14 +24,14 @@
     "color": "#e34c26",
     "percentage": 0.474657319279339
   },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.8870379055833948
-  },
   "PowerShell": {
     "bytes": 5844,
     "color": "#012456",
     "percentage": 0.4121690005748079
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.8870379055833948
   }
 }
