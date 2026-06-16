@@ -14,15 +14,15 @@
     "color": "#41b883",
     "percentage": 50.46315768340853
   },
-  "HTML": {
-    "bytes": 7639,
-    "color": "#e34c26",
-    "percentage": 0.38340502205871285
-  },
   "CSS": {
     "bytes": 37034,
     "color": "#663399",
     "percentage": 1.8587539713211638
+  },
+  "HTML": {
+    "bytes": 7639,
+    "color": "#e34c26",
+    "percentage": 0.38340502205871285
   },
   "Lua": {
     "bytes": 12577,
