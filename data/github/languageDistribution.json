@@ -1,13 +1,18 @@
 {
-  "Vue": {
-    "bytes": 1035826,
-    "color": "#41b883",
-    "percentage": 51.195765260605995
-  },
   "TypeScript": {
     "bytes": 916747,
     "color": "#3178c6",
     "percentage": 45.31027818896684
+  },
+  "JavaScript": {
+    "bytes": 7598,
+    "color": "#f1e05a",
+    "percentage": 0.3755316283334116
+  },
+  "Vue": {
+    "bytes": 1035826,
+    "color": "#41b883",
+    "percentage": 51.195765260605995
   },
   "CSS": {
     "bytes": 37034,
@@ -18,11 +23,6 @@
     "bytes": 7639,
     "color": "#e34c26",
     "percentage": 0.3775580559145737
-  },
-  "JavaScript": {
-    "bytes": 7598,
-    "color": "#f1e05a",
-    "percentage": 0.3755316283334116
   },
   "PowerShell": {
     "bytes": 5844,
