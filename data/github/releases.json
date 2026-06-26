@@ -1,5 +1,27 @@
 [
   {
+    "id": "344948666",
+    "type": "ReleaseEvent",
+    "repo": "any-bookmark",
+    "isOrg": true,
+    "title": "v0.0.4",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/any-bookmark/releases/tag/v0.0.4",
+    "created_at": 1782417346000,
+    "version": "0.0.4"
+  },
+  {
+    "id": "344920397",
+    "type": "ReleaseEvent",
+    "repo": "any-bookmark",
+    "isOrg": true,
+    "title": "v0.0.3",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/any-bookmark/releases/tag/v0.0.3",
+    "created_at": 1782413941000,
+    "version": "0.0.3"
+  },
+  {
     "id": "344416648",
     "type": "ReleaseEvent",
     "repo": "fuck-or-not",
