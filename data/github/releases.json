@@ -1,5 +1,49 @@
 [
   {
+    "id": "345538641",
+    "type": "ReleaseEvent",
+    "repo": "any-bookmark",
+    "isOrg": true,
+    "title": "v0.0.5",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/any-bookmark/releases/tag/v0.0.5",
+    "created_at": 1782509189000,
+    "version": "0.0.5"
+  },
+  {
+    "id": "345515519",
+    "type": "ReleaseEvent",
+    "repo": "fuck-or-not",
+    "isOrg": true,
+    "title": "v1.0.4",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/fuck-or-not/releases/tag/v1.0.4",
+    "created_at": 1782505004000,
+    "version": "1.0.4"
+  },
+  {
+    "id": "345204027",
+    "type": "ReleaseEvent",
+    "repo": "fuck-or-not",
+    "isOrg": true,
+    "title": "v1.0.3",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/fuck-or-not/releases/tag/v1.0.3",
+    "created_at": 1782462407000,
+    "version": "1.0.3"
+  },
+  {
+    "id": "345124955",
+    "type": "ReleaseEvent",
+    "repo": "fuck-or-not",
+    "isOrg": true,
+    "title": "v1.0.2",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/fuck-or-not/releases/tag/v1.0.2",
+    "created_at": 1782449093000,
+    "version": "1.0.2"
+  },
+  {
     "id": "344948666",
     "type": "ReleaseEvent",
     "repo": "any-bookmark",
