@@ -1,5 +1,16 @@
 [
   {
+    "id": "349865203",
+    "type": "ReleaseEvent",
+    "repo": "remove-redirect",
+    "isOrg": true,
+    "title": "v0.0.1",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/remove-redirect/releases/tag/v0.0.1",
+    "created_at": 1783370870000,
+    "version": "0.0.1"
+  },
+  {
     "id": "345736690",
     "type": "ReleaseEvent",
     "repo": "fuck-or-not",
