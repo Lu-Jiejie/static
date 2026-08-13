@@ -17,13 +17,11 @@ function readNameCNMapCustom(): Record<string, string> {
 
 function readNameCNMap(): Record<string, string> {
   try {
-    // Try new structure first, fallback to old structure
     let raw: string
     try {
       raw = fs.readFileSync('./data/steam/namecn_map.json', 'utf-8')
     }
     catch {
-      // Fallback to old structure
       raw = fs.readFileSync('./data/steam_namecn_map.json', 'utf-8')
     }
     return JSON.parse(raw)
@@ -31,6 +29,31 @@ function readNameCNMap(): Record<string, string> {
   catch {
     return {}
   }
+}
+
+interface LocalHistoryEntry {
+  playtime: number
+  lastPlayed: number
+}
+
+function readLocalHistory(): Record<string, LocalHistoryEntry> {
+  try {
+    const raw = fs.readFileSync('./data/steam/games_local.json', 'utf-8')
+    return JSON.parse(raw)
+  }
+  catch {
+    return {}
+  }
+}
+
+interface GameItem {
+  id: number
+  name: string
+  nameCN: string
+  playtimeForever: number
+  playtime2Weeks?: number
+  timeLastPlayed: number
+  icon: string
 }
 
 interface SteamInfo {
@@ -41,15 +64,7 @@ interface SteamInfo {
     createdTime: number
     lastLogOffTime: number
   }
-  games: {
-    id: string
-    name: string
-    nameCN: string
-    playtimeForever: number
-    playtime2Weeks: number
-    timeLastPlayed: number
-    icon: string
-  }[]
+  games: GameItem[]
 }
 
 async function fetchUserInfo(id: string, key: string): Promise<SteamInfo['user']> {
@@ -95,18 +110,20 @@ async function fetchSteamTitleCN(appid: number): Promise<string | null> {
   }
 }
 
-async function fetchOwnedGames(id: string, key: string, exclude: number[]): Promise<SteamInfo['games']> {
+async function fetchOwnedGames(id: string, key: string, exclude: number[]): Promise<GameItem[]> {
   const { data } = await axios.get(
     `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${key}&steamid=${id}&format=json&include_appinfo=true&include_played_free_games=true`,
   )
 
-  const games = data.response.games.filter((game: any) => !exclude.includes(game.appid))
+  const apiGames = data.response.games.filter((game: any) => !exclude.includes(game.appid))
+  const apiGameIds = new Set(apiGames.map((g: any) => g.appid))
+
   const nameCNMapCustom = readNameCNMapCustom()
   const nameCNMap = readNameCNMap()
   let updated = false
 
-  const results: SteamInfo['games'] = await Promise.all(
-    games.map(async (game: any) => {
+  const results: GameItem[] = await Promise.all(
+    apiGames.map(async (game: any) => {
       const id = game.appid
       const icon = `https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`
       let nameCN = nameCNMapCustom[id]
@@ -129,16 +146,62 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
       }
     }),
   )
+
+  // Merge local history games (from scripts/steam-local-sync.ts)
+  const localHistory = readLocalHistory()
+  const localEntries: GameItem[] = []
+
+  for (const [appIdStr, entry] of Object.entries(localHistory)) {
+    const appId = Number(appIdStr)
+    if (apiGameIds.has(appId)) {
+      // Already in API results, skip
+      console.log(`  [LocalHistory] AppID ${appId}: skipped (already in API)`)
+      continue
+    }
+
+    // Resolve name for local-only game
+    let nameCN = nameCNMapCustom[appId]
+    if (!nameCN) {
+      nameCN = nameCNMap[appId]
+    }
+    let name = nameCN || ''
+    if (!name) {
+      const title = await fetchSteamTitleCN(appId)
+      if (title) {
+        name = title
+        nameCN = title
+      }
+      else {
+        name = `Unknown Game (${appId})`
+        nameCN = name
+      }
+      nameCNMap[appId] = nameCN
+      updated = true
+    }
+
+    localEntries.push({
+      id: appId,
+      name,
+      nameCN,
+      playtimeForever: entry.playtime,
+      timeLastPlayed: entry.lastPlayed,
+      icon: `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/header.jpg`,
+    })
+    console.log(`  [LocalHistory] AppID ${appId}: merged (${nameCN})`)
+  }
+
   if (updated) {
     fs.writeFileSync('./data/steam/namecn_map.json', JSON.stringify(nameCNMap, null, 2), 'utf-8')
   }
-  return results
+
+  // API results first, then local entries
+  return [...results, ...localEntries]
 }
 
 async function main() {
   const steamId = process.env.STEAM_ID
   const steamKey = process.env.STEAM_KEY
-  const steamGamesExclude = process.env.STEAM_GAMES_EXCLUDE.split(',').map(i => +i)
+  const steamGamesExclude = (process.env.STEAM_GAMES_EXCLUDE || '').split(',').filter(Boolean).map(i => +i)
 
   if (!steamId || !steamKey) {
     throw new Error('STEAM_ID and STEAM_KEY must be set')

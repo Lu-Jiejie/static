@@ -407,5 +407,29 @@
     "playtimeForever": 69,
     "timeLastPlayed": 1761131912,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/3167020/header.jpg"
+  },
+  {
+    "id": 648100,
+    "name": "Raging Loop",
+    "nameCN": "Raging Loop",
+    "playtimeForever": 34,
+    "timeLastPlayed": 1783680050,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/648100/header.jpg"
+  },
+  {
+    "id": 1903340,
+    "name": "光与影：33号远征队",
+    "nameCN": "光与影：33号远征队",
+    "playtimeForever": 1884,
+    "timeLastPlayed": 1767974400,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/1903340/header.jpg"
+  },
+  {
+    "id": 2187220,
+    "name": "逆轉裁判456　王泥喜精選集",
+    "nameCN": "逆轉裁判456　王泥喜精選集",
+    "playtimeForever": 300,
+    "timeLastPlayed": 1786569411,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/2187220/header.jpg"
   }
 ]

@@ -2,13 +2,7 @@ import antfu from '@antfu/eslint-config'
 
 export default antfu(
   {
-    ignores: [
-      // eslint ignore globs here
-    ],
+    formatters: true,
+    markdown: false,
   },
-  {
-    rules: {
-      // override rules here
-    },
-  },
-)
+).removeRules('no-console')
