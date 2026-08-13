@@ -3,12 +3,13 @@
   "packageManager": "pnpm@10.15.0",
   "license": "MIT",
   "scripts": {
-    "generate:netease": "tsx ./scripts/netease.ts",
-    "generate:steam": "tsx ./scripts/steam.ts",
-    "generate:github": "tsx ./scripts/github.ts",
-    "generate:bangumi": "tsx ./scripts/bangumi.ts",
-    "generate:bilibili": "tsx ./scripts/bilibili.ts"
-  },
+    "tsx": "tsx",
+    "generate:netease": "tsx ./tasks/netease.ts",
+    "generate:steam": "tsx ./tasks/steam.ts",
+    "generate:github": "tsx ./tasks/github.ts",
+    "generate:bangumi": "tsx ./tasks/bangumi.ts",
+    "generate:bilibili": "tsx ./tasks/bilibili.ts"
+  }
   "devDependencies": {
     "@antfu/eslint-config": "^5.2.1",
     "@types/node": "^22.18.0",
