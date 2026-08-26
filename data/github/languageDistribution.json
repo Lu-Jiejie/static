@@ -9,25 +9,25 @@
     "color": "#f1e05a",
     "percentage": 0.3212111941956878
   },
-  "C#": {
-    "bytes": 79012,
-    "color": "#7355dd",
-    "percentage": 3.2575457419830167
-  },
   "Vue": {
     "bytes": 1190757,
     "color": "#41b883",
     "percentage": 49.093117438951936
+  },
+  "HTML": {
+    "bytes": 8100,
+    "color": "#e34c26",
+    "percentage": 0.33395079874022215
   },
   "CSS": {
     "bytes": 41297,
     "color": "#663399",
     "percentage": 1.7026131031574017
   },
-  "HTML": {
-    "bytes": 8100,
-    "color": "#e34c26",
-    "percentage": 0.33395079874022215
+  "C#": {
+    "bytes": 79012,
+    "color": "#7355dd",
+    "percentage": 3.2575457419830167
   },
   "Lua": {
     "bytes": 12577,
