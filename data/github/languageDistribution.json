@@ -14,20 +14,15 @@
     "color": "#41b883",
     "percentage": 49.093117438951936
   },
-  "HTML": {
-    "bytes": 8100,
-    "color": "#e34c26",
-    "percentage": 0.33395079874022215
-  },
   "CSS": {
     "bytes": 41297,
     "color": "#663399",
     "percentage": 1.7026131031574017
   },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.5185307649081202
+  "HTML": {
+    "bytes": 8100,
+    "color": "#e34c26",
+    "percentage": 0.33395079874022215
   },
   "PowerShell": {
     "bytes": 5844,
@@ -38,5 +33,10 @@
     "bytes": 79012,
     "color": "#7355dd",
     "percentage": 3.2575457419830167
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.5185307649081202
   }
 }
