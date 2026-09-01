@@ -1,13 +1,18 @@
 {
-  "Vue": {
-    "bytes": 1262353,
-    "color": "#41b883",
-    "percentage": 50.23065019360451
-  },
   "TypeScript": {
     "bytes": 1096139,
     "color": "#3178c6",
     "percentage": 43.616781258940605
+  },
+  "JavaScript": {
+    "bytes": 7791,
+    "color": "#f1e05a",
+    "percentage": 0.31001391501297393
+  },
+  "Vue": {
+    "bytes": 1262353,
+    "color": "#41b883",
+    "percentage": 50.23065019360451
   },
   "CSS": {
     "bytes": 41297,
@@ -19,20 +24,15 @@
     "color": "#e34c26",
     "percentage": 0.322309422616492
   },
-  "JavaScript": {
-    "bytes": 7791,
-    "color": "#f1e05a",
-    "percentage": 0.31001391501297393
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.5004550133639036
   },
   "C#": {
     "bytes": 79012,
     "color": "#7355dd",
     "percentage": 3.14398914812028
-  },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.5004550133639036
   },
   "PowerShell": {
     "bytes": 5844,
