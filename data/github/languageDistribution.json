@@ -1,9 +1,4 @@
 {
-  "Kotlin": {
-    "bytes": 1281569,
-    "color": "#A97BFF",
-    "percentage": 33.772764094593434
-  },
   "TypeScript": {
     "bytes": 1096139,
     "color": "#3178c6",
@@ -29,19 +24,24 @@
     "color": "#e34c26",
     "percentage": 0.21345662166157797
   },
+  "Kotlin": {
+    "bytes": 1281569,
+    "color": "#A97BFF",
+    "percentage": 33.772764094593434
+  },
   "C#": {
     "bytes": 79012,
     "color": "#7355dd",
     "percentage": 2.082177109966
   },
-  "PowerShell": {
-    "bytes": 5844,
-    "color": "#012456",
-    "percentage": 0.15400499962842734
-  },
   "Lua": {
     "bytes": 12577,
     "color": "#000080",
     "percentage": 0.3314375223009464
+  },
+  "PowerShell": {
+    "bytes": 5844,
+    "color": "#012456",
+    "percentage": 0.15400499962842734
   }
 }
