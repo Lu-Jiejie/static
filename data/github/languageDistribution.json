@@ -14,20 +14,15 @@
     "color": "#41b883",
     "percentage": 33.26637120053802
   },
-  "CSS": {
-    "bytes": 41297,
-    "color": "#663399",
-    "percentage": 1.0882861857726154
-  },
   "HTML": {
     "bytes": 8100,
     "color": "#e34c26",
     "percentage": 0.21345662166157797
   },
-  "C#": {
-    "bytes": 79012,
-    "color": "#7355dd",
-    "percentage": 2.082177109966
+  "CSS": {
+    "bytes": 41297,
+    "color": "#663399",
+    "percentage": 1.0882861857726154
   },
   "Kotlin": {
     "bytes": 1281569,
@@ -43,5 +38,10 @@
     "bytes": 5844,
     "color": "#012456",
     "percentage": 0.15400499962842734
+  },
+  "C#": {
+    "bytes": 79012,
+    "color": "#7355dd",
+    "percentage": 2.082177109966
   }
 }
