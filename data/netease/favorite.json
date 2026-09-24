@@ -1,5 +1,13 @@
 [
   {
+    "name": "浅粉红 baby pink",
+    "artist": "Gareth.T",
+    "album": "浅粉红",
+    "pic": "http://p1.music.126.net/1jbJJC3zsolEA3Y7DgzJjg==/109951173977460551.jpg",
+    "id": 3439425218,
+    "url": "https://music.163.com/#/song?id=3439425218"
+  },
+  {
     "name": "周旋",
     "artist": "王以太/艾热 AIR",
     "album": "太热爱",
@@ -38,13 +46,5 @@
     "pic": "http://p1.music.126.net/Ao3z8Adsv-yzXfN6LjKPyw==/109951172692547015.jpg",
     "id": 3346496288,
     "url": "https://music.163.com/#/song?id=3346496288"
-  },
-  {
-    "name": "早到的u",
-    "artist": "Gareth.T",
-    "album": "THE PROTÉGÉ",
-    "pic": "http://p1.music.126.net/8GkbKvNxycBiSrKKOdnp-w==/109951172929965724.jpg",
-    "id": 3362088319,
-    "url": "https://music.163.com/#/song?id=3362088319"
   }
 ]
