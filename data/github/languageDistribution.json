@@ -9,11 +9,6 @@
     "color": "#f1e05a",
     "percentage": 0.2053136468352289
   },
-  "Kotlin": {
-    "bytes": 1281569,
-    "color": "#A97BFF",
-    "percentage": 33.772764094593434
-  },
   "Vue": {
     "bytes": 1262353,
     "color": "#41b883",
@@ -28,6 +23,11 @@
     "bytes": 41297,
     "color": "#663399",
     "percentage": 1.0882861857726154
+  },
+  "Kotlin": {
+    "bytes": 1281569,
+    "color": "#A97BFF",
+    "percentage": 33.772764094593434
   },
   "C#": {
     "bytes": 79012,
