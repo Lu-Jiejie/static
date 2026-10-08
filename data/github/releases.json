@@ -1,5 +1,16 @@
 [
   {
+    "id": "406103227",
+    "type": "ReleaseEvent",
+    "repo": "flow-launcher-multi-translate",
+    "isOrg": true,
+    "title": "v0.2.7",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/flow-launcher-multi-translate/releases/tag/v0.2.7",
+    "created_at": 1791402223000,
+    "version": "0.2.7"
+  },
+  {
     "id": "349865203",
     "type": "ReleaseEvent",
     "repo": "remove-redirect",

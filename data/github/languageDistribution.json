@@ -1,57 +1,57 @@
 {
   "TypeScript": {
-    "bytes": 1096139,
+    "bytes": 1106845,
     "color": "#3178c6",
-    "percentage": 28.55448486921438
+    "percentage": 28.753186478446768
   },
   "JavaScript": {
     "bytes": 7791,
     "color": "#f1e05a",
-    "percentage": 0.2029560043170157
-  },
-  "Vue": {
-    "bytes": 1262353,
-    "color": "#41b883",
-    "percentage": 32.88436926166059
-  },
-  "CSS": {
-    "bytes": 41297,
-    "color": "#663399",
-    "percentage": 1.0757892581542543
-  },
-  "HTML": {
-    "bytes": 8100,
-    "color": "#e34c26",
-    "percentage": 0.21100547233574982
-  },
-  "C#": {
-    "bytes": 79012,
-    "color": "#7355dd",
-    "percentage": 2.0582672074311437
-  },
-  "Kotlin": {
-    "bytes": 1281569,
-    "color": "#A97BFF",
-    "percentage": 33.384947182204264
-  },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.32763158340329945
-  },
-  "PowerShell": {
-    "bytes": 18859,
-    "color": "#012456",
-    "percentage": 0.4912780497259143
+    "percentage": 0.20239155062685268
   },
   "Java": {
     "bytes": 17674,
     "color": "#b07219",
-    "percentage": 0.46040873062494353
+    "percentage": 0.4591282589884475
   },
   "Python": {
     "bytes": 13392,
     "color": "#3572A5",
-    "percentage": 0.3488623809284397
+    "percentage": 0.347892137850701
+  },
+  "PowerShell": {
+    "bytes": 18859,
+    "color": "#012456",
+    "percentage": 0.48991172548733347
+  },
+  "C#": {
+    "bytes": 79012,
+    "color": "#7355dd",
+    "percentage": 2.0525428312320475
+  },
+  "Vue": {
+    "bytes": 1262353,
+    "color": "#41b883",
+    "percentage": 32.792912477019556
+  },
+  "CSS": {
+    "bytes": 41297,
+    "color": "#663399",
+    "percentage": 1.0727973130839605
+  },
+  "HTML": {
+    "bytes": 8100,
+    "color": "#e34c26",
+    "percentage": 0.21041863176453687
+  },
+  "Kotlin": {
+    "bytes": 1281569,
+    "color": "#A97BFF",
+    "percentage": 33.292098208869845
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.3267203866299482
   }
 }
