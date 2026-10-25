@@ -1,57 +1,57 @@
 {
-  "Java": {
-    "bytes": 17674,
-    "color": "#b07219",
-    "percentage": 0.45101358118920704
-  },
-  "Python": {
-    "bytes": 13392,
-    "color": "#3572A5",
-    "percentage": 0.3417434581467614
-  },
-  "PowerShell": {
-    "bytes": 18859,
-    "color": "#012456",
-    "percentage": 0.4812529776874084
-  },
   "TypeScript": {
-    "bytes": 1142200,
+    "bytes": 1151051,
     "color": "#3178c6",
-    "percentage": 29.147205637338025
+    "percentage": 29.306875989795245
   },
   "JavaScript": {
     "bytes": 7791,
     "color": "#f1e05a",
-    "percentage": 0.19881446254640217
+    "percentage": 0.1983664241084841
   },
   "Vue": {
     "bytes": 1296258,
     "color": "#41b883",
-    "percentage": 33.07853132992866
-  },
-  "HTML": {
-    "bytes": 8100,
-    "color": "#e34c26",
-    "percentage": 0.20669967226618632
+    "percentage": 33.00398718803945
   },
   "CSS": {
     "bytes": 41297,
     "color": "#663399",
-    "percentage": 1.053836588342802
+    "percentage": 1.051461714338091
   },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.32094589852985494
+  "Java": {
+    "bytes": 17674,
+    "color": "#b07219",
+    "percentage": 0.4499971992932035
   },
-  "C#": {
-    "bytes": 79012,
-    "color": "#7355dd",
-    "percentage": 2.016265988283446
+  "Python": {
+    "bytes": 13392,
+    "color": "#3572A5",
+    "percentage": 0.3409733219947143
+  },
+  "PowerShell": {
+    "bytes": 18859,
+    "color": "#012456",
+    "percentage": 0.4801684497833272
   },
   "Kotlin": {
     "bytes": 1281569,
     "color": "#A97BFF",
-    "percentage": 32.70369040574125
+    "percentage": 32.62999098681631
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.320222630729355
+  },
+  "HTML": {
+    "bytes": 8100,
+    "color": "#e34c26",
+    "percentage": 0.20623386410970626
+  },
+  "C#": {
+    "bytes": 79012,
+    "color": "#7355dd",
+    "percentage": 2.011722230992112
   }
 }
