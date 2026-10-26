@@ -9,15 +9,35 @@
     "color": "#f1e05a",
     "percentage": 0.1983664241084841
   },
+  "C#": {
+    "bytes": 79012,
+    "color": "#7355dd",
+    "percentage": 2.011722230992112
+  },
   "Vue": {
     "bytes": 1296258,
     "color": "#41b883",
     "percentage": 33.00398718803945
   },
+  "HTML": {
+    "bytes": 8100,
+    "color": "#e34c26",
+    "percentage": 0.20623386410970626
+  },
   "CSS": {
     "bytes": 41297,
     "color": "#663399",
     "percentage": 1.051461714338091
+  },
+  "Kotlin": {
+    "bytes": 1281569,
+    "color": "#A97BFF",
+    "percentage": 32.62999098681631
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.320222630729355
   },
   "Java": {
     "bytes": 17674,
@@ -33,25 +53,5 @@
     "bytes": 18859,
     "color": "#012456",
     "percentage": 0.4801684497833272
-  },
-  "Kotlin": {
-    "bytes": 1281569,
-    "color": "#A97BFF",
-    "percentage": 32.62999098681631
-  },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.320222630729355
-  },
-  "HTML": {
-    "bytes": 8100,
-    "color": "#e34c26",
-    "percentage": 0.20623386410970626
-  },
-  "C#": {
-    "bytes": 79012,
-    "color": "#7355dd",
-    "percentage": 2.011722230992112
   }
 }
