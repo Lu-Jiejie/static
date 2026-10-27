@@ -9,10 +9,20 @@
     "color": "#f1e05a",
     "percentage": 0.1983664241084841
   },
-  "C#": {
-    "bytes": 79012,
-    "color": "#7355dd",
-    "percentage": 2.011722230992112
+  "Java": {
+    "bytes": 17674,
+    "color": "#b07219",
+    "percentage": 0.4499971992932035
+  },
+  "Python": {
+    "bytes": 13392,
+    "color": "#3572A5",
+    "percentage": 0.3409733219947143
+  },
+  "PowerShell": {
+    "bytes": 18859,
+    "color": "#012456",
+    "percentage": 0.4801684497833272
   },
   "Vue": {
     "bytes": 1296258,
@@ -39,19 +49,9 @@
     "color": "#000080",
     "percentage": 0.320222630729355
   },
-  "Java": {
-    "bytes": 17674,
-    "color": "#b07219",
-    "percentage": 0.4499971992932035
-  },
-  "Python": {
-    "bytes": 13392,
-    "color": "#3572A5",
-    "percentage": 0.3409733219947143
-  },
-  "PowerShell": {
-    "bytes": 18859,
-    "color": "#012456",
-    "percentage": 0.4801684497833272
+  "C#": {
+    "bytes": 79012,
+    "color": "#7355dd",
+    "percentage": 2.011722230992112
   }
 }
