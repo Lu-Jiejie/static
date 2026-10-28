@@ -408,6 +408,14 @@
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/3167020/header.jpg"
   },
   {
+    "id": 4115450,
+    "name": "Phantom Blade Zero",
+    "nameCN": "影之刃零",
+    "playtimeForever": 0,
+    "timeLastPlayed": 0,
+    "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/4115450/header.jpg"
+  },
+  {
     "id": 648100,
     "name": "人狼村之谜",
     "nameCN": "人狼村之谜",
