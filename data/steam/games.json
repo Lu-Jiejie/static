@@ -411,8 +411,9 @@
     "id": 4115450,
     "name": "Phantom Blade Zero",
     "nameCN": "影之刃零",
-    "playtimeForever": 0,
-    "timeLastPlayed": 0,
+    "playtimeForever": 266,
+    "playtime2Weeks": 270,
+    "timeLastPlayed": 1793292312,
     "icon": "https://cdn.cloudflare.steamstatic.com/steam/apps/4115450/header.jpg"
   },
   {
