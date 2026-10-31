@@ -14,15 +14,25 @@
     "color": "#41b883",
     "percentage": 30.150765690978016
   },
+  "HTML": {
+    "bytes": 8100,
+    "color": "#e34c26",
+    "percentage": 0.18840477906166977
+  },
   "CSS": {
     "bytes": 73047,
     "color": "#663399",
     "percentage": 1.6990622093972583
   },
-  "HTML": {
-    "bytes": 8100,
-    "color": "#e34c26",
-    "percentage": 0.18840477906166977
+  "Astro": {
+    "bytes": 211986,
+    "color": "#ff5a03",
+    "percentage": 4.9307624066872995
+  },
+  "MDX": {
+    "bytes": 9031,
+    "color": "#fcb32c",
+    "percentage": 0.21005969872912836
   },
   "Kotlin": {
     "bytes": 1281569,
@@ -34,15 +44,10 @@
     "color": "#7355dd",
     "percentage": 1.8378072102741547
   },
-  "Astro": {
-    "bytes": 211986,
-    "color": "#ff5a03",
-    "percentage": 4.9307624066872995
-  },
-  "MDX": {
-    "bytes": 9031,
-    "color": "#fcb32c",
-    "percentage": 0.21005969872912836
+  "PowerShell": {
+    "bytes": 18859,
+    "color": "#012456",
+    "percentage": 0.43865749732395437
   },
   "Lua": {
     "bytes": 12577,
@@ -58,10 +63,5 @@
     "bytes": 13392,
     "color": "#3572A5",
     "percentage": 0.3114959013819607
-  },
-  "PowerShell": {
-    "bytes": 18859,
-    "color": "#012456",
-    "percentage": 0.43865749732395437
   }
 }
