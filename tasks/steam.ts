@@ -110,13 +110,61 @@ async function fetchSteamTitleCN(appid: number): Promise<string | null> {
   }
 }
 
+const STORE_ASSET_BASE = 'https://shared.akamai.steamstatic.com/store_item_assets'
+
+// 新上架游戏的封面迁到了带 hash 的路径（steam/apps/{id}/{hash}/header.jpg），
+// 旧的 steam/apps/{id}/header.jpg 对它们一律 404，所以向 StoreBrowse 查真实文件名。
+async function fetchStoreHeaders(appIds: number[]): Promise<Record<number, string>> {
+  const covers: Record<number, string> = {}
+  const chunkSize = 100
+
+  for (let i = 0; i < appIds.length; i += chunkSize) {
+    const ids = appIds.slice(i, i + chunkSize).map(appid => ({ appid }))
+    const input = JSON.stringify({
+      ids,
+      context: { language: 'schinese', country_code: 'CN' },
+      data_request: { include_assets: true },
+    })
+
+    try {
+      const { data } = await axios.get(
+        `https://api.steampowered.com/IStoreBrowseService/GetItems/v1/?input_json=${encodeURIComponent(input)}`,
+      )
+
+      for (const item of data?.response?.store_items ?? []) {
+        const assets = item.assets
+        if (!assets?.header || !assets?.asset_url_format)
+          continue
+        covers[item.appid] = `${STORE_ASSET_BASE}/${assets.asset_url_format.replace('${FILENAME}', assets.header)}`
+      }
+    }
+    catch (err) {
+      console.warn(`  [Cover] StoreBrowse failed for batch ${i / chunkSize}:`, (err as Error).message)
+    }
+  }
+
+  return covers
+}
+
+// StoreBrowse 查不到的（下架 / 无商店页）退回旧路径，多数老游戏仍然有效
+function legacyCover(appId: number) {
+  return `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/header.jpg`
+}
+
 async function fetchOwnedGames(id: string, key: string, exclude: number[]): Promise<GameItem[]> {
   const { data } = await axios.get(
     `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${key}&steamid=${id}&format=json&include_appinfo=true&include_played_free_games=true`,
   )
 
   const apiGames = data.response.games.filter((game: any) => !exclude.includes(game.appid))
-  const apiGameIds = new Set(apiGames.map((g: any) => g.appid))
+  const apiGameIds = new Set<number>(apiGames.map((g: any) => g.appid))
+
+  const localHistory = readLocalHistory()
+  const localAppIds = Object.keys(localHistory)
+    .map(Number)
+    .filter(appId => !apiGameIds.has(appId))
+
+  const covers = await fetchStoreHeaders([...apiGameIds, ...localAppIds])
 
   const nameCNMapCustom = readNameCNMapCustom()
   const nameCNMap = readNameCNMap()
@@ -125,7 +173,6 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
   const results: GameItem[] = await Promise.all(
     apiGames.map(async (game: any) => {
       const id = game.appid
-      const icon = `https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`
       let nameCN = nameCNMapCustom[id]
       if (!nameCN) {
         nameCN = nameCNMap[id]
@@ -142,22 +189,16 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
         playtimeForever: game.playtime_forever,
         playtime2Weeks: game.playtime_2weeks,
         timeLastPlayed: game.rtime_last_played,
-        icon,
+        icon: covers[id] ?? legacyCover(id),
       }
     }),
   )
 
   // Merge local history games (from scripts/steam-local-sync.ts)
-  const localHistory = readLocalHistory()
   const localEntries: GameItem[] = []
 
-  for (const [appIdStr, entry] of Object.entries(localHistory)) {
-    const appId = Number(appIdStr)
-    if (apiGameIds.has(appId)) {
-      // Already in API results, skip
-      console.log(`  [LocalHistory] AppID ${appId}: skipped (already in API)`)
-      continue
-    }
+  for (const appId of localAppIds) {
+    const entry = localHistory[appId]
 
     // Resolve name for local-only game
     let nameCN = nameCNMapCustom[appId]
@@ -185,7 +226,7 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
       nameCN,
       playtimeForever: entry.playtime,
       timeLastPlayed: entry.lastPlayed,
-      icon: `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/header.jpg`,
+      icon: covers[appId] ?? legacyCover(appId),
     })
     console.log(`  [LocalHistory] AppID ${appId}: merged (${nameCN})`)
   }
