@@ -24,11 +24,6 @@
     "color": "#f1e05a",
     "percentage": 0.19627572418713485
   },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.3168476168786542
-  },
   "Java": {
     "bytes": 17674,
     "color": "#b07219",
@@ -44,14 +39,19 @@
     "color": "#012456",
     "percentage": 0.475107673269821
   },
-  "C#": {
-    "bytes": 118593,
-    "color": "#7355dd",
-    "percentage": 2.9876687149948506
-  },
   "Kotlin": {
     "bytes": 1281569,
     "color": "#A97BFF",
     "percentage": 32.28608440133259
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.3168476168786542
+  },
+  "C#": {
+    "bytes": 118593,
+    "color": "#7355dd",
+    "percentage": 2.9876687149948506
   }
 }
