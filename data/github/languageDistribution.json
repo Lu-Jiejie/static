@@ -1,57 +1,62 @@
 {
-  "Vue": {
-    "bytes": 1296258,
-    "color": "#41b883",
-    "percentage": 32.65613883755192
+  "Java": {
+    "bytes": 78846,
+    "color": "#b07219",
+    "percentage": 1.9484977395291043
+  },
+  "Python": {
+    "bytes": 23115,
+    "color": "#3572A5",
+    "percentage": 0.5712341177639354
+  },
+  "Shell": {
+    "bytes": 6191,
+    "color": "#89e051",
+    "percentage": 0.1529963410372712
   },
   "TypeScript": {
     "bytes": 1153306,
     "color": "#3178c6",
-    "percentage": 29.0548030239209
-  },
-  "HTML": {
-    "bytes": 8100,
-    "color": "#e34c26",
-    "percentage": 0.20406024463044437
-  },
-  "CSS": {
-    "bytes": 41297,
-    "color": "#663399",
-    "percentage": 1.040379743518946
+    "percentage": 28.501308043342128
   },
   "JavaScript": {
     "bytes": 7791,
     "color": "#f1e05a",
-    "percentage": 0.19627572418713485
+    "percentage": 0.1925366650010305
   },
-  "Java": {
-    "bytes": 17674,
-    "color": "#b07219",
-    "percentage": 0.44525441525907083
+  "Vue": {
+    "bytes": 1296258,
+    "color": "#41b883",
+    "percentage": 32.0340382878842
   },
-  "Python": {
-    "bytes": 13392,
-    "color": "#3572A5",
-    "percentage": 0.33737960445566806
+  "HTML": {
+    "bytes": 8100,
+    "color": "#e34c26",
+    "percentage": 0.20017289006653152
   },
-  "PowerShell": {
-    "bytes": 18859,
-    "color": "#012456",
-    "percentage": 0.475107673269821
-  },
-  "Kotlin": {
-    "bytes": 1281569,
-    "color": "#A97BFF",
-    "percentage": 32.28608440133259
-  },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.3168476168786542
+  "CSS": {
+    "bytes": 41297,
+    "color": "#663399",
+    "percentage": 1.0205604742071053
   },
   "C#": {
     "bytes": 118593,
     "color": "#7355dd",
-    "percentage": 2.9876687149948506
+    "percentage": 2.9307535248963177
+  },
+  "PowerShell": {
+    "bytes": 18859,
+    "color": "#012456",
+    "percentage": 0.46605685602033564
+  },
+  "Kotlin": {
+    "bytes": 1281569,
+    "color": "#A97BFF",
+    "percentage": 31.671033401194414
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.31081165905762553
   }
 }

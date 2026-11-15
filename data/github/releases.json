@@ -1,5 +1,16 @@
 [
   {
+    "id": "445336672",
+    "type": "ReleaseEvent",
+    "repo": "Hpoi-Exhobby-Lsposed",
+    "isOrg": true,
+    "title": "0.1.3",
+    "sha": "main",
+    "commit": "https://github.com/Lu-Jiejie/Hpoi-Exhobby-Lsposed/releases/tag/0.1.3",
+    "created_at": 1794665039000,
+    "version": "0.1.3"
+  },
+  {
     "id": "429900625",
     "type": "ReleaseEvent",
     "repo": "flow-launcher-multi-translate",
