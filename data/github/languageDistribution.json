@@ -1,62 +1,62 @@
 {
-  "Java": {
-    "bytes": 78846,
-    "color": "#b07219",
-    "percentage": 1.9484977395291043
-  },
-  "Python": {
-    "bytes": 23115,
-    "color": "#3572A5",
-    "percentage": 0.5712341177639354
-  },
-  "Shell": {
-    "bytes": 6191,
-    "color": "#89e051",
-    "percentage": 0.1529963410372712
+  "PowerShell": {
+    "bytes": 39598,
+    "color": "#012456",
+    "percentage": 0.9735838127123522
   },
   "TypeScript": {
     "bytes": 1153306,
     "color": "#3178c6",
-    "percentage": 28.501308043342128
-  },
-  "JavaScript": {
-    "bytes": 7791,
-    "color": "#f1e05a",
-    "percentage": 0.1925366650010305
+    "percentage": 28.355978905602104
   },
   "Vue": {
     "bytes": 1296258,
     "color": "#41b883",
-    "percentage": 32.0340382878842
-  },
-  "HTML": {
-    "bytes": 8100,
-    "color": "#e34c26",
-    "percentage": 0.20017289006653152
+    "percentage": 31.870695638640544
   },
   "CSS": {
     "bytes": 41297,
     "color": "#663399",
-    "percentage": 1.0205604742071053
+    "percentage": 1.0153566016864994
+  },
+  "HTML": {
+    "bytes": 8100,
+    "color": "#e34c26",
+    "percentage": 0.1991522017013499
+  },
+  "JavaScript": {
+    "bytes": 7791,
+    "color": "#f1e05a",
+    "percentage": 0.1915549140068169
   },
   "C#": {
     "bytes": 118593,
     "color": "#7355dd",
-    "percentage": 2.9307535248963177
-  },
-  "PowerShell": {
-    "bytes": 18859,
-    "color": "#012456",
-    "percentage": 0.46605685602033564
-  },
-  "Kotlin": {
-    "bytes": 1281569,
-    "color": "#A97BFF",
-    "percentage": 31.671033401194414
+    "percentage": 2.915809513131875
   },
   "Lua": {
     "bytes": 12577,
     "color": "#000080",
-    "percentage": 0.31081165905762553
+    "percentage": 0.30922681985158984
+  },
+  "Java": {
+    "bytes": 78846,
+    "color": "#b07219",
+    "percentage": 1.9385622833758807
+  },
+  "Python": {
+    "bytes": 23115,
+    "color": "#3572A5",
+    "percentage": 0.5683213755958892
+  },
+  "Shell": {
+    "bytes": 6191,
+    "color": "#89e051",
+    "percentage": 0.1522162074979083
+  },
+  "Kotlin": {
+    "bytes": 1281569,
+    "color": "#A97BFF",
+    "percentage": 31.50954172619719
   }
 }
