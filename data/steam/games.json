@@ -436,8 +436,16 @@
     "id": 2187220,
     "name": "逆转裁判456 王泥喜精选集",
     "nameCN": "逆转裁判456 王泥喜精选集",
-    "playtimeForever": 300,
-    "timeLastPlayed": 1786569411,
+    "playtimeForever": 301,
+    "timeLastPlayed": 1791496580,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2187220/header_schinese.jpg?t=1791439477"
+  },
+  {
+    "id": 3246682148,
+    "name": "13 Sentinels: Aegis Rim",
+    "nameCN": "十三机兵防卫圈",
+    "playtimeForever": 1505,
+    "timeLastPlayed": 1794969221,
+    "icon": "https://fastly.jsdelivr.net/gh/Lu-Jiejie/static@main/data/steam/covers/3246682148.jpg"
   }
 ]

@@ -1,11 +1,14 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import axios from 'axios'
 import { writeJsonFile } from '../utils'
 
 interface LocalHistoryEntry {
   playtime: number
   lastPlayed: number
+  name?: string
+  cover?: string
 }
 
 interface LocalHistoryData {
@@ -13,19 +16,42 @@ interface LocalHistoryData {
 }
 
 interface ExtraGameConfig {
-  appId: string
-  playtime: number
-  lastPlayed: number
+  appId?: string | number
+  name?: string
+  nameCN?: string
+  playtime: number | string
+  lastPlayed: number | string
+  cover?: string
 }
 
 interface LocalSyncConfig {
   vdfPath: string
   fakeAppIds: number[]
   extraGames: ExtraGameConfig[]
+  shortcutsPath?: string
+  gridPath?: string
+  sgdbApiKey?: string
+}
+
+interface ShortcutEntry {
+  appId: number
+  name: string
+  lastPlayTime: number
 }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const CONFIG_PATH = path.resolve(__dirname, './config.json')
+const HISTORY_PATH = './data/steam/games_local.json'
+const NAMECN_CUSTOM_PATH = './data/steam/namecn_map_custom.json'
+const COVERS_DIR = './data/steam/covers'
+const COVER_EXTS = ['jpg', 'png', 'jpeg', 'webp']
+
+// SRM ships this key in src/lib/image-providers/api-key.ts
+const DEFAULT_SGDB_KEY = 'f80f92019254471cca9d62ff91c21eee'
+const SGDB_API = 'https://www.steamgriddb.com/api/v2'
+
+const DRY_RUN = process.argv.includes('--dry-run')
+const FORCE = process.argv.includes('--force')
 
 function readConfig(): LocalSyncConfig {
   try {
@@ -37,6 +63,15 @@ function readConfig(): LocalSyncConfig {
       `Missing config file: ${CONFIG_PATH}\n`
       + 'Create it with your Steam local config.',
     )
+  }
+}
+
+function readJson<T>(filePath: string, fallback: T): T {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+  }
+  catch {
+    return fallback
   }
 }
 
@@ -81,49 +116,418 @@ function extractAppDataFromVdf(lines: string[], appId: string): { playtime: numb
   return null
 }
 
-function readExistingHistory(): LocalHistoryData {
+// shortcuts are stored as signed int32 by Steam; localconfig is keyed by that same signed form
+function toSignedAppId(appId: number): number {
+  return appId > 0x7FFFFFFF ? appId - 0x100000000 : appId
+}
+
+// shortcuts.vdf is binary VDF: [type][key\0][value], 0x08 closes a map
+function parseShortcutsVdf(filePath: string): ShortcutEntry[] {
+  if (!fs.existsSync(filePath)) {
+    return []
+  }
+
+  const buf = fs.readFileSync(filePath)
+  let pos = 0
+
+  const readCString = () => {
+    const end = buf.indexOf(0x00, pos)
+    const value = buf.toString('utf8', pos, end)
+    pos = end + 1
+    return value
+  }
+
+  const readMap = (): Record<string, any> => {
+    const map: Record<string, any> = {}
+    while (buf[pos] !== 0x08) {
+      const type = buf[pos++]
+      const key = readCString()
+      if (type === 0x00) map[key] = readMap()
+      else if (type === 0x01) map[key] = readCString()
+      else if (type === 0x02) {
+        map[key] = buf.readInt32LE(pos)
+        pos += 4
+      }
+      else if (type === 0x07) {
+        map[key] = buf.readBigUInt64LE(pos).toString()
+        pos += 8
+      }
+      else {
+        throw new Error(`shortcuts.vdf: unsupported type 0x${type.toString(16)} at ${pos}`)
+      }
+    }
+    pos++
+    return map
+  }
+
+  if (buf[pos] !== 0x00) {
+    throw new Error('shortcuts.vdf: root is not a map')
+  }
+  pos++
+  const rootKey = readCString()
+  if (rootKey !== 'shortcuts') {
+    console.warn(`shortcuts.vdf: unexpected root key "${rootKey}"`)
+  }
+  // readMap already returns the contents of the "shortcuts" map
+  const root = readMap()
+
+  return Object.values(root).map((item: any) => ({
+    appId: item.appid >>> 0,
+    name: item.appname ?? '',
+    lastPlayTime: Number(item.LastPlayTime ?? 0),
+  }))
+}
+
+// Some SRM parsers name the artwork with a 64-bit id instead of the raw appid
+function toArtworkId(appId: number): string {
+  return (BigInt(appId) * BigInt(4294967296) + BigInt(33554432)).toString()
+}
+
+function existingCover(appId: string): string | null {
+  for (const ext of COVER_EXTS) {
+    if (fs.existsSync(path.join(COVERS_DIR, `${appId}.${ext}`))) {
+      return `data/steam/covers/${appId}.${ext}`
+    }
+  }
+  return null
+}
+
+function writeCover(appId: string, ext: string, data: Buffer): string {
+  const relative = `data/steam/covers/${appId}.${ext}`
+  if (DRY_RUN) {
+    return relative
+  }
+
+  fs.mkdirSync(COVERS_DIR, { recursive: true })
+  fs.writeFileSync(path.join(COVERS_DIR, `${appId}.${ext}`), data)
+
+  for (const other of COVER_EXTS) {
+    if (other !== ext && fs.existsSync(path.join(COVERS_DIR, `${appId}.${other}`))) {
+      fs.rmSync(path.join(COVERS_DIR, `${appId}.${other}`))
+    }
+  }
+  return relative
+}
+
+function copyCover(appId: string, source: string): string {
+  const ext = (path.extname(source).slice(1) || 'jpg').toLowerCase().replace('jpeg', 'jpg')
+  return writeCover(appId, ext, fs.readFileSync(source))
+}
+
+// Copies artwork Steam/SRM already downloaded into the repo
+function syncGridCover(appId: number, gridPath: string): string | null {
+  for (const name of [String(appId), toArtworkId(appId)]) {
+    for (const ext of COVER_EXTS) {
+      const source = path.join(gridPath, `${name}.${ext}`)
+      if (fs.existsSync(source)) {
+        return copyCover(String(appId), source)
+      }
+    }
+  }
+  return null
+}
+
+async function searchSgdbGrid(title: string, apiKey: string): Promise<string | null> {
+  const headers = { Authorization: `Bearer ${apiKey}` }
+  const { data: search } = await axios.get(
+    `${SGDB_API}/search/autocomplete/${encodeURIComponent(title)}`,
+    { headers, timeout: 20000 },
+  )
+  const game = search?.data?.[0]
+  if (!game) {
+    return null
+  }
+
+  const { data: grids } = await axios.get(
+    `${SGDB_API}/grids/game/${game.id}`,
+    { headers, timeout: 20000 },
+  )
+  const list: any[] = grids?.data ?? []
+  // 920x430 is what the blog card renders; 460x215 is the same ratio
+  const best = list.find(g => g.width === 920 && g.height === 430)
+    ?? list.find(g => g.width === 460 && g.height === 215)
+    ?? list[0]
+
+  if (!best?.url) {
+    return null
+  }
+  console.log(`  [Cover] sgdb match "${game.name}" -> ${best.width}x${best.height}`)
+  return best.url
+}
+
+async function downloadCover(appId: string, url: string): Promise<string> {
+  const match = new URL(url).pathname.match(/\.(jpe?g|png|webp|gif)$/i)
+  const ext = match ? match[1].toLowerCase().replace('jpeg', 'jpg') : 'jpg'
+
+  const { data } = await axios.get(url, {
+    responseType: 'arraybuffer',
+    timeout: 30000,
+    headers: { 'User-Agent': 'Mozilla/5.0' },
+  })
+  return writeCover(appId, ext, Buffer.from(data))
+}
+
+// 列出 SteamGridDB 上的候选封面，供手动挑选（不下载、不写文件）
+async function listCovers(title: string, apiKey: string) {
+  const headers = { Authorization: `Bearer ${apiKey}` }
+  const { data: search } = await axios.get(
+    `${SGDB_API}/search/autocomplete/${encodeURIComponent(title)}`,
+    { headers, timeout: 20000 },
+  )
+  const game = search?.data?.[0]
+  if (!game) {
+    console.log(`没有搜到 "${title}"`)
+    return
+  }
+
+  const { data: grids } = await axios.get(
+    `${SGDB_API}/grids/game/${game.id}`,
+    { headers, timeout: 20000 },
+  )
+  const list: any[] = grids?.data ?? []
+  const wide = list.filter(g => g.width === 920 && g.height === 430)
+  const shown = wide.length ? wide : list
+
+  console.log(`"${game.name}" (sgdb game ${game.id}) 共 ${list.length} 张，其中 920x430 有 ${wide.length} 张\n`)
+  shown.forEach((g: any) => {
+    console.log(`  ${String(g.id).padEnd(8)} ${String(`${g.width}x${g.height}`).padEnd(10)} ${g.mime.replace('image/', '').padEnd(5)} ${g.author?.name ?? '?'}`)
+    console.log(`           ${g.url}`)
+  })
+  console.log('\n挑好后把 url 填到 extraGames[].cover，或直接下载图片放进 data/steam/covers/')
+}
+
+/**
+ * cover 取值：
+ *  - 省略     -> 已有封面 > SRM 的 grid 图 > 自动去 SteamGridDB 搜一张
+ *  - "sgdb"   -> 直接去 SteamGridDB 搜
+ *  - http(s)  -> 下载该 URL
+ *  - 其它     -> 当作本地文件路径复制进来
+ *
+ * 无论如何，covers/ 里已有的文件都不会被覆盖（除非 --force），
+ * 这样你自己换的图能一直留着。
+ */
+async function resolveCover(
+  appId: string,
+  cover: string | undefined,
+  title: string | undefined,
+  gridPath: string,
+  apiKey: string,
+): Promise<string | null> {
+  // 手动放的图优先，永不覆盖
+  if (!FORCE) {
+    const already = existingCover(appId)
+    if (already) {
+      return already
+    }
+  }
+
+  if (cover && /^https?:\/\//i.test(cover)) {
+    return downloadCover(appId, cover)
+  }
+
+  if (cover && cover !== 'sgdb') {
+    if (!fs.existsSync(cover)) {
+      console.warn(`  [Cover] ${appId}: local file not found: ${cover}`)
+      return null
+    }
+    return copyCover(appId, cover)
+  }
+
+  // 没指定来源：先蹭 SRM 已经下好的图
+  if (!cover && gridPath) {
+    const fromGrid = syncGridCover(Number(appId), gridPath)
+    if (fromGrid) {
+      return fromGrid
+    }
+  }
+
+  // 再不行就去 SteamGridDB 搜
+  return autoCover(appId, title, apiKey)
+}
+
+// 按名字去 SteamGridDB 抓一张 920x430 的封面
+async function autoCover(appId: string, title: string | undefined, apiKey: string): Promise<string | null> {
+  if (!title) {
+    return null
+  }
   try {
-    const raw = fs.readFileSync('./data/steam/games_local.json', 'utf-8')
-    return JSON.parse(raw)
+    const url = await searchSgdbGrid(title, apiKey)
+    if (!url) {
+      console.warn(`  [Cover] ${appId}: SteamGridDB 没搜到 "${title}"`)
+      return null
+    }
+    return downloadCover(appId, url)
   }
-  catch {
-    return {}
+  catch (err) {
+    console.warn(`  [Cover] ${appId}: 抓封面失败 (${(err as Error).message})`)
+    return null
   }
+}
+
+// Non-Steam appids live above 2^31, so the high bit keeps generated ids out of Steam's range
+function stableAppId(seed: string): number {
+  let hash = 0x811C9DC5
+  for (const char of seed) {
+    hash ^= char.codePointAt(0) as number
+    hash = Math.imul(hash, 0x01000193) >>> 0
+  }
+  return (hash | 0x80000000) >>> 0
+}
+
+function toMinutes(value: number | string): number {
+  if (typeof value === 'number') {
+    return Math.round(value)
+  }
+  const hours = value.trim().match(/^([\d.]+)\s*h(?:ours?)?$/i)
+  if (hours) {
+    return Math.round(Number(hours[1]) * 60)
+  }
+  return Math.round(Number(value))
+}
+
+function toTimestamp(value: number | string): number {
+  if (typeof value === 'number') {
+    return Math.round(value)
+  }
+  const numeric = value.trim().match(/^\d+$/)
+  if (numeric) {
+    return Number(numeric[0])
+  }
+  const parsed = Date.parse(value)
+  if (Number.isNaN(parsed)) {
+    throw new Error(`Cannot parse time: ${value}`)
+  }
+  return Math.floor(parsed / 1000)
+}
+
+function readExistingHistory(): LocalHistoryData {
+  return readJson<LocalHistoryData>(HISTORY_PATH, {})
+}
+
+function merge(existingHistory: LocalHistoryData, key: string, data: LocalHistoryEntry, label: string) {
+  const old = existingHistory[key] ?? { playtime: 0, lastPlayed: 0 }
+  const merged: LocalHistoryEntry = {
+    playtime: Math.max(old.playtime ?? 0, data.playtime),
+    lastPlayed: Math.max(old.lastPlayed ?? 0, data.lastPlayed),
+    ...(data.name ?? old.name ? { name: data.name ?? old.name } : {}),
+    ...(data.cover ?? old.cover ? { cover: data.cover ?? old.cover } : {}),
+  }
+  existingHistory[key] = merged
+  console.log(
+    `[${label}] ${key} ${merged.name ?? ''}: `
+    + `${merged.playtime}min, last: ${merged.lastPlayed}`
+    + `${merged.cover ? `, cover: ${merged.cover}` : ''}`,
+  )
+  return merged
 }
 
 async function main() {
   const config = readConfig()
+
+  const sgdbApiKey = config.sgdbApiKey || process.env.STEAMGRIDDB_API_KEY || DEFAULT_SGDB_KEY
+
+  // --list-covers "<名字>"：只列出 SteamGridDB 候选图，不写任何文件
+  const listIndex = process.argv.indexOf('--list-covers')
+  if (listIndex !== -1) {
+    const title = process.argv[listIndex + 1]
+    if (!title) {
+      throw new Error('用法: --list-covers "<游戏名>"')
+    }
+    await listCovers(title, sgdbApiKey)
+    return
+  }
+
   const existingHistory = readExistingHistory()
   const vdfLines = readVdfFile(config.vdfPath)
 
-  // Process fake app IDs from Steam VDF
+  const configDir = path.dirname(config.vdfPath)
+  const shortcutsPath = config.shortcutsPath ?? path.join(configDir, 'shortcuts.vdf')
+  const gridPath = config.gridPath ?? path.join(configDir, 'grid')
+
+  // fake-stock real appids: keyed by the plain appid in localconfig
   for (const appId of config.fakeAppIds) {
     const data = extractAppDataFromVdf(vdfLines, String(appId))
     if (data) {
-      const old = existingHistory[appId]
-      existingHistory[appId] = {
-        playtime: Math.max(old?.playtime ?? 0, data.playtime),
-        lastPlayed: Math.max(old?.lastPlayed ?? 0, data.lastPlayed),
-      }
-      console.log(`[VDF] AppID ${appId}: ${existingHistory[appId].playtime}min, last: ${existingHistory[appId].lastPlayed}`)
+      merge(existingHistory, String(appId), data, 'VDF')
     }
     else {
       console.log(`[VDF] AppID ${appId}: not found in VDF`)
     }
   }
 
-  // Process extra manually configured games
-  for (const extra of config.extraGames) {
-    const old = existingHistory[extra.appId]
-    existingHistory[extra.appId] = {
-      playtime: Math.max(old?.playtime ?? 0, extra.playtime),
-      lastPlayed: Math.max(old?.lastPlayed ?? 0, extra.lastPlayed),
+  // non-Steam shortcuts: playtime lives under the signed appid, last played in shortcuts.vdf
+  const shortcuts = parseShortcutsVdf(shortcutsPath)
+  for (const shortcut of shortcuts) {
+    const signed = toSignedAppId(shortcut.appId)
+    const unsigned = extractAppDataFromVdf(vdfLines, String(shortcut.appId))
+    const signedData = extractAppDataFromVdf(vdfLines, String(signed))
+
+    const playtime = Math.max(unsigned?.playtime ?? 0, signedData?.playtime ?? 0)
+    const lastPlayed = Math.max(
+      unsigned?.lastPlayed ?? 0,
+      signedData?.lastPlayed ?? 0,
+      shortcut.lastPlayTime,
+    )
+
+    if (playtime === 0 && lastPlayed === 0) {
+      console.log(`[Shortcut] ${shortcut.appId} ${shortcut.name}: no play data yet, skipped`)
+      continue
     }
-    console.log(`[Extra] AppID ${extra.appId}: ${existingHistory[extra.appId].playtime}min, last: ${existingHistory[extra.appId].lastPlayed}`)
+
+    const cover = await resolveCover(String(shortcut.appId), undefined, shortcut.name, gridPath, sgdbApiKey)
+    merge(existingHistory, String(shortcut.appId), {
+      playtime,
+      lastPlayed,
+      name: shortcut.name,
+      ...(cover ? { cover } : {}),
+    }, 'Shortcut')
+
+    if (!cover) {
+      console.log(`  [Cover] ${shortcut.appId}: no artwork found in ${gridPath}`)
+    }
   }
 
-  writeJsonFile('./data/steam/games_local.json', existingHistory)
-  console.log('Saved to data/steam/games_local.json')
+  // 手动补录：steam 里没有记录的老游戏，或想自己指定封面来源
+  const nameCNCustom = readJson<Record<string, string>>(NAMECN_CUSTOM_PATH, {})
+  let nameCNUpdated = false
+
+  for (const extra of config.extraGames) {
+    const title = extra.name
+    const key = extra.appId != null ? String(extra.appId) : (title ? String(stableAppId(title)) : '')
+
+    if (!key) {
+      console.warn('[Extra] entry needs an appId or a name, skipped')
+      continue
+    }
+    if (extra.appId == null) {
+      console.log(`[Extra] ${title}: generated appId ${key}`)
+    }
+
+    const cover = await resolveCover(key, extra.cover === 'grid' ? undefined : extra.cover, title, gridPath, sgdbApiKey)
+    merge(existingHistory, key, {
+      playtime: toMinutes(extra.playtime),
+      lastPlayed: toTimestamp(extra.lastPlayed),
+      ...(title ? { name: title } : {}),
+      ...(cover ? { cover } : {}),
+    }, 'Extra')
+
+    if (extra.nameCN && nameCNCustom[key] !== extra.nameCN) {
+      nameCNCustom[key] = extra.nameCN
+      nameCNUpdated = true
+    }
+  }
+
+  if (DRY_RUN) {
+    console.log('\n--- dry run, nothing written ---')
+    console.log(JSON.stringify(existingHistory, null, 2))
+    return
+  }
+
+  await writeJsonFile(HISTORY_PATH, existingHistory)
+  if (nameCNUpdated) {
+    await writeJsonFile(NAMECN_CUSTOM_PATH, nameCNCustom)
+  }
+  console.log(`\nSaved to ${HISTORY_PATH}`)
 }
 
 main().catch((err) => {

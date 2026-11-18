@@ -1,0 +1,19 @@
+{
+  "vdfPath": "D:\\Steam\\userdata\\<accountId>\\config\\localconfig.vdf",
+  "fakeAppIds": [2187220, 648100],
+  "sgdbApiKey": "",
+  "extraGames": [
+    {
+      "appId": "1903340",
+      "playtime": 1884,
+      "lastPlayed": 1767974400
+    },
+    {
+      "name": "Some Old Game",
+      "nameCN": "某个老游戏",
+      "playtime": "12h",
+      "lastPlayed": "2021-06-01",
+      "cover": "sgdb"
+    }
+  ]
+}

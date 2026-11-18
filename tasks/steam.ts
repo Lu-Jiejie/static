@@ -34,7 +34,12 @@ function readNameCNMap(): Record<string, string> {
 interface LocalHistoryEntry {
   playtime: number
   lastPlayed: number
+  name?: string
+  cover?: string
 }
+
+// Local (non-Steam / shortcut) covers are copied into the repo by scripts/steam-local-sync.ts
+const LOCAL_COVER_BASE = 'https://fastly.jsdelivr.net/gh/Lu-Jiejie/static@main'
 
 function readLocalHistory(): Record<string, LocalHistoryEntry> {
   try {
@@ -200,12 +205,15 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
   for (const appId of localAppIds) {
     const entry = localHistory[appId]
 
-    // Resolve name for local-only game
+    // Resolve name for local-only game: sync-provided name wins, then manual maps, then store scrape
     let nameCN = nameCNMapCustom[appId]
     if (!nameCN) {
       nameCN = nameCNMap[appId]
     }
-    let name = nameCN || ''
+    let name = entry.name || nameCN || ''
+    if (!nameCN) {
+      nameCN = name || entry.name || ''
+    }
     if (!name) {
       const title = await fetchSteamTitleCN(appId)
       if (title) {
@@ -220,15 +228,24 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
       updated = true
     }
 
+    // A synced cover is repo-relative, so it must be resolved to an absolute CDN URL.
+    // Non-Steam appids have no store assets, so the store lookups only cover real appids.
+    let icon = covers[appId] ?? legacyCover(appId)
+    if (entry.cover) {
+      icon = entry.cover.startsWith('http')
+        ? entry.cover
+        : `${LOCAL_COVER_BASE}/${entry.cover}`
+    }
+
     localEntries.push({
       id: appId,
       name,
       nameCN,
       playtimeForever: entry.playtime,
       timeLastPlayed: entry.lastPlayed,
-      icon: covers[appId] ?? legacyCover(appId),
+      icon,
     })
-    console.log(`  [LocalHistory] AppID ${appId}: merged (${nameCN})`)
+    console.log(`  [LocalHistory] AppID ${appId}: merged (${nameCN})${icon ? '' : ' [no cover]'}`)
   }
 
   if (updated) {
