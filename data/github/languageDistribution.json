@@ -1,62 +1,62 @@
 {
-  "PowerShell": {
-    "bytes": 39598,
-    "color": "#012456",
-    "percentage": 0.9735838127123522
-  },
-  "TypeScript": {
-    "bytes": 1153306,
-    "color": "#3178c6",
-    "percentage": 28.355978905602104
-  },
-  "JavaScript": {
-    "bytes": 7791,
-    "color": "#f1e05a",
-    "percentage": 0.1915549140068169
-  },
   "Vue": {
     "bytes": 1296258,
     "color": "#41b883",
-    "percentage": 31.870695638640544
+    "percentage": 31.76727651292176
+  },
+  "TypeScript": {
+    "bytes": 1166547,
+    "color": "#3178c6",
+    "percentage": 28.588460873004706
   },
   "HTML": {
     "bytes": 8100,
     "color": "#e34c26",
-    "percentage": 0.1991522017013499
+    "percentage": 0.19850596081541347
   },
   "CSS": {
     "bytes": 41297,
     "color": "#663399",
-    "percentage": 1.0153566016864994
+    "percentage": 1.0120618103449543
   },
-  "Java": {
-    "bytes": 78846,
-    "color": "#b07219",
-    "percentage": 1.9385622833758807
-  },
-  "Python": {
-    "bytes": 23115,
-    "color": "#3572A5",
-    "percentage": 0.5683213755958892
-  },
-  "Shell": {
-    "bytes": 6191,
-    "color": "#89e051",
-    "percentage": 0.1522162074979083
-  },
-  "C#": {
-    "bytes": 118593,
-    "color": "#7355dd",
-    "percentage": 2.915809513131875
-  },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.30922681985158984
+  "JavaScript": {
+    "bytes": 7791,
+    "color": "#f1e05a",
+    "percentage": 0.1909333260139366
   },
   "Kotlin": {
     "bytes": 1281569,
     "color": "#A97BFF",
-    "percentage": 31.50954172619719
+    "percentage": 31.407294530401064
+  },
+  "Java": {
+    "bytes": 78846,
+    "color": "#b07219",
+    "percentage": 1.9322717267224805
+  },
+  "Python": {
+    "bytes": 23115,
+    "color": "#3572A5",
+    "percentage": 0.5664771955862077
+  },
+  "PowerShell": {
+    "bytes": 39598,
+    "color": "#012456",
+    "percentage": 0.9704245723912028
+  },
+  "C#": {
+    "bytes": 118593,
+    "color": "#7355dd",
+    "percentage": 2.9063478285163367
+  },
+  "Shell": {
+    "bytes": 6191,
+    "color": "#89e051",
+    "percentage": 0.15172227202570676
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.30822339125622905
   }
 }
