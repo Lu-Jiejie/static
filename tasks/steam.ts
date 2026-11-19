@@ -36,10 +36,19 @@ interface LocalHistoryEntry {
   lastPlayed: number
   name?: string
   cover?: string
+  link?: string
+  linkZh?: string
 }
 
 // Local (non-Steam / shortcut) covers are copied into the repo by scripts/steam-local-sync.ts
 const LOCAL_COVER_BASE = 'https://fastly.jsdelivr.net/gh/Lu-Jiejie/static@main'
+
+// Every real Steam appid is below 2^31; non-Steam shortcuts sit above it.
+const STEAM_ID_LIMIT = 2147483648
+
+function steamStoreUrl(appId: number | string) {
+  return `https://store.steampowered.com/app/${appId}`
+}
 
 function readLocalHistory(): Record<string, LocalHistoryEntry> {
   try {
@@ -59,6 +68,10 @@ interface GameItem {
   playtime2Weeks?: number
   timeLastPlayed: number
   icon: string
+  /** Page the card opens. Steam games get the store URL, non-PC games their wiki. */
+  link?: string
+  /** Chinese wiki page, only for non-PC games */
+  linkZh?: string
 }
 
 interface SteamInfo {
@@ -195,6 +208,7 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
         playtime2Weeks: game.playtime_2weeks,
         timeLastPlayed: game.rtime_last_played,
         icon: covers[id] ?? legacyCover(id),
+        link: steamStoreUrl(id),
       }
     }),
   )
@@ -237,6 +251,11 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
         : `${LOCAL_COVER_BASE}/${entry.cover}`
     }
 
+    // Real Steam appids always have a store page; shortcut ids never do, so they
+    // carry hand-written wiki links from scripts/config.json instead.
+    const isRealSteamApp = appId < STEAM_ID_LIMIT
+    const link = isRealSteamApp ? steamStoreUrl(appId) : entry.link
+
     localEntries.push({
       id: appId,
       name,
@@ -244,6 +263,8 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
       playtimeForever: entry.playtime,
       timeLastPlayed: entry.lastPlayed,
       icon,
+      link,
+      ...(entry.linkZh ? { linkZh: entry.linkZh } : {}),
     })
     console.log(`  [LocalHistory] AppID ${appId}: merged (${nameCN})${icon ? '' : ' [no cover]'}`)
   }

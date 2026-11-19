@@ -9,6 +9,13 @@ interface LocalHistoryEntry {
   lastPlayed: number
   name?: string
   cover?: string
+  link?: string
+  linkZh?: string
+}
+
+interface GameLinkConfig {
+  link?: string
+  linkZh?: string
 }
 
 interface LocalHistoryData {
@@ -22,6 +29,8 @@ interface ExtraGameConfig {
   playtime: number | string
   lastPlayed: number | string
   cover?: string
+  link?: string
+  linkZh?: string
 }
 
 interface LocalSyncConfig {
@@ -31,6 +40,8 @@ interface LocalSyncConfig {
   shortcutsPath?: string
   gridPath?: string
   sgdbApiKey?: string
+  // 非 PC 游戏的页面链接，key 是 appId；extraGames 里也能单独写
+  links?: Record<string, GameLinkConfig>
 }
 
 interface ShortcutEntry {
@@ -404,6 +415,100 @@ function readExistingHistory(): LocalHistoryData {
   return readJson<LocalHistoryData>(HISTORY_PATH, {})
 }
 
+// Steam 商店页面探测：真有页面返回 200；没有的（模拟器游戏、编的 appId）
+// 会 302 跳到商店首页 —— 这正好可以用来判断该不该手写 link。
+async function hasSteamStorePage(appId: string): Promise<boolean | null> {
+  try {
+    const res = await axios.get(`https://store.steampowered.com/app/${appId}`, {
+      maxRedirects: 0,
+      timeout: 15000,
+      headers: { 'User-Agent': 'Mozilla/5.0' },
+      validateStatus: status => status < 400,
+    })
+    return res.status === 200
+  }
+  catch (err) {
+    const status = (err as { response?: { status?: number } })?.response?.status
+    return status ? status === 200 : null
+  }
+}
+
+// 链接来源：extraGames 里写的 > config.json 的 links 表
+function resolveLinks(appId: string, config: LocalSyncConfig, extra?: ExtraGameConfig): GameLinkConfig {
+  const fromConfig = config.links?.[appId] ?? {}
+  const link = extra?.link ?? fromConfig.link
+  const linkZh = extra?.linkZh ?? fromConfig.linkZh
+  return {
+    ...(link ? { link } : {}),
+    ...(linkZh ? { linkZh } : {}),
+  }
+}
+
+// --check：只在本地跑。逐个探测 store 页面并检查封面，列出真正缺东西的游戏
+async function checkSteam(config: LocalSyncConfig) {
+  const history = readExistingHistory()
+  const nameCNCustom = readJson<Record<string, string>>(NAMECN_CUSTOM_PATH, {})
+  const nameCNMap = readJson<Record<string, string>>('./data/steam/namecn_map.json', {})
+  const entries = Object.entries(history)
+
+  if (!entries.length) {
+    console.log(`${HISTORY_PATH} 里还没有记录`)
+    return
+  }
+
+  console.log(`检查 ${entries.length} 条记录…\n`)
+
+  const ok: string[] = []
+  const linked: string[] = []
+  const missing: string[] = []
+  const failed: string[] = []
+  const noCover: string[] = []
+
+  for (const [appId, entry] of entries) {
+    const title = entry.name ?? nameCNCustom[appId] ?? nameCNMap[appId] ?? ''
+    const label = title ? `${appId} ${title}` : appId
+    const hasPage = await hasSteamStorePage(appId)
+    const configured = config.links?.[appId]?.link ?? entry.link
+
+    if (hasPage === null) {
+      failed.push(label)
+    }
+    else if (hasPage) {
+      ok.push(label)
+    }
+    else if (configured) {
+      linked.push(`${label} -> ${configured}`)
+    }
+    else {
+      missing.push(label)
+    }
+
+    // 有商店页的游戏 icon 直接走 Steam CDN，只有非 Steam 游戏才需要仓库里的封面
+    if (hasPage === false && !existingCover(appId)) {
+      noCover.push(label)
+    }
+  }
+
+  const section = (label: string, rows: string[]) => {
+    if (!rows.length) return
+    console.log(`${label} (${rows.length})`)
+    rows.forEach(row => console.log(`  ${row}`))
+    console.log('')
+  }
+
+  section('link：有商店页，自动拼', ok)
+  section('link：没有商店页，已手写', linked)
+  section('link：没有商店页，缺 link —— 去 config.json 的 links 里补', missing)
+  section('icon：没有商店页，缺封面 —— 跑一次同步或放进 data/steam/covers', noCover)
+  section('探测失败（网络问题）', failed)
+
+  console.log(
+    `合计 ${entries.length} 条：`
+    + `link ${ok.length} 自动 / ${linked.length} 手写 / ${missing.length} 缺，`
+    + `icon ${noCover.length} 缺 / ${failed.length} 未知`,
+  )
+}
+
 function merge(existingHistory: LocalHistoryData, key: string, data: LocalHistoryEntry, label: string) {
   const old = existingHistory[key] ?? { playtime: 0, lastPlayed: 0 }
   const merged: LocalHistoryEntry = {
@@ -411,6 +516,8 @@ function merge(existingHistory: LocalHistoryData, key: string, data: LocalHistor
     lastPlayed: Math.max(old.lastPlayed ?? 0, data.lastPlayed),
     ...(data.name ?? old.name ? { name: data.name ?? old.name } : {}),
     ...(data.cover ?? old.cover ? { cover: data.cover ?? old.cover } : {}),
+    ...(data.link ?? old.link ? { link: data.link ?? old.link } : {}),
+    ...(data.linkZh ?? old.linkZh ? { linkZh: data.linkZh ?? old.linkZh } : {}),
   }
   existingHistory[key] = merged
   console.log(
@@ -434,6 +541,12 @@ async function main() {
       throw new Error('用法: --list-covers "<游戏名>"')
     }
     await listCovers(title, sgdbApiKey)
+    return
+  }
+
+  // --check：只探测、只报告，不写文件
+  if (process.argv.includes('--check')) {
+    await checkSteam(config)
     return
   }
 
@@ -480,6 +593,7 @@ async function main() {
       lastPlayed,
       name: shortcut.name,
       ...(cover ? { cover } : {}),
+      ...resolveLinks(String(shortcut.appId), config),
     }, 'Shortcut')
 
     if (!cover) {
@@ -509,6 +623,7 @@ async function main() {
       lastPlayed: toTimestamp(extra.lastPlayed),
       ...(title ? { name: title } : {}),
       ...(cover ? { cover } : {}),
+      ...resolveLinks(key, config, extra),
     }, 'Extra')
 
     if (extra.nameCN && nameCNCustom[key] !== extra.nameCN) {
