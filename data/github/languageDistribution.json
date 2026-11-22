@@ -24,6 +24,21 @@
     "color": "#f1e05a",
     "percentage": 0.1892107379218779
   },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.3054426197976458
+  },
+  "C#": {
+    "bytes": 118593,
+    "color": "#7355dd",
+    "percentage": 2.880126946780807
+  },
+  "PowerShell": {
+    "bytes": 39598,
+    "color": "#012456",
+    "percentage": 0.961669464796627
+  },
   "Java": {
     "bytes": 78846,
     "color": "#b07219",
@@ -38,21 +53,6 @@
     "bytes": 6191,
     "color": "#89e051",
     "percentage": 0.15035344352128688
-  },
-  "C#": {
-    "bytes": 118593,
-    "color": "#7355dd",
-    "percentage": 2.880126946780807
-  },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.3054426197976458
-  },
-  "PowerShell": {
-    "bytes": 39598,
-    "color": "#012456",
-    "percentage": 0.961669464796627
   },
   "Kotlin": {
     "bytes": 1281569,
