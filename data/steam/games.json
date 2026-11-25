@@ -11,7 +11,7 @@
   {
     "id": 250900,
     "name": "The Binding of Isaac: Rebirth",
-    "nameZh": "The Binding of Isaac: Rebirth",
+    "nameZh": "以撒的结合：重生",
     "playtimeForever": 89,
     "timeLastPlayed": 1748315703,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250900/header.jpg?t=1731977365",
@@ -20,7 +20,7 @@
   {
     "id": 282070,
     "name": "This War of Mine",
-    "nameZh": "This War of Mine",
+    "nameZh": "这是我的战争",
     "playtimeForever": 0,
     "timeLastPlayed": 0,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/282070/26fb8c9bb7b9e3a17469d8026ee3fa510ee7f8f5/header.jpg?t=1795519118",
@@ -29,7 +29,7 @@
   {
     "id": 289070,
     "name": "Sid Meier's Civilization VI",
-    "nameZh": "Sid Meier’s Civilization® VI",
+    "nameZh": "文明 6",
     "playtimeForever": 68,
     "timeLastPlayed": 1748315701,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/header.jpg?t=1792718069",
@@ -56,7 +56,7 @@
   {
     "id": 413150,
     "name": "Stardew Valley",
-    "nameZh": "Stardew Valley",
+    "nameZh": "星露谷物语",
     "playtimeForever": 105,
     "timeLastPlayed": 1748315700,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg?t=1786554168",
@@ -65,7 +65,7 @@
   {
     "id": 413410,
     "name": "Danganronpa: Trigger Happy Havoc",
-    "nameZh": "Danganronpa: Trigger Happy Havoc",
+    "nameZh": "弹丸论破：希望的学园与绝望高中生",
     "playtimeForever": 0,
     "timeLastPlayed": 0,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413410/header.jpg?t=1781085607",
@@ -74,7 +74,7 @@
   {
     "id": 413420,
     "name": "Danganronpa 2: Goodbye Despair",
-    "nameZh": "Danganronpa 2: Goodbye Despair",
+    "nameZh": "弹丸论破2：再见绝望学园",
     "playtimeForever": 1423,
     "timeLastPlayed": 1762652240,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413420/header.jpg?t=1781085654",
@@ -83,7 +83,7 @@
   {
     "id": 424840,
     "name": "Little Nightmares",
-    "nameZh": "Little Nightmares",
+    "nameZh": "小小梦魇",
     "playtimeForever": 370,
     "timeLastPlayed": 1724747766,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/facf9a7a675c6d7f210d96d6b111caffe0386cd5/header.jpg?t=1773135169",
@@ -92,7 +92,7 @@
   {
     "id": 555950,
     "name": "Danganronpa Another Episode: Ultra Despair Girls",
-    "nameZh": "Danganronpa Another Episode: Ultra Despair Girls",
+    "nameZh": "绝对绝望少女",
     "playtimeForever": 0,
     "timeLastPlayed": 0,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/555950/header.jpg?t=1715701294",
@@ -110,7 +110,7 @@
   {
     "id": 578080,
     "name": "PUBG: BATTLEGROUNDS",
-    "nameZh": "PUBG: BATTLEGROUNDS",
+    "nameZh": "绝地求生",
     "playtimeForever": 109,
     "timeLastPlayed": 1565340926,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/841ea38bc58cabb70aef65365cf50bc2d79329d9/header.jpg?t=1792718193",
@@ -146,7 +146,7 @@
   {
     "id": 668630,
     "name": "Tricolour Lovestory",
-    "nameZh": "Tricolour Lovestory",
+    "nameZh": "三色绘恋",
     "playtimeForever": 11,
     "timeLastPlayed": 1748315704,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/668630/header_schinese.jpg?t=1791022581",
@@ -155,7 +155,7 @@
   {
     "id": 774171,
     "name": "Muse Dash",
-    "nameZh": "Muse Dash",
+    "nameZh": "喵斯快跑",
     "playtimeForever": 26,
     "timeLastPlayed": 1748315702,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774171/header.jpg?t=1794965579",
@@ -164,7 +164,7 @@
   {
     "id": 787480,
     "name": "Phoenix Wright: Ace Attorney Trilogy",
-    "nameZh": "Phoenix Wright: Ace Attorney Trilogy",
+    "nameZh": "逆转裁判123 成步堂精选集",
     "playtimeForever": 1958,
     "timeLastPlayed": 1761433689,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/787480/header.jpg?t=1768866317",
@@ -173,7 +173,7 @@
   {
     "id": 837470,
     "name": "Untitled Goose Game",
-    "nameZh": "Untitled Goose Game",
+    "nameZh": "捣蛋鹅",
     "playtimeForever": 137,
     "timeLastPlayed": 1643556636,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/837470/header.jpg?t=1699052664",
@@ -182,7 +182,7 @@
   {
     "id": 914710,
     "name": "Cat Quest II",
-    "nameZh": "Cat Quest II",
+    "nameZh": "猫咪斗恶龙 2",
     "playtimeForever": 0,
     "timeLastPlayed": 0,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/914710/header.jpg?t=1760435512",
@@ -254,7 +254,7 @@
   {
     "id": 1145360,
     "name": "Hades",
-    "nameZh": "Hades",
+    "nameZh": "哈迪斯",
     "playtimeForever": 1144,
     "timeLastPlayed": 1625467936,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/header.jpg?t=1758127023",
@@ -263,7 +263,7 @@
   {
     "id": 1158850,
     "name": "The Great Ace Attorney Chronicles",
-    "nameZh": "The Great Ace Attorney Chronicles",
+    "nameZh": "大逆转裁判",
     "playtimeForever": 3067,
     "timeLastPlayed": 1762397207,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158850/header.jpg?t=1787717414",
@@ -272,7 +272,7 @@
   {
     "id": 1172470,
     "name": "Apex Legends",
-    "nameZh": "Apex Legends™",
+    "nameZh": "Apex 英雄",
     "playtimeForever": 80,
     "timeLastPlayed": 1620990352,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/4219c147f1e094297c726d537518babba7f3ae2d/header.jpg?t=1794958367",
@@ -281,7 +281,7 @@
   {
     "id": 1174180,
     "name": "Red Dead Redemption 2",
-    "nameZh": "Red Dead Redemption 2",
+    "nameZh": "荒野大镖客 2",
     "playtimeForever": 0,
     "timeLastPlayed": 0,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg?t=1759502961",
@@ -299,7 +299,7 @@
   {
     "id": 1241700,
     "name": "There is no game: Jam Edition 2015",
-    "nameZh": "There Is No Game: Jam Edition 2015",
+    "nameZh": "There is no game: Jam Edition 2015",
     "playtimeForever": 13,
     "timeLastPlayed": 1598187445,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1241700/header.jpg?t=1666983908",
@@ -344,7 +344,7 @@
   {
     "id": 1568590,
     "name": "Goose Goose Duck",
-    "nameZh": "Goose Goose Duck",
+    "nameZh": "鹅鸭杀",
     "playtimeForever": 3623,
     "timeLastPlayed": 1674830920,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1568590/header.jpg?t=1778102536",
@@ -353,7 +353,7 @@
   {
     "id": 1659040,
     "name": "HITMAN World of Assassination",
-    "nameZh": "HITMAN World of Assassination",
+    "nameZh": "杀手：暗杀世界",
     "playtimeForever": 281,
     "timeLastPlayed": 1675346382,
     "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1659040/c62446d5c95f583a296d7f1b99045a61e2f81dea/header.jpg?t=1795174276",
