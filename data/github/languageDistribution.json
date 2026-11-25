@@ -34,6 +34,11 @@
     "color": "#89e051",
     "percentage": 0.12972315599193793
   },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.263532245664772
+  },
   "Vue": {
     "bytes": 1318576,
     "color": "#41b883",
@@ -44,24 +49,19 @@
     "color": "#663399",
     "percentage": 0.9284917603480461
   },
-  "Kotlin": {
-    "bytes": 1281569,
-    "color": "#A97BFF",
-    "percentage": 26.85336380252494
+  "HTML": {
+    "bytes": 8341,
+    "color": "#e34c26",
+    "percentage": 0.17477319401207467
   },
   "C#": {
     "bytes": 118593,
     "color": "#7355dd",
     "percentage": 2.4849391436846866
   },
-  "HTML": {
-    "bytes": 8341,
-    "color": "#e34c26",
-    "percentage": 0.17477319401207467
-  },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.263532245664772
+  "Kotlin": {
+    "bytes": 1281569,
+    "color": "#A97BFF",
+    "percentage": 26.85336380252494
   }
 }
