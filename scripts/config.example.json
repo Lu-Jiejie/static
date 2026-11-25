@@ -10,7 +10,7 @@
     },
     {
       "name": "Some Old Game",
-      "nameCN": "某个老游戏",
+      "nameZh": "某个老游戏",
       "playtime": "12h",
       "lastPlayed": "2021-06-01",
       "cover": "sgdb"

@@ -5,9 +5,9 @@ import { load } from 'cheerio'
 import { writeJsonFile } from '../utils'
 import 'dotenv/config'
 
-function readNameCNMapCustom(): Record<string, string> {
+function readNameZhMapCustom(): Record<string, string> {
   try {
-    const raw = fs.readFileSync('./data/steam/namecn_map_custom.json', 'utf-8')
+    const raw = fs.readFileSync('./data/steam/namezh_map_custom.json', 'utf-8')
     return JSON.parse(raw)
   }
   catch {
@@ -15,15 +15,9 @@ function readNameCNMapCustom(): Record<string, string> {
   }
 }
 
-function readNameCNMap(): Record<string, string> {
+function readNameZhMap(): Record<string, string> {
   try {
-    let raw: string
-    try {
-      raw = fs.readFileSync('./data/steam/namecn_map.json', 'utf-8')
-    }
-    catch {
-      raw = fs.readFileSync('./data/steam_namecn_map.json', 'utf-8')
-    }
+    const raw = fs.readFileSync('./data/steam/namezh_map.json', 'utf-8')
     return JSON.parse(raw)
   }
   catch {
@@ -63,7 +57,7 @@ function readLocalHistory(): Record<string, LocalHistoryEntry> {
 interface GameItem {
   id: number
   name: string
-  nameCN: string
+  nameZh: string
   playtimeForever: number
   playtime2Weeks?: number
   timeLastPlayed: number
@@ -169,6 +163,36 @@ function legacyCover(appId: number) {
   return `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/header.jpg`
 }
 
+// 本地补录的游戏没有 API 里的英文名，单独用 english 语言向 StoreBrowse 要一次
+async function fetchStoreEnglishNames(appIds: number[]): Promise<Record<number, string>> {
+  const names: Record<number, string> = {}
+  if (!appIds.length) {
+    return names
+  }
+
+  const input = JSON.stringify({
+    ids: appIds.map(appid => ({ appid })),
+    context: { language: 'english', country_code: 'US' },
+    data_request: { include_assets: false },
+  })
+
+  try {
+    const { data } = await axios.get(
+      `https://api.steampowered.com/IStoreBrowseService/GetItems/v1/?input_json=${encodeURIComponent(input)}`,
+    )
+    for (const item of data?.response?.store_items ?? []) {
+      if (item.name) {
+        names[item.appid] = item.name
+      }
+    }
+  }
+  catch (err) {
+    console.warn('  [Name] StoreBrowse english failed:', (err as Error).message)
+  }
+
+  return names
+}
+
 async function fetchOwnedGames(id: string, key: string, exclude: number[]): Promise<GameItem[]> {
   const { data } = await axios.get(
     `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${key}&steamid=${id}&format=json&include_appinfo=true&include_played_free_games=true`,
@@ -184,26 +208,26 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
 
   const covers = await fetchStoreHeaders([...apiGameIds, ...localAppIds])
 
-  const nameCNMapCustom = readNameCNMapCustom()
-  const nameCNMap = readNameCNMap()
+  const nameZhMapCustom = readNameZhMapCustom()
+  const nameZhMap = readNameZhMap()
   let updated = false
 
   const results: GameItem[] = await Promise.all(
     apiGames.map(async (game: any) => {
       const id = game.appid
-      let nameCN = nameCNMapCustom[id]
-      if (!nameCN) {
-        nameCN = nameCNMap[id]
+      let nameZh = nameZhMapCustom[id]
+      if (!nameZh) {
+        nameZh = nameZhMap[id]
       }
-      if (!nameCN) {
-        nameCN = (await fetchSteamTitleCN(id)) || game.name
-        nameCNMap[id] = nameCN
+      if (!nameZh) {
+        nameZh = (await fetchSteamTitleCN(id)) || game.name
+        nameZhMap[id] = nameZh
         updated = true
       }
       return {
         id,
         name: game.name,
-        nameCN,
+        nameZh,
         playtimeForever: game.playtime_forever,
         playtime2Weeks: game.playtime_2weeks,
         timeLastPlayed: game.rtime_last_played,
@@ -215,31 +239,32 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
 
   // Merge local history games (from scripts/steam-local-sync.ts)
   const localEntries: GameItem[] = []
+  // 本地补录的条目没有 API 名，英文名单独向 StoreBrowse 要，取不到才退回中文名
+  const localEnglishNames = await fetchStoreEnglishNames(localAppIds)
 
   for (const appId of localAppIds) {
     const entry = localHistory[appId]
 
-    // Resolve name for local-only game: sync-provided name wins, then manual maps, then store scrape
-    let nameCN = nameCNMapCustom[appId]
-    if (!nameCN) {
-      nameCN = nameCNMap[appId]
-    }
-    let name = entry.name || nameCN || ''
-    if (!nameCN) {
-      nameCN = name || entry.name || ''
-    }
+    // Resolve name for local-only game: sync-provided english name, StoreBrowse, then manual maps
+    let nameZh = nameZhMapCustom[appId] ?? nameZhMap[appId]
+    let name = entry.name || localEnglishNames[appId] || ''
     if (!name) {
+      // 英文名实在拿不到（下架 / 无商店页）才退回中文标题
       const title = await fetchSteamTitleCN(appId)
       if (title) {
         name = title
-        nameCN = title
+        if (!nameZh) {
+          nameZh = title
+          nameZhMap[appId] = title
+          updated = true
+        }
       }
       else {
         name = `Unknown Game (${appId})`
-        nameCN = name
       }
-      nameCNMap[appId] = nameCN
-      updated = true
+    }
+    if (!nameZh) {
+      nameZh = name
     }
 
     // A synced cover is repo-relative, so it must be resolved to an absolute CDN URL.
@@ -259,18 +284,18 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
     localEntries.push({
       id: appId,
       name,
-      nameCN,
+      nameZh,
       playtimeForever: entry.playtime,
       timeLastPlayed: entry.lastPlayed,
       icon,
       link,
       ...(entry.linkZh ? { linkZh: entry.linkZh } : {}),
     })
-    console.log(`  [LocalHistory] AppID ${appId}: merged (${nameCN})${icon ? '' : ' [no cover]'}`)
+    console.log(`  [LocalHistory] AppID ${appId}: merged (${nameZh})${icon ? '' : ' [no cover]'}`)
   }
 
   if (updated) {
-    fs.writeFileSync('./data/steam/namecn_map.json', JSON.stringify(nameCNMap, null, 2), 'utf-8')
+    fs.writeFileSync('./data/steam/namezh_map.json', JSON.stringify(nameZhMap, null, 2), 'utf-8')
   }
 
   // API results first, then local entries

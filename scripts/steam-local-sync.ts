@@ -25,7 +25,7 @@ interface LocalHistoryData {
 interface ExtraGameConfig {
   appId?: string | number
   name?: string
-  nameCN?: string
+  nameZh?: string
   playtime: number | string
   lastPlayed: number | string
   cover?: string
@@ -53,7 +53,7 @@ interface ShortcutEntry {
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const CONFIG_PATH = path.resolve(__dirname, './config.json')
 const HISTORY_PATH = './data/steam/games_local.json'
-const NAMECN_CUSTOM_PATH = './data/steam/namecn_map_custom.json'
+const NAMEZH_CUSTOM_PATH = './data/steam/namezh_map_custom.json'
 const COVERS_DIR = './data/steam/covers'
 const COVER_EXTS = ['jpg', 'png', 'jpeg', 'webp']
 
@@ -444,11 +444,16 @@ function resolveLinks(appId: string, config: LocalSyncConfig, extra?: ExtraGameC
   }
 }
 
-// --check：只在本地跑。逐个探测 store 页面并检查封面，列出真正缺东西的游戏
+// 名字里有没有汉字：没有就说明这条还是英文，缺人工补的中文名
+function hasCjk(text: string): boolean {
+  return /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/.test(text)
+}
+
+// --check：只在本地跑。检查 link、封面、以及哪些条目还缺中文名
 async function checkSteam(config: LocalSyncConfig) {
   const history = readExistingHistory()
-  const nameCNCustom = readJson<Record<string, string>>(NAMECN_CUSTOM_PATH, {})
-  const nameCNMap = readJson<Record<string, string>>('./data/steam/namecn_map.json', {})
+  const nameZhCustom = readJson<Record<string, string>>(NAMEZH_CUSTOM_PATH, {})
+  const nameZhMap = readJson<Record<string, string>>('./data/steam/namezh_map.json', {})
   const entries = Object.entries(history)
 
   if (!entries.length) {
@@ -465,7 +470,7 @@ async function checkSteam(config: LocalSyncConfig) {
   const noCover: string[] = []
 
   for (const [appId, entry] of entries) {
-    const title = entry.name ?? nameCNCustom[appId] ?? nameCNMap[appId] ?? ''
+    const title = entry.name ?? nameZhCustom[appId] ?? nameZhMap[appId] ?? ''
     const label = title ? `${appId} ${title}` : appId
     const hasPage = await hasSteamStorePage(appId)
     const configured = config.links?.[appId]?.link ?? entry.link
@@ -502,10 +507,41 @@ async function checkSteam(config: LocalSyncConfig) {
   section('icon：没有商店页，缺封面 —— 跑一次同步或放进 data/steam/covers', noCover)
   section('探测失败（网络问题）', failed)
 
+  // 中文名：Steam 只给英文名的时候，games.json 里的 nameZh 会跟 name 一样是英文
+  const games = readJson<Array<{ id: number | string, name?: string, nameZh?: string }>>('./data/steam/games.json', [])
+  const pendingZh = games.filter((game) => {
+    const zh = game.nameZh ?? ''
+    return game.name && !hasCjk(zh)
+  })
+
+  const seeded: string[] = []
+  if (pendingZh.length) {
+    for (const game of pendingZh) {
+      const key = String(game.id)
+      if (!nameZhCustom[key]) {
+        // 先用英文名占位，你把 value 改成中文名即可
+        nameZhCustom[key] = game.name as string
+        seeded.push(`${key} ${game.name}`)
+      }
+    }
+    if (seeded.length && !DRY_RUN) {
+      await writeJsonFile(NAMEZH_CUSTOM_PATH, nameZhCustom)
+    }
+  }
+
+  section(
+    '中文名：还是英文，去 namezh_map_custom.json 里改 value 即可',
+    pendingZh.map(game => `${game.id} ${game.nameZh}`),
+  )
+  if (seeded.length) {
+    console.log(`已把 ${seeded.length} 条补进 ${NAMEZH_CUSTOM_PATH}（value 先填的英文名，改掉就行）\n`)
+  }
+
   console.log(
     `合计 ${entries.length} 条：`
     + `link ${ok.length} 自动 / ${linked.length} 手写 / ${missing.length} 缺，`
-    + `icon ${noCover.length} 缺 / ${failed.length} 未知`,
+    + `icon ${noCover.length} 缺 / ${failed.length} 未知，`
+    + `中文名 ${pendingZh.length} 条待补`,
   )
 }
 
@@ -602,8 +638,8 @@ async function main() {
   }
 
   // 手动补录：steam 里没有记录的老游戏，或想自己指定封面来源
-  const nameCNCustom = readJson<Record<string, string>>(NAMECN_CUSTOM_PATH, {})
-  let nameCNUpdated = false
+  const nameZhCustom = readJson<Record<string, string>>(NAMEZH_CUSTOM_PATH, {})
+  let nameZhUpdated = false
 
   for (const extra of config.extraGames) {
     const title = extra.name
@@ -626,9 +662,9 @@ async function main() {
       ...resolveLinks(key, config, extra),
     }, 'Extra')
 
-    if (extra.nameCN && nameCNCustom[key] !== extra.nameCN) {
-      nameCNCustom[key] = extra.nameCN
-      nameCNUpdated = true
+    if (extra.nameZh && nameZhCustom[key] !== extra.nameZh) {
+      nameZhCustom[key] = extra.nameZh
+      nameZhUpdated = true
     }
   }
 
@@ -639,8 +675,8 @@ async function main() {
   }
 
   await writeJsonFile(HISTORY_PATH, existingHistory)
-  if (nameCNUpdated) {
-    await writeJsonFile(NAMECN_CUSTOM_PATH, nameCNCustom)
+  if (nameZhUpdated) {
+    await writeJsonFile(NAMEZH_CUSTOM_PATH, nameZhCustom)
   }
   console.log(`\nSaved to ${HISTORY_PATH}`)
 }
