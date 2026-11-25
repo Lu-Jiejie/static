@@ -66,6 +66,10 @@ jobs:
       #   if: ${{ github.event.inputs.source == 'bilibili' || github.event.inputs.source == 'all' || github.event_name != 'workflow_dispatch' }}
       #   run: npm run generate:bilibili
 
+      - name: Record base sha
+        id: base
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Commit
         uses: EndBug/add-and-commit@v9
         with:
@@ -79,9 +83,30 @@ jobs:
       - name: Purge jsDelivr cache
         run: |
           # jsDelivr caches @main for 12h; clear it after the commit so the blog sees fresh data
-          curl -fsS --retry 3 "https://purge.jsdelivr.net/gh/Lu-Jiejie/static@main/" || \
-            echo "root purge failed, falling back to per-path purge"
-          for path in "data/steam/games.json" "data/steam/covers/" "data/netease/" "data/github/"; do
-            echo "purging $path"
-            curl -fsS --retry 3 "https://purge.jsdelivr.net/gh/Lu-Jiejie/static@main/$path" || echo "purge failed for $path"
+          BASE="${{ steps.base.outputs.sha }}"
+          purge() {
+            echo "purging $1"
+            curl -fsS --retry 3 --max-time 30 "https://purge.jsdelivr.net/gh/Lu-Jiejie/static@main/$1" > /dev/null \
+              && echo "  ok" || echo "  failed"
+          }
+
+          # 根路径兜底：任何 data/ 下的新文件都能被刷掉
+          purge ""
+
+          # 本次真正改动过的文件逐个刷
+          CHANGED=$(git diff --name-only "$BASE" HEAD -- data/ || true)
+          if [ -z "$CHANGED" ]; then
+            echo "no data files changed, nothing to purge"
+            exit 0
+          fi
+
+          echo "$CHANGED" | while read -r path; do
+            if [ -n "$path" ]; then
+              purge "$path"
+            fi
           done
+
+          # 封面有变动时把整个目录也刷一次，避免残留旧图
+          if echo "$CHANGED" | grep -q '^data/steam/covers/'; then
+            purge "data/steam/covers/"
+          fi
