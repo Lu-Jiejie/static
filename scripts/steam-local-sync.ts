@@ -7,15 +7,15 @@ import { writeJsonFile } from '../utils'
 interface LocalHistoryEntry {
   playtime: number
   lastPlayed: number
+  /** 卡片上显示的名字，中文 */
   name?: string
   cover?: string
+  /** 非 PC 游戏手写的资料页（一般是中文维基） */
   link?: string
-  linkZh?: string
 }
 
 interface GameLinkConfig {
   link?: string
-  linkZh?: string
 }
 
 interface LocalHistoryData {
@@ -24,13 +24,14 @@ interface LocalHistoryData {
 
 interface ExtraGameConfig {
   appId?: string | number
+  /** 卡片上显示的名字，中文 */
   name?: string
-  nameZh?: string
+  /** SteamGridDB 搜图 / 生成 appId 用的关键词，不填就用 name */
+  searchName?: string
   playtime: number | string
   lastPlayed: number | string
   cover?: string
   link?: string
-  linkZh?: string
 }
 
 interface LocalSyncConfig {
@@ -437,11 +438,7 @@ async function hasSteamStorePage(appId: string): Promise<boolean | null> {
 function resolveLinks(appId: string, config: LocalSyncConfig, extra?: ExtraGameConfig): GameLinkConfig {
   const fromConfig = config.links?.[appId] ?? {}
   const link = extra?.link ?? fromConfig.link
-  const linkZh = extra?.linkZh ?? fromConfig.linkZh
-  return {
-    ...(link ? { link } : {}),
-    ...(linkZh ? { linkZh } : {}),
-  }
+  return link ? { link } : {}
 }
 
 // 名字里有没有汉字：没有就说明这条还是英文，缺人工补的中文名
@@ -507,12 +504,9 @@ async function checkSteam(config: LocalSyncConfig) {
   section('icon：没有商店页，缺封面 —— 跑一次同步或放进 data/steam/covers', noCover)
   section('探测失败（网络问题）', failed)
 
-  // 中文名：Steam 只给英文名的时候，games.json 里的 nameZh 会跟 name 一样是英文
-  const games = readJson<Array<{ id: number | string, name?: string, nameZh?: string }>>('./data/steam/games.json', [])
-  const pendingZh = games.filter((game) => {
-    const zh = game.nameZh ?? ''
-    return game.name && !hasCjk(zh)
-  })
+  // 中文名：Steam 只给英文名的时候，games.json 里的 name 会是英文原文
+  const games = readJson<Array<{ id: number | string, name?: string }>>('./data/steam/games.json', [])
+  const pendingZh = games.filter(game => game.name && !hasCjk(game.name))
 
   const seeded: string[] = []
   if (pendingZh.length) {
@@ -531,7 +525,7 @@ async function checkSteam(config: LocalSyncConfig) {
 
   section(
     '中文名：还是英文，去 namezh_map_custom.json 里改 value 即可',
-    pendingZh.map(game => `${game.id} ${game.nameZh}`),
+    pendingZh.map(game => `${game.id} ${game.name}`),
   )
   if (seeded.length) {
     console.log(`已把 ${seeded.length} 条补进 ${NAMEZH_CUSTOM_PATH}（value 先填的英文名，改掉就行）\n`)
@@ -553,7 +547,6 @@ function merge(existingHistory: LocalHistoryData, key: string, data: LocalHistor
     ...(data.name ?? old.name ? { name: data.name ?? old.name } : {}),
     ...(data.cover ?? old.cover ? { cover: data.cover ?? old.cover } : {}),
     ...(data.link ?? old.link ? { link: data.link ?? old.link } : {}),
-    ...(data.linkZh ?? old.linkZh ? { linkZh: data.linkZh ?? old.linkZh } : {}),
   }
   existingHistory[key] = merged
   console.log(
@@ -638,11 +631,10 @@ async function main() {
   }
 
   // 手动补录：steam 里没有记录的老游戏，或想自己指定封面来源
-  const nameZhCustom = readJson<Record<string, string>>(NAMEZH_CUSTOM_PATH, {})
-  let nameZhUpdated = false
-
   for (const extra of config.extraGames) {
-    const title = extra.name
+    // name 是卡片上显示的中文名；SteamGridDB 搜图 / 生成 appId 用 searchName（没填就用 name）
+    const title = extra.searchName ?? extra.name
+    const displayName = extra.name ?? extra.searchName
     const key = extra.appId != null ? String(extra.appId) : (title ? String(stableAppId(title)) : '')
 
     if (!key) {
@@ -657,15 +649,10 @@ async function main() {
     merge(existingHistory, key, {
       playtime: toMinutes(extra.playtime),
       lastPlayed: toTimestamp(extra.lastPlayed),
-      ...(title ? { name: title } : {}),
+      ...(displayName ? { name: displayName } : {}),
       ...(cover ? { cover } : {}),
       ...resolveLinks(key, config, extra),
     }, 'Extra')
-
-    if (extra.nameZh && nameZhCustom[key] !== extra.nameZh) {
-      nameZhCustom[key] = extra.nameZh
-      nameZhUpdated = true
-    }
   }
 
   if (DRY_RUN) {
@@ -675,9 +662,6 @@ async function main() {
   }
 
   await writeJsonFile(HISTORY_PATH, existingHistory)
-  if (nameZhUpdated) {
-    await writeJsonFile(NAMEZH_CUSTOM_PATH, nameZhCustom)
-  }
   console.log(`\nSaved to ${HISTORY_PATH}`)
 }
 

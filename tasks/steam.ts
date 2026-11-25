@@ -31,7 +31,6 @@ interface LocalHistoryEntry {
   name?: string
   cover?: string
   link?: string
-  linkZh?: string
 }
 
 // Local (non-Steam / shortcut) covers are copied into the repo by scripts/steam-local-sync.ts
@@ -56,16 +55,14 @@ function readLocalHistory(): Record<string, LocalHistoryEntry> {
 
 interface GameItem {
   id: number
+  /** 中文游戏名，取不到中文时退回 Steam 上的原名 */
   name: string
-  nameZh: string
   playtimeForever: number
   playtime2Weeks?: number
   timeLastPlayed: number
   icon: string
-  /** Page the card opens. Steam games get the store URL, non-PC games their wiki. */
+  /** 卡片点击后打开的页面：Steam 游戏是商店页，非 PC 游戏是手写的中文维基条目 */
   link?: string
-  /** Chinese wiki page, only for non-PC games */
-  linkZh?: string
 }
 
 interface SteamInfo {
@@ -163,36 +160,6 @@ function legacyCover(appId: number) {
   return `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/header.jpg`
 }
 
-// 本地补录的游戏没有 API 里的英文名，单独用 english 语言向 StoreBrowse 要一次
-async function fetchStoreEnglishNames(appIds: number[]): Promise<Record<number, string>> {
-  const names: Record<number, string> = {}
-  if (!appIds.length) {
-    return names
-  }
-
-  const input = JSON.stringify({
-    ids: appIds.map(appid => ({ appid })),
-    context: { language: 'english', country_code: 'US' },
-    data_request: { include_assets: false },
-  })
-
-  try {
-    const { data } = await axios.get(
-      `https://api.steampowered.com/IStoreBrowseService/GetItems/v1/?input_json=${encodeURIComponent(input)}`,
-    )
-    for (const item of data?.response?.store_items ?? []) {
-      if (item.name) {
-        names[item.appid] = item.name
-      }
-    }
-  }
-  catch (err) {
-    console.warn('  [Name] StoreBrowse english failed:', (err as Error).message)
-  }
-
-  return names
-}
-
 async function fetchOwnedGames(id: string, key: string, exclude: number[]): Promise<GameItem[]> {
   const { data } = await axios.get(
     `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${key}&steamid=${id}&format=json&include_appinfo=true&include_played_free_games=true`,
@@ -208,26 +175,23 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
 
   const covers = await fetchStoreHeaders([...apiGameIds, ...localAppIds])
 
-  const nameZhMapCustom = readNameZhMapCustom()
-  const nameZhMap = readNameZhMap()
+  const nameCustom = readNameZhMapCustom()
+  const nameCache = readNameZhMap()
   let updated = false
 
   const results: GameItem[] = await Promise.all(
     apiGames.map(async (game: any) => {
       const id = game.appid
-      let nameZh = nameZhMapCustom[id]
-      if (!nameZh) {
-        nameZh = nameZhMap[id]
-      }
-      if (!nameZh) {
-        nameZh = (await fetchSteamTitleCN(id)) || game.name
-        nameZhMap[id] = nameZh
+      // 人工表 > 抓取缓存 > 现抓商店页中文标题 > Steam 原名
+      let name = nameCustom[id] ?? nameCache[id]
+      if (!name) {
+        name = (await fetchSteamTitleCN(id)) || game.name
+        nameCache[id] = name
         updated = true
       }
       return {
         id,
-        name: game.name,
-        nameZh,
+        name,
         playtimeForever: game.playtime_forever,
         playtime2Weeks: game.playtime_2weeks,
         timeLastPlayed: game.rtime_last_played,
@@ -239,32 +203,22 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
 
   // Merge local history games (from scripts/steam-local-sync.ts)
   const localEntries: GameItem[] = []
-  // 本地补录的条目没有 API 名，英文名单独向 StoreBrowse 要，取不到才退回中文名
-  const localEnglishNames = await fetchStoreEnglishNames(localAppIds)
 
   for (const appId of localAppIds) {
     const entry = localHistory[appId]
 
-    // Resolve name for local-only game: sync-provided english name, StoreBrowse, then manual maps
-    let nameZh = nameZhMapCustom[appId] ?? nameZhMap[appId]
-    let name = entry.name || localEnglishNames[appId] || ''
+    // 本地补录的条目没有 API 名，同样优先拿中文标题
+    let name = nameCustom[appId] ?? nameCache[appId]
     if (!name) {
-      // 英文名实在拿不到（下架 / 无商店页）才退回中文标题
       const title = await fetchSteamTitleCN(appId)
       if (title) {
         name = title
-        if (!nameZh) {
-          nameZh = title
-          nameZhMap[appId] = title
-          updated = true
-        }
+        nameCache[appId] = title
+        updated = true
       }
       else {
-        name = `Unknown Game (${appId})`
+        name = entry.name || `未知游戏 (${appId})`
       }
-    }
-    if (!nameZh) {
-      nameZh = name
     }
 
     // A synced cover is repo-relative, so it must be resolved to an absolute CDN URL.
@@ -284,18 +238,16 @@ async function fetchOwnedGames(id: string, key: string, exclude: number[]): Prom
     localEntries.push({
       id: appId,
       name,
-      nameZh,
       playtimeForever: entry.playtime,
       timeLastPlayed: entry.lastPlayed,
       icon,
       link,
-      ...(entry.linkZh ? { linkZh: entry.linkZh } : {}),
     })
-    console.log(`  [LocalHistory] AppID ${appId}: merged (${nameZh})${icon ? '' : ' [no cover]'}`)
+    console.log(`  [LocalHistory] AppID ${appId}: merged (${name})${icon ? '' : ' [no cover]'}`)
   }
 
   if (updated) {
-    fs.writeFileSync('./data/steam/namezh_map.json', JSON.stringify(nameZhMap, null, 2), 'utf-8')
+    fs.writeFileSync('./data/steam/namezh_map.json', JSON.stringify(nameCache, null, 2), 'utf-8')
   }
 
   // API results first, then local entries

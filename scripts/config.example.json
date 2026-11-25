@@ -1,5 +1,5 @@
 {
-  "vdfPath": "D:\\Steam\\userdata\\<accountId>\\config\\localconfig.vdf",
+  "vdfPath": "D:\\\\Steam\\\\userdata\\\\<accountId>\\\\config\\\\localconfig.vdf",
   "fakeAppIds": [2187220, 648100],
   "sgdbApiKey": "",
   "extraGames": [
@@ -9,8 +9,8 @@
       "lastPlayed": 1767974400
     },
     {
-      "name": "Some Old Game",
-      "nameZh": "某个老游戏",
+      "name": "某个老游戏",
+      "searchName": "Some Old Game",
       "playtime": "12h",
       "lastPlayed": "2021-06-01",
       "cover": "sgdb"
@@ -18,8 +18,7 @@
   ],
   "links": {
     "3246682148": {
-      "link": "https://en.wikipedia.org/wiki/13_Sentinels:_Aegis_Rim",
-      "linkZh": "https://zh.wikipedia.org/wiki/%E5%8D%81%E4%B8%89%E6%9C%BA%E5%85%B5%E9%98%B2%E5%8D%AB%E5%9C%88"
+      "link": "https://zh.wikipedia.org/wiki/%E5%8D%81%E4%B8%89%E6%9C%BA%E5%85%B5%E9%98%B2%E5%8D%AB%E5%9C%88"
     }
   }
 }
