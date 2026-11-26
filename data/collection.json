@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "groups": {
+    "anime": [
+      {
+        "name": "四月是你的谎言",
+        "creator": "新川直司"
+      },
+      {
+        "name": "葬送的芙莉莲",
+        "creator": [
+          "山田鐘人",
+          "アベツカサ"
+        ]
+      },
+      {
+        "name": "Love Live!",
+        "creator": "矢立肇"
+      },
+      {
+        "name": "胆大党",
+        "creator": "龍幸伸"
+      },
+      {
+        "name": "无职转生～到了异世界就拿出真本事～",
+        "creator": "理不尽な孫の手"
+      },
+      {
+        "name": "学生会也有洞！",
+        "creator": "无知麻吕"
+      },
+      {
+        "name": "冰菓",
+        "creator": "米澤穂信"
+      },
+      {
+        "name": "小市民系列",
+        "creator": "米泽穗信"
+      },
+      {
+        "name": "擅长捉弄人的高木同学",
+        "creator": "山本崇一朗"
+      },
+      {
+        "name": "败犬女主太多了！",
+        "creator": "雨森たきび"
+      },
+      {
+        "name": "轻音少女",
+        "creator": "Kakifly"
+      },
+      {
+        "name": "间谍过家家",
+        "creator": "遠藤達哉"
+      },
+      {
+        "name": "某科学的超电磁炮",
+        "creator": "鎌池和馬"
+      },
+      {
+        "name": "青春猪头少年系列",
+        "creator": "鴨志田一"
+      },
+      {
+        "name": "未闻花名",
+        "creator": "岡田麿里"
+      },
+      {
+        "name": "刀剑神域",
+        "creator": "川原礫"
+      },
+      {
+        "name": "Re:从零开始的异世界生活",
+        "creator": "長月達平"
+      },
+      {
+        "name": "东京食尸鬼",
+        "creator": "石田スイ"
+      },
+      {
+        "name": "时光代理人",
+        "creator": "李豪凌"
+      },
+      {
+        "name": "电锯人",
+        "creator": "藤本タツキ"
+      },
+      {
+        "name": "鬼灭之刃",
+        "creator": "吾峠呼世晴"
+      },
+      {
+        "name": "进击的巨人",
+        "creator": "諫山創"
+      },
+      {
+        "name": "月色真美",
+        "creator": "岸誠二"
+      },
+      {
+        "name": "夏目友人帐",
+        "creator": "緑川ゆき"
+      },
+      {
+        "name": "魔法少女小圆",
+        "creator": "Magica Quartet"
+      },
+      {
+        "name": "玉子市场",
+        "creator": "山田尚子"
+      },
+      {
+        "name": "双城之战",
+        "creator": "Riot Games"
+      },
+      {
+        "name": "孤独摇滚！",
+        "creator": "はまじあき"
+      },
+      {
+        "name": "少女终末旅行",
+        "creator": "つくみず"
+      },
+      {
+        "name": "龙与虎",
+        "creator": "竹宮ゆゆこ"
+      },
+      {
+        "name": "伍六七",
+        "creator": "何小疯"
+      }
+    ],
+    "movie": [
+      {
+        "name": "你的名字。",
+        "creator": "新海誠"
+      },
+      {
+        "name": "天气之子",
+        "creator": "新海誠"
+      },
+      {
+        "name": "秒速五厘米",
+        "creator": "新海誠"
+      },
+      {
+        "name": "怦然心动",
+        "creator": "Rob Reiner"
+      },
+      {
+        "name": "肖申克的救赎",
+        "creator": "Frank Darabont"
+      },
+      {
+        "name": "千与千寻",
+        "creator": "宮崎駿"
+      },
+      {
+        "name": "楚门的世界",
+        "creator": "Peter Weir"
+      },
+      {
+        "name": "忠犬八公的故事",
+        "creator": "Lasse Hallström"
+      },
+      {
+        "name": "我不是药神",
+        "creator": "文牧野"
+      },
+      {
+        "name": "少年派的奇幻漂流",
+        "creator": "Ang Lee"
+      },
+      {
+        "name": "绿皮书",
+        "creator": "Peter Farrelly"
+      },
+      {
+        "name": "复仇者联盟：终局之战",
+        "creator": "Marvel Studios"
+      },
+      {
+        "name": "全民目击",
+        "creator": "非行"
+      },
+      {
+        "name": "情书",
+        "creator": "岩井俊二",
+        "wikiKeyword": "情书 (1995年电影)"
+      },
+      {
+        "name": "流浪地球",
+        "creator": "郭帆"
+      },
+      {
+        "name": "功夫",
+        "creator": "周星驰"
+      },
+      {
+        "name": "喜剧之王",
+        "creator": "周星驰"
+      },
+      {
+        "name": "扬名立万",
+        "creator": "刘循子墨"
+      },
+      {
+        "name": "寄生虫",
+        "creator": "봉준호"
+      },
+      {
+        "name": "7号房的礼物",
+        "creator": "이환경"
+      },
+      {
+        "name": "釜山行",
+        "creator": "연상호"
+      },
+      {
+        "name": "卑鄙的我",
+        "creator": [
+          "Pierre Coffin",
+          "Chris Renaud"
+        ]
+      }
+    ],
+    "book": [
+      {
+        "name": "活着",
+        "creator": "余华"
+      },
+      {
+        "name": "许三观卖血记",
+        "creator": "余华"
+      },
+      {
+        "name": "嫌疑人X的献身",
+        "creator": "东野圭吾"
+      },
+      {
+        "name": "白夜行",
+        "creator": "东野圭吾"
+      },
+      {
+        "name": "恶意",
+        "creator": "东野圭吾",
+        "wikiKeyword": "恶意 (小说)"
+      }
+    ],
+    "game": [
+      {
+        "name": "超级弹丸论破2 再见绝望学园",
+        "creator": "Spike Chunsoft"
+      },
+      {
+        "name": "新弹丸论破V3 大家的自相残杀新学期",
+        "creator": "Spike Chunsoft"
+      },
+      {
+        "name": "逆转裁判系列",
+        "creator": "Capcom"
+      },
+      {
+        "name": "大逆转裁判系列",
+        "creator": "Capcom",
+        "wikiKeyword": "大逆轉裁判_-成步堂龍之介的冒險-"
+      },
+      {
+        "name": "伊苏：起源",
+        "creator": "Falcom"
+      },
+      {
+        "name": "宝可梦 X／Y",
+        "creator": "Game Freak"
+      },
+      {
+        "name": "宝可梦 绿宝石",
+        "creator": "Game Freak"
+      },
+      {
+        "name": "影之刃零",
+        "creator": "S-GAME"
+      },
+      {
+        "name": "黑神话：悟空",
+        "creator": "Game Science"
+      },
+      {
+        "name": "十三机兵防卫圈",
+        "creator": "Vanillaware"
+      },
+      {
+        "name": "空洞骑士：丝之歌",
+        "creator": "Team Cherry"
+      },
+      {
+        "name": "空洞骑士",
+        "creator": "Team Cherry"
+      },
+      {
+        "name": "塞尔达传说：旷野之息",
+        "creator": "Nintendo"
+      },
+      {
+        "name": "赛博朋克2077",
+        "creator": "CD Projekt Red"
+      },
+      {
+        "name": "星露谷物语",
+        "creator": "ConcernedApe"
+      },
+      {
+        "name": "艾尔登法环",
+        "creator": "FromSoftware"
+      },
+      {
+        "name": "奥日与精灵意志",
+        "creator": "Moon Studios"
+      },
+      {
+        "name": "泰拉瑞亚",
+        "creator": "Re-Logic"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+name: Purge Collection Cache
+
+on:
+  push:
+    paths:
+      - data/collection.json
+  workflow_dispatch:
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge jsDelivr cache
+        run: |
+          # jsDelivr caches @main for 12h; collection.json is edited by hand,
+          # so a push is the only signal we get
+          purge() {
+            echo "purging $1"
+            curl -fsS --retry 3 --max-time 30 "https://purge.jsdelivr.net/gh/Lu-Jiejie/static@main/$1" > /dev/null \
+              && echo "  ok" || echo "  failed"
+          }
+
+          purge "data/collection.json"
+          purge ""
