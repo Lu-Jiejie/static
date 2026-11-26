@@ -1,67 +1,72 @@
 {
-  "TypeScript": {
-    "bytes": 1805475,
-    "color": "#3178c6",
-    "percentage": 37.83103134623552
+  "Rust": {
+    "bytes": 191311,
+    "color": "#dea584",
+    "percentage": 3.851584222740435
   },
-  "JavaScript": {
-    "bytes": 33379,
-    "color": "#f1e05a",
-    "percentage": 0.6994070786391369
+  "TypeScript": {
+    "bytes": 1811708,
+    "color": "#3178c6",
+    "percentage": 36.47435823874544
   },
   "PowerShell": {
-    "bytes": 41062,
+    "bytes": 42585,
     "color": "#012456",
-    "percentage": 0.860392865666444
-  },
-  "Dockerfile": {
-    "bytes": 435,
-    "color": "#384d54",
-    "percentage": 0.009114775134306734
+    "percentage": 0.8573459661253218
   },
   "Java": {
     "bytes": 78846,
     "color": "#b07219",
-    "percentage": 1.6521001384817218
+    "percentage": 1.5873734893769431
   },
   "Python": {
     "bytes": 23115,
     "color": "#3572A5",
-    "percentage": 0.48434029248160965
-  },
-  "Shell": {
-    "bytes": 6191,
-    "color": "#89e051",
-    "percentage": 0.12972315599193793
-  },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.263532245664772
+    "percentage": 0.4653646121166329
   },
   "Vue": {
-    "bytes": 1318576,
+    "bytes": 1314106,
     "color": "#41b883",
-    "percentage": 27.6287902011348
+    "percentage": 26.456345618435645
   },
   "CSS": {
     "bytes": 44312,
     "color": "#663399",
-    "percentage": 0.9284917603480461
+    "percentage": 0.8921149336842845
   },
-  "HTML": {
-    "bytes": 8341,
-    "color": "#e34c26",
-    "percentage": 0.17477319401207467
+  "JavaScript": {
+    "bytes": 33379,
+    "color": "#f1e05a",
+    "percentage": 0.6720054245226514
   },
   "C#": {
     "bytes": 118593,
     "color": "#7355dd",
-    "percentage": 2.4849391436846866
+    "percentage": 2.387583190341676
   },
   "Kotlin": {
     "bytes": 1281569,
     "color": "#A97BFF",
-    "percentage": 26.85336380252494
+    "percentage": 25.801291827198835
+  },
+  "HTML": {
+    "bytes": 8346,
+    "color": "#e34c26",
+    "percentage": 0.16802652185703734
+  },
+  "Shell": {
+    "bytes": 6191,
+    "color": "#89e051",
+    "percentage": 0.12464080958745724
+  },
+  "Dockerfile": {
+    "bytes": 435,
+    "color": "#384d54",
+    "percentage": 0.00875767277831431
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.25320747248933123
   }
 }
