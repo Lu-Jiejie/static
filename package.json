@@ -11,16 +11,21 @@
     "generate:bilibili": "tsx ./tasks/bilibili.ts",
     "sync:steam-local": "tsx ./scripts/steam-local-sync.ts",
     "sync:steam": "tsx ./scripts/steam-local-sync.ts && tsx ./tasks/steam.ts",
-    "check:steam": "tsx ./scripts/steam-local-sync.ts --check"
+    "check:steam": "tsx ./scripts/steam-local-sync.ts --check",
+    "thinking:add": "tsx ./scripts/thinking-add.ts",
+    "thinking:merge": "tsx ./scripts/thinking-merge.ts",
+    "thinking:sample": "tsx ./scripts/thinking-merge.ts --sample"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.2.1",
     "@types/node": "^22.18.0",
+    "@types/prompts": "^2.4.9",
     "axios": "^1.11.0",
     "axios-retry": "^4.5.0",
     "cheerio": "^1.1.2",
     "dotenv": "^17.2.1",
     "eslint": "^9.34.0",
+    "prompts": "^2.4.2",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   }

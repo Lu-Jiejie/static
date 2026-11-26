@@ -11,3 +11,7 @@ node_modules
 temp
 .env
 scripts/config.json
+
+# 随想的演示数据与预览产物，只看排版用，不进远端
+data/thinking/sample
+data/thinking/index.dev.json
