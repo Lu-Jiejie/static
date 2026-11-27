@@ -1,0 +1,35 @@
+name: Purge jsDelivr Cache
+
+on:
+  push:
+    paths:
+      - 'data/**'
+  workflow_dispatch:
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Purge jsDelivr cache
+        run: |
+          # jsDelivr caches @main for 12h, and the blog reads everything under
+          # data/ through it. Only named files can be purged, so walk what is
+          # tracked instead of hardcoding a list.
+          fail=0
+          purge() {
+            echo "purging $1"
+            curl -fsS --retry 3 --max-time 30 \
+              "https://purge.jsdelivr.net/gh/Lu-Jiejie/static@main/$1" > /dev/null \
+              && echo "  ok" || { echo "  failed"; fail=1; }
+          }
+
+          while IFS= read -r file; do
+            purge "$file"
+          done < <(git ls-files -- data | grep -iE '\.(json|webp|png|jpe?g)$' || true)
+
+          # the directory listing itself is cached too
+          purge ""
+
+          exit "$fail"
