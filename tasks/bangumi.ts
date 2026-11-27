@@ -13,7 +13,7 @@ interface AnimeItem {
   tags: {
     name: string
     count: number
-  }
+  }[]
   pic: string
   updated_at: string
 }
@@ -35,7 +35,6 @@ Promise<Pick<BangumiInfo, 'watching' | 'toWatch' | 'watched'>> {
       },
     },
   )
-
   const animeMap = (animeItem: any): AnimeItem => {
     return {
       id: animeItem.subject_id,
@@ -43,7 +42,7 @@ Promise<Pick<BangumiInfo, 'watching' | 'toWatch' | 'watched'>> {
       name: animeItem.subject.name,
       name_cn: animeItem.subject.name_cn,
       summary: animeItem.subject.short_summary,
-      tags: animeItem.subject.tags.map((t: any) => ({ name: t.name, total: t.total })),
+      tags: animeItem.subject.tags.map((t: any) => ({ name: t.name, count: t.count })),
       pic: animeItem.subject.images.common,
       updated_at: animeItem.updated_at,
     }
