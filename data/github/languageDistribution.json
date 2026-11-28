@@ -2,71 +2,71 @@
   "Rust": {
     "bytes": 191311,
     "color": "#dea584",
-    "percentage": 3.828727816719952
+    "percentage": 3.8287270504726494
   },
   "TypeScript": {
-    "bytes": 1841360,
+    "bytes": 1841361,
     "color": "#3178c6",
-    "percentage": 36.851337626145124
+    "percentage": 36.85135026415296
   },
   "PowerShell": {
     "bytes": 42585,
     "color": "#012456",
-    "percentage": 0.8522582291400868
-  },
-  "JavaScript": {
-    "bytes": 33379,
-    "color": "#f1e05a",
-    "percentage": 0.66801755149623
-  },
-  "Dockerfile": {
-    "bytes": 435,
-    "color": "#384d54",
-    "percentage": 0.008705702234963902
-  },
-  "Vue": {
-    "bytes": 1314106,
-    "color": "#41b883",
-    "percentage": 26.29934607167695
-  },
-  "CSS": {
-    "bytes": 44312,
-    "color": "#663399",
-    "percentage": 0.8868208676683228
-  },
-  "Lua": {
-    "bytes": 12577,
-    "color": "#000080",
-    "percentage": 0.25170486668768044
-  },
-  "HTML": {
-    "bytes": 8346,
-    "color": "#e34c26",
-    "percentage": 0.16702940425979015
+    "percentage": 0.8522580585767561
   },
   "Java": {
     "bytes": 78846,
     "color": "#b07219",
-    "percentage": 1.577953559581526
+    "percentage": 1.5779532437840298
   },
   "Python": {
     "bytes": 23115,
     "color": "#3572A5",
-    "percentage": 0.4626030049682542
+    "percentage": 0.462602912387031
   },
   "Shell": {
     "bytes": 6191,
     "color": "#89e051",
-    "percentage": 0.12390115525669314
+    "percentage": 0.12390113046022536
+  },
+  "JavaScript": {
+    "bytes": 33379,
+    "color": "#f1e05a",
+    "percentage": 0.6680174178051789
+  },
+  "Dockerfile": {
+    "bytes": 435,
+    "color": "#384d54",
+    "percentage": 0.008705700492682608
+  },
+  "Vue": {
+    "bytes": 1314106,
+    "color": "#41b883",
+    "percentage": 26.299340808361315
+  },
+  "CSS": {
+    "bytes": 44312,
+    "color": "#663399",
+    "percentage": 0.8868206901879351
+  },
+  "HTML": {
+    "bytes": 8346,
+    "color": "#e34c26",
+    "percentage": 0.1670293708320208
+  },
+  "Lua": {
+    "bytes": 12577,
+    "color": "#000080",
+    "percentage": 0.2517048163137222
   },
   "Kotlin": {
     "bytes": 1281569,
     "color": "#A97BFF",
-    "percentage": 25.648179557610234
+    "percentage": 25.648174424613234
   },
   "C#": {
     "bytes": 118593,
     "color": "#7355dd",
-    "percentage": 2.373414586554193
+    "percentage": 2.37341411156025
   }
 }
